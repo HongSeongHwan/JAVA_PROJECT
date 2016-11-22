@@ -6,8 +6,7 @@ public class FoodButtonList {
 	int num;
 	FoodButtonList(){
 		list = new ArrayList<FoodButton>();
-		num=0;
-		
+		num=0;		
 	}
 	void addB(FoodButton k){
 		k.setSize(40,40);

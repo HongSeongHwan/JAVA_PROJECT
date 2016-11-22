@@ -8,21 +8,24 @@ public class ViewControl
 	public static SecondPanel second;
 	public static ThirdPanel third;
 	public static Main main;
+	public static StartPanel start;
 	public ViewControl(Main main){
-		x = new Component[3];
+		x = new Component[4];
+		start = new StartPanel();
 		first = new FirstPanel();
 		second = new SecondPanel();
 		third = new ThirdPanel();
 		x[0]=first;
 		x[1]=second;
 		x[2]=third;
+		x[3]=start;
 		this.main = main;
 		init();
 		//this.viewSecondPanel();
 	}
 	public void init(){
 		contentPane = main.getContentPane();
-		contentPane.add(first);
+		contentPane.add(start);
 		main.setVisible(false);
 		main.setVisible(true);
 	}
