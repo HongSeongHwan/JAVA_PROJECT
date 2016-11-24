@@ -10,10 +10,11 @@ public class FoodPanel extends JPanel {
 		
 		addButton = new JButton("add");
 		addButton.setBounds(5, 5, 50, 50);
-		addButton.addActionListener(new AddListener());
+		//addButton.addActionListener(new AddListener());
 		add(addButton);
 		
-		list = new FoodButtonList();		
+		list = new FoodButtonList();
+		foodAdd();
 	}
 	void foodAdd(){
 		list.addB(new FoodButton());

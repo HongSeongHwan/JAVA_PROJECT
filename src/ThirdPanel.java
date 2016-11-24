@@ -1,8 +1,13 @@
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.*;
 public class ThirdPanel extends JPanel{
 	JButton nextPage;
+	ThirdPanelListener listener;
 	ThirdPanel(){
+		listener = (new ThirdPanelListener());
 		nextPage = new JButton("qwe");
 		setBackground(Color.CYAN);
 		this.setBounds(1, 1, 50, 50);
@@ -10,4 +15,14 @@ public class ThirdPanel extends JPanel{
 		nextPage.addMouseListener(new ThirdPanelListener());
 		add(nextPage);
 	}
+	public class ThirdPanelListener implements MouseListener {
+		public void mousePressed(MouseEvent e){}
+		public void mouseReleased(MouseEvent e){}
+		public void mouseClicked(MouseEvent e){
+			ViewControl.viewPanel(3, 2);
+		}
+		public void mouseEntered(MouseEvent e){}
+		public void mouseExited(MouseEvent e){}
+	}
+
 }

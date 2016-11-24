@@ -58,6 +58,6 @@ public class FoodButton extends JButton {
 
 	FoodButton(){
 		super();
-		this.setSize(385,100);
+		this.setSize(150,100);
 	}
 }
