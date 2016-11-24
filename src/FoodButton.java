@@ -61,4 +61,8 @@ public class FoodButton extends JButton {
 		super();
 		this.setSize(150,100);
 	}
+	FoodButton(ImageIcon x){
+		super(x);
+		this.setSize(150,100);
+	}
 }

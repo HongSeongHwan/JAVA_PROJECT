@@ -11,11 +11,15 @@ public class FoodPanel extends JPanel {
 		setLayout(null);
 		
 		list = new FoodButtonList();
-		foodAdd();
+		
+		FoodButton button = new FoodButton(new ImageIcon("man.jpg"));
+		foodAdd(button);
+		
+		foodAdd(new FoodButton());
 
 	}
-	void foodAdd(){
-		list.addB(new FoodButton());
+	void foodAdd(FoodButton x){
+		list.addB(x);
 		add(list.getB(list.getNum()));
 	}
 }

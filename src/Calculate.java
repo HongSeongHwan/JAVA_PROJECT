@@ -7,7 +7,6 @@ public class Calculate {
 	private static double recomCarbo;
 	private static double recomProt;
 	private static double recomFat;
-	
 	public Calculate () {
 
 		//Åº¼öÈ­¹°
@@ -86,4 +85,5 @@ public class Calculate {
 			}
 		}		
 	}
+}
 	
