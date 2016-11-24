@@ -11,7 +11,7 @@ public class FoodButtonList {
 	void addB(FoodButton k){
 		list.add(k);
 		num++;
-		list.get(num).setLocation(2, (num)*110 );
+		list.get(num).setLocation(2 + (num%2)*160, (num/2)*110 );
 	}
 	FoodButton getB(int a){
 		return list.get(a);
