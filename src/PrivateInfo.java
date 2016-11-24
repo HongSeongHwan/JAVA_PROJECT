@@ -4,6 +4,7 @@ public class PrivateInfo {
 	private static boolean sex;
 	private static int weight;
 	private static int height;
+	
 	public PrivateInfo(){};
 	public PrivateInfo(int age, boolean sex, int weight, int height) {
 		PrivateInfo.age = age;
@@ -11,6 +12,7 @@ public class PrivateInfo {
 		PrivateInfo.weight = weight;
 		PrivateInfo.height = height;
 	}
+	
 	public static int getAge() {
 		return age;
 	}

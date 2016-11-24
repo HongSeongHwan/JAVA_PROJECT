@@ -1,8 +1,10 @@
 import java.awt.*;
 import javax.swing.*;
+
 public class TimePanel extends JPanel {
 	//JButton [] btn;
-	boolean target;
+	private boolean target;
+	
 	TimePanel(){
 		//btn  = new JButton[4];
 		this.setBackground(Color.BLACK);

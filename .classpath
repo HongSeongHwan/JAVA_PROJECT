@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="FoodList.java|Dialog_PopUp.java|AddListener.java" kind="src" path="src"/>
+	<classpathentry excluding="FoodList.java|Dialog_PopUp.java|Calculate.java" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

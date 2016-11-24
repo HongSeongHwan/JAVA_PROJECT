@@ -40,13 +40,10 @@ public class SecondPanel extends JPanel{
 		
 		nbtn.setBounds(720, 900, 50, 50);
 		nbtn.addMouseListener(listener);
-		add(nbtn);
-		
+		add(nbtn);		
 	}
 	
-	public class SecondPanelListener implements MouseListener {
-		
-		
+	private class SecondPanelListener implements MouseListener {			
 		public void mousePressed(MouseEvent e){}
 		public void mouseReleased(MouseEvent e){}
 		public void mouseClicked(MouseEvent e){

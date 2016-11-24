@@ -2,13 +2,14 @@ import java.awt.*;
 import javax.swing.*;
 public class ViewControl
 {
-	public static Component [] x;
-	public static Container contentPane;
-	public static FirstPanel first;
-	public static SecondPanel second;
-	public static ThirdPanel third;
-	public static Main main;
-	public static StartPanel start;
+	private static Component [] x;
+	private static Container contentPane;
+	private static FirstPanel first;
+	private static SecondPanel second;
+	private static ThirdPanel third;
+	private static Main main;
+	private static StartPanel start;
+	
 	public ViewControl(Main main){
 		x = new Component[4];
 		start = new StartPanel();
@@ -23,12 +24,14 @@ public class ViewControl
 		init();
 		//this.viewSecondPanel();
 	}
+	
 	public void init(){
 		contentPane = main.getContentPane();
 		contentPane.add(start);
 		main.setVisible(false);
 		main.setVisible(true);
 	}
+	
 	public static void viewPanel(int prev, int next){
 		contentPane.remove(x[prev-1]);
 		contentPane.add(x[next-1]);
