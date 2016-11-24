@@ -4,15 +4,15 @@ import java.awt.event.*;
 
 
 public class FirstPanel extends JPanel {
-	private JLabel			title;
-	private JTextField []	field;
-	private JLabel []		lbl; 
-	private JRadioButton	rb1, rb2;
-	private ImageIcon		man, woman;
-	private ButtonGroup		group;
-	private int				num;
-	private FirstPanelListener	listener=new FirstPanelListener();
-	private JButton 			bbtn, nbtn;
+	public JLabel title;
+	public JTextField [] field;
+	public JLabel [] lbl; 
+	private JRadioButton rb1, rb2;
+	private ImageIcon man,woman;
+	private ButtonGroup group;
+	int num;
+	private FirstPanelListener listener=new FirstPanelListener();
+	private JButton bbtn, nbtn;
 
 	
 	FirstPanel(){
@@ -20,13 +20,14 @@ public class FirstPanel extends JPanel {
 		field = new JTextField[num];
 		lbl = new JLabel[num];
 		title = new JLabel();
-		man = new ImageIcon("man.jpg");
-		woman = new ImageIcon("woman.jpg");
-		rb1 = new JRadioButton("남성",man);
+		man=new ImageIcon("man.jpg");
+		woman=new ImageIcon("woman.jpg");
+		rb1=new JRadioButton("남성",man);
 		rb1.addMouseListener(listener);
-		rb2 = new JRadioButton("여성",woman);
+		rb2=new JRadioButton("여성",woman);
 		rb2.addMouseListener(listener);
-		group = new ButtonGroup();
+		group=new ButtonGroup();
+		
 		
 		title.setText("당신은 누구 인가요?");
 		title.setFont(new Font("Araial black",Font.BOLD,20));
@@ -74,6 +75,7 @@ public class FirstPanel extends JPanel {
 		field[2].setBounds(300, 520, 200, 50);
 		add(field[2]);
 		
+		
 		bbtn= new JButton("◀");
 		bbtn.addMouseListener(listener);
 		bbtn.setBounds(670, 900, 50, 50);
@@ -83,11 +85,15 @@ public class FirstPanel extends JPanel {
 		nbtn = new JButton("▶");
 		nbtn.addMouseListener(listener);
 		nbtn.setBounds(720, 900, 50, 50);
-		add(nbtn);		
+		add(nbtn);
+		
+		
+		
 	}
 	
-	private class FirstPanelListener implements MouseListener {
+	public class FirstPanelListener implements MouseListener {
 		private PrivateInfo informed;
+		
 		
 		public void mousePressed(MouseEvent e){}
 		public void mouseReleased(MouseEvent e){}
@@ -105,15 +111,28 @@ public class FirstPanel extends JPanel {
 			}
 			else if(e.getSource()==nbtn)
 			{
-				informed.setAge(Integer.parseInt(field[0].getText()));
-				informed.setWeight(Integer.parseInt(field[1].getText()));
-				informed.setHeight(Integer.parseInt(field[2].getText()));
 				
-				System.out.println(informed.getAge());
-				System.out.println(informed.getHeight());
-				System.out.println(informed.getWeight());
-				//다음장으로 넘기기
-				ViewControl.viewPanel(1, 2);
+				try{
+					Integer.parseInt(field[0].getText());
+					Integer.parseInt(field[1].getText());
+					Integer.parseInt(field[2].getText());
+					
+				}catch(IllegalArgumentException ectn){JOptionPane.showMessageDialog(FirstPanel.this, "Error : Input Natural Number.","Error",JOptionPane.WARNING_MESSAGE);}
+				
+				if(Integer.parseInt(field[0].getText())>0&&Integer.parseInt(field[1].getText())>0&&Integer.parseInt(field[2].getText())>0)
+				{
+					informed.setAge(Integer.parseInt(field[0].getText()));
+					informed.setWeight(Integer.parseInt(field[1].getText()));
+					informed.setHeight(Integer.parseInt(field[2].getText()));
+				
+					System.out.println(informed.getAge());
+					System.out.println(informed.getHeight());
+					System.out.println(informed.getWeight());
+					//다음장으로 넘기기
+					ViewControl.viewPanel(1, 2);
+				}
+				else
+					JOptionPane.showMessageDialog(FirstPanel.this, "Error : Input Natural Number.","Error",JOptionPane.WARNING_MESSAGE);
 			}
 		}
 		public void mouseEntered(MouseEvent e){}
