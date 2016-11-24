@@ -10,7 +10,8 @@ public class ViewControl
 	private static Main main;
 	private static StartPanel start;
 	
-	public ViewControl(Main main){
+	public ViewControl(Main main)
+	{
 		x = new Component[4];
 		start = new StartPanel();
 		first = new FirstPanel();
@@ -25,14 +26,16 @@ public class ViewControl
 		//this.viewSecondPanel();
 	}
 	
-	public void init(){
+	public void init()
+	{
 		contentPane = main.getContentPane();
 		contentPane.add(start);
 		main.setVisible(false);
 		main.setVisible(true);
 	}
 	
-	public static void viewPanel(int prev, int next){
+	public static void viewPanel(int prev, int next)
+	{
 		contentPane.remove(x[prev-1]);
 		contentPane.add(x[next-1]);
 		main.setVisible(false);

@@ -5,38 +5,48 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 import java.util.*;
 
-public class FoodButtonList {
+public class FoodButtonList 
+{
 	private ArrayList<FoodButton> list;
 	private int num;
 	private FirstPanelListener listener;
-	public int getNum(){
+	public int getNum()
+	{
 		return num;
 	}
-	public FoodButtonList(){
+	public FoodButtonList()
+	{
 		list = new ArrayList<FoodButton>();
 		num = -1;		
 		listener = new FirstPanelListener();
 	}
 	
-	public void addB(FoodButton k){
+	public void addB(FoodButton k)
+	{
 		k.addMouseListener(listener);
 		list.add(k);
 		num++;
 		list.get(num).setLocation(2+(num%2)*160, (num/2)*110 );
 	}
 	
-	public FoodButton getB(int a){
+	public FoodButton getB(int a)
+	{
 		return list.get(a);
 	}
-	private class FirstPanelListener implements MouseListener {	
+	private class FirstPanelListener implements MouseListener 
+	{	
 		FoodButton prev;
 		FoodButton cur;
 		public void mousePressed(MouseEvent e){}
 		public void mouseReleased(MouseEvent e){}
-		public void mouseClicked(MouseEvent e){
-			if(cur==null){
+		public void mouseClicked(MouseEvent e)
+		{
+			if(cur==null)
+			{
 				//do nothhing
-			}else{
+			}
+			else
+			{
 				prev = cur;
 			}
 			cur = (FoodButton)e.getSource();
