@@ -16,5 +16,5 @@ public class Foodlist {
 	static public final double[] dongas = {"144.0","11.5","9.6","6.2"};
 	static public final double[] tteock = {"128.0","24.1","2.8","2.0"};
 	static public final double[] yangsal = {"146.0","7.0","2.2","12.3"};
-	static public final double[] cong = {"21.0","1.8","1.5","0.9"};
+	static public final double[] cong = {"21.0","1.8","1.5","0.9"}; // 칼로리,탄수화물,단백질,지방
 }

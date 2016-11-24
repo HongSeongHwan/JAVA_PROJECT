@@ -4,16 +4,15 @@ import java.awt.event.*;
 
 
 public class FirstPanel extends JPanel {
-	public JLabel title;
-	public JTextField [] field;
-	public JLabel [] lbl; 
+	private JLabel title;
+	private JTextField [] field;
+	private JLabel [] lbl; 
 	private JRadioButton rb1, rb2;
 	private ImageIcon man,woman;
 	private ButtonGroup group;
-	int num;
+	private int num;
 	private FirstPanelListener listener=new FirstPanelListener();
 	private JButton bbtn, nbtn;
-
 	
 	FirstPanel(){
 		num = 4;
@@ -91,9 +90,8 @@ public class FirstPanel extends JPanel {
 		
 	}
 	
-	public class FirstPanelListener implements MouseListener {
-		private PrivateInfo informed;
-		
+	private class FirstPanelListener implements MouseListener {
+		private PrivateInfo informed;		
 		
 		public void mousePressed(MouseEvent e){}
 		public void mouseReleased(MouseEvent e){}
