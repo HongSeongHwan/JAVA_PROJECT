@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 
 
 public class FirstPanel extends JPanel {
@@ -10,22 +11,28 @@ public class FirstPanel extends JPanel {
 	private ImageIcon man,woman;
 	private ButtonGroup group;
 	int num;
+	private FirstPanelListener listener=new FirstPanelListener();
+	private JButton bbtn, nbtn;
+
 	
 	FirstPanel(){
 		num = 4;
 		field = new JTextField[num];
 		lbl = new JLabel[num];
 		title = new JLabel();
-		man=new ImageIcon("C:\\Users\\Jae\\Desktop\\2-2\\JAVA\\팀플\\project\\man.jpg");
-		woman=new ImageIcon("C:\\Users\\Jae\\Desktop\\2-2\\JAVA\\팀플\\project\\woman.jpg");
+		man=new ImageIcon("man.jpg");
+		woman=new ImageIcon("woman.jpg");
 		rb1=new JRadioButton("남성",man);
+		rb1.addMouseListener(listener);
 		rb2=new JRadioButton("여성",woman);
+		rb2.addMouseListener(listener);
 		group=new ButtonGroup();
+		
 		
 		title.setText("당신은 누구 인가요?");
 		title.setFont(new Font("Araial black",Font.BOLD,20));
 		title.setBounds(300, 10, 500, 100);
-		this.setBounds(1,1,100,100);
+		this.setBounds(0,0,800,1000);
 		this.setLayout(null);
 		this.setBackground(Color.white);
 		add(title);
@@ -69,11 +76,52 @@ public class FirstPanel extends JPanel {
 		add(field[2]);
 		
 		
+		bbtn= new JButton("◀");
+		bbtn.addMouseListener(listener);
+		bbtn.setBounds(670, 900, 50, 50);
+		add(bbtn);
+		bbtn.setEnabled(false);
 		
-		JButton nextBtn = new JButton("asd");
-		nextBtn.addMouseListener(new FirstPanelListener());
-		nextBtn.setBounds(1000,800,100,100);
-		add(nextBtn);
-		this.add(new JTextField(10));
+		nbtn = new JButton("▶");
+		nbtn.addMouseListener(listener);
+		nbtn.setBounds(720, 900, 50, 50);
+		add(nbtn);
+		
+		
+		
+	}
+	
+	public class FirstPanelListener implements MouseListener {
+		private PrivateInfo informed;
+		
+		public void mousePressed(MouseEvent e){}
+		public void mouseReleased(MouseEvent e){}
+		public void mouseClicked(MouseEvent e){
+			if(e.getSource()==rb1)
+			{				
+				informed.setSex(false);//false==남자				
+				System.out.println(informed.isSex());			
+			}
+			else if(e.getSource()==rb2)
+			{
+				informed.setSex(true);//true==여자
+				
+				System.out.println(informed.isSex());
+			}
+			else if(e.getSource()==nbtn)
+			{
+				informed.setAge(Integer.parseInt(field[0].getText()));
+				informed.setWeight(Integer.parseInt(field[1].getText()));
+				informed.setHeight(Integer.parseInt(field[2].getText()));
+				
+				System.out.println(informed.getAge());
+				System.out.println(informed.getHeight());
+				System.out.println(informed.getWeight());
+				//다음장으로 넘기기
+				ViewControl.viewPanel(1, 2);
+			}
+		}
+		public void mouseEntered(MouseEvent e){}
+		public void mouseExited(MouseEvent e){}
 	}
 }

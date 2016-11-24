@@ -6,12 +6,12 @@ public class FoodButtonList {
 	int num;
 	FoodButtonList(){
 		list = new ArrayList<FoodButton>();
-		num=0;		
+		num=-1;		
 	}
 	void addB(FoodButton k){
-		k.setSize(40,40);
 		list.add(k);
 		num++;
+		list.get(num).setLocation(2, (num)*110 );
 	}
 	FoodButton getB(int a){
 		return list.get(a);

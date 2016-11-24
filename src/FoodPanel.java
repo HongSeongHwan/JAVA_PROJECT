@@ -5,17 +5,18 @@ public class FoodPanel extends JPanel {
 	JButton addButton;
 	int target;
 	FoodPanel(){
+		setBackground(Color.BLUE);
 		setLayout(null);
+		
 		addButton = new JButton("add");
-		addButton.setBounds(1, 1, 70, 100);
+		addButton.setBounds(5, 5, 50, 50);
 		addButton.addActionListener(new AddListener());
 		add(addButton);
-		list = new FoodButtonList();
-		setBounds(200,1,200,400);
-		setBackground(Color.BLUE);
+		
+		list = new FoodButtonList();		
 	}
 	void foodAdd(){
 		list.addB(new FoodButton());
-		add(list.getB(list.num-1));
+		add(list.getB(list.num));
 	}
 }
