@@ -1,12 +1,12 @@
 
 public class PrivateInfo {
 	private static int age;
-	private static boolean sex;
+	private static int sex=0;
 	private static int weight;
 	private static int height;
 	//private static int recommff;
 	public PrivateInfo(){};
-	public PrivateInfo(int age, boolean sex, int weight, int height) {
+	public PrivateInfo(int age, int sex, int weight, int height) {
 		PrivateInfo.age = age;
 		PrivateInfo.sex = sex;
 		PrivateInfo.weight = weight;
@@ -18,10 +18,10 @@ public class PrivateInfo {
 	public static void setAge(int age) {
 		PrivateInfo.age = age;
 	}
-	public static boolean isSex() {
+	public static int getSex() {
 		return sex;
 	}
-	public static void setSex(boolean sex) {
+	public static void setSex(int sex) {
 		PrivateInfo.sex = sex;
 	}
 	public static int getWeight() {

@@ -7,7 +7,8 @@ import java.util.*;
 
 public class TimeLinePanel extends JPanel {
 	public TimeLinePanel(){
-		this.setSize(360, 200);
+		this.setSize(360, 130);
 		this.setBackground(Color.black);
+		
 	}
 }

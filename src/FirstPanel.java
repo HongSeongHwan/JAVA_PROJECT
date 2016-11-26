@@ -4,15 +4,16 @@ import java.awt.event.*;
 
 
 public class FirstPanel extends JPanel {
-	private JLabel title;
-	private JTextField [] field;
-	private JLabel [] lbl; 
+	public JLabel title;
+	public JTextField [] field;
+	public JLabel [] lbl; 
 	private JRadioButton rb1, rb2;
 	private ImageIcon man,woman;
 	private ButtonGroup group;
-	private int num;
+	int num;
 	private FirstPanelListener listener=new FirstPanelListener();
 	private JButton bbtn, nbtn;
+
 	
 	FirstPanel(){
 		num = 4;
@@ -21,12 +22,11 @@ public class FirstPanel extends JPanel {
 		title = new JLabel();
 		man=new ImageIcon("man.jpg");
 		woman=new ImageIcon("woman.jpg");
-		rb1=new JRadioButton("남성",man);
+		rb1=new JRadioButton("남성");
 		rb1.addMouseListener(listener);
-		rb2=new JRadioButton("여성",woman);
+		rb2=new JRadioButton("여성");
 		rb2.addMouseListener(listener);
 		group=new ButtonGroup();
-		
 		
 		title.setText("당신은 누구 인가요?");
 		title.setFont(new Font("Araial black",Font.BOLD,20));
@@ -36,12 +36,22 @@ public class FirstPanel extends JPanel {
 		this.setBackground(Color.white);
 		add(title);
 		
+		JLabel image1=new JLabel(man);
+		image1.setBounds(150, 80, 200, 250);
+		add(image1);
+		
+		JLabel image2=new JLabel(woman);
+		image2.setBounds(400,80,200,250);
+		add(image2);
+		
 		rb1.setFont(new Font("Araial black",20,20));
-		rb1.setBounds(150, 100, 260, 260);
+		rb1.setBounds(200, 330, 80, 50);
+		rb1.setBackground(Color.white);
 		add(rb1);
 		
 		rb2.setFont(new Font("Araial black",20,20));
-		rb2.setBounds(420, 100, 260, 260);
+		rb2.setBounds(460, 330, 80, 50);
+		rb2.setBackground(Color.white);
 		add(rb2);
 		
 		group.add(rb1);
@@ -90,47 +100,54 @@ public class FirstPanel extends JPanel {
 		
 	}
 	
-	private class FirstPanelListener implements MouseListener {
-		private PrivateInfo informed;		
+	public class FirstPanelListener implements MouseListener {
+		private PrivateInfo informed;
+		
 		
 		public void mousePressed(MouseEvent e){}
 		public void mouseReleased(MouseEvent e){}
 		public void mouseClicked(MouseEvent e){
 			if(e.getSource()==rb1)
 			{				
-				informed.setSex(false);//false==남자				
-				System.out.println(informed.isSex());			
+				informed.setSex(1);//1==남자				
+				System.out.println(informed.getSex());			
 			}
 			else if(e.getSource()==rb2)
 			{
-				informed.setSex(true);//true==여자
+				informed.setSex(2);//2==여자
 				
-				System.out.println(informed.isSex());
+				System.out.println(informed.getSex());
 			}
 			else if(e.getSource()==nbtn)
 			{
-				
-				try{
-					Integer.parseInt(field[0].getText());
-					Integer.parseInt(field[1].getText());
-					Integer.parseInt(field[2].getText());
+				if(informed.getSex()==0)
+					{JOptionPane.showMessageDialog(FirstPanel.this, "Error : Select Gender.","Error",JOptionPane.WARNING_MESSAGE);}
+
+				else {
+					try{
 					
-				}catch(IllegalArgumentException ectn){JOptionPane.showMessageDialog(FirstPanel.this, "Error : Input Natural Number.","Error",JOptionPane.WARNING_MESSAGE);}
+						Integer.parseInt(field[0].getText());
+						Integer.parseInt(field[1].getText());
+						Integer.parseInt(field[2].getText());
+					
+					}catch(IllegalArgumentException ectn){JOptionPane.showMessageDialog(FirstPanel.this, "Error : Input Natural Number.","Error",JOptionPane.WARNING_MESSAGE);}
 				
-				if(Integer.parseInt(field[0].getText())>0&&Integer.parseInt(field[1].getText())>0&&Integer.parseInt(field[2].getText())>0)
-				{
-					informed.setAge(Integer.parseInt(field[0].getText()));
-					informed.setWeight(Integer.parseInt(field[1].getText()));
-					informed.setHeight(Integer.parseInt(field[2].getText()));
+					if(informed.getSex()!=0&&Integer.parseInt(field[0].getText())>0&&Integer.parseInt(field[1].getText())>0&&Integer.parseInt(field[2].getText())>0)
+					{
+						informed.setAge(Integer.parseInt(field[0].getText()));
+						informed.setWeight(Integer.parseInt(field[1].getText()));
+						informed.setHeight(Integer.parseInt(field[2].getText()));
 				
-					System.out.println(informed.getAge());
-					System.out.println(informed.getHeight());
-					System.out.println(informed.getWeight());
-					//다음장으로 넘기기
-					ViewControl.viewPanel(1, 2);
+						System.out.println(informed.getAge());
+						System.out.println(informed.getHeight());
+						System.out.println(informed.getWeight());
+						//다음장으로 넘기기
+						ViewControl.viewPanel(1, 2);
+					}
+					else
+						JOptionPane.showMessageDialog(FirstPanel.this, "Error : Input Natural Number.","Error",JOptionPane.WARNING_MESSAGE);
+			
 				}
-				else
-					JOptionPane.showMessageDialog(FirstPanel.this, "Error : Input Natural Number.","Error",JOptionPane.WARNING_MESSAGE);
 			}
 		}
 		public void mouseEntered(MouseEvent e){}

@@ -41,17 +41,20 @@ public class FoodButtonList
 		public void mouseReleased(MouseEvent e){}
 		public void mouseClicked(MouseEvent e)
 		{
-			if(cur==null)
+			cur = (FoodButton)e.getSource();
+			if(prev==null)
 			{
-				//do nothhing
+				cur.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.red));
+			}
+			else if(cur==prev){
+				
 			}
 			else
 			{
-				prev = cur;
+				cur.setBorder(BorderFactory.createMatteBorder(3,3,3,3,Color.red));
+				prev.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.white));
 			}
-			cur = (FoodButton)e.getSource();
-			cur.setBorder(BorderFactory.createMatteBorder(1,1,1,1,Color.red));
-			prev.setBorder(BorderFactory.createMatteBorder(1,1,1,1,Color.white));
+			prev = cur;
 			
 		}
 		public void mouseEntered(MouseEvent e){}

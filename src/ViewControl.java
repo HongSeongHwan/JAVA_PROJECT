@@ -10,6 +10,9 @@ public class ViewControl
 	private static Main main;
 	private static StartPanel start;
 	
+	public Component getPanel(int i){
+		return x[i-1];
+	}
 	public ViewControl(Main main)
 	{
 		x = new Component[4];
