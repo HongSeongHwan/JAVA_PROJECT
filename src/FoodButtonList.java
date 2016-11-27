@@ -9,7 +9,7 @@ public class FoodButtonList
 {
 	private ArrayList<FoodButton> list;
 	private int num;
-	private FirstPanelListener listener;
+	private MoveFoodListener listener;
 	public int getNum()
 	{
 		return num;
@@ -18,7 +18,7 @@ public class FoodButtonList
 	{
 		list = new ArrayList<FoodButton>();
 		num = -1;		
-		listener = new FirstPanelListener();
+		listener = new MoveFoodListener();
 	}
 	
 	public void addB(FoodButton k)
@@ -33,31 +33,5 @@ public class FoodButtonList
 	{
 		return list.get(a);
 	}
-	private class FirstPanelListener implements MouseListener 
-	{	
-		FoodButton prev;
-		FoodButton cur;
-		public void mousePressed(MouseEvent e){}
-		public void mouseReleased(MouseEvent e){}
-		public void mouseClicked(MouseEvent e)
-		{
-			cur = (FoodButton)e.getSource();
-			if(prev==null)
-			{
-				cur.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.red));
-			}
-			else if(cur==prev){
-				
-			}
-			else
-			{
-				cur.setBorder(BorderFactory.createMatteBorder(3,3,3,3,Color.red));
-				prev.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.white));
-			}
-			prev = cur;
-			
-		}
-		public void mouseEntered(MouseEvent e){}
-		public void mouseExited(MouseEvent e){}
-	}
+
 }

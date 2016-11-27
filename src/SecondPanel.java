@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -35,18 +37,18 @@ public class SecondPanel extends JPanel{
 		add(graphPanel);
 
 		bbtn.setBounds(670, 900, 50, 50);
-		bbtn.addMouseListener(listener);
+		bbtn.addActionListener(listener);
 		add(bbtn);
 		
 		nbtn.setBounds(720, 900, 50, 50);
-		nbtn.addMouseListener(listener);
+		nbtn.addActionListener(listener);
 		add(nbtn);		
 	}
-	
-	private class SecondPanelListener implements MouseListener {			
-		public void mousePressed(MouseEvent e){}
-		public void mouseReleased(MouseEvent e){}
-		public void mouseClicked(MouseEvent e){
+	private class SecondPanelListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+
 			if(e.getSource()==bbtn)
 			{
 				ViewControl.viewPanel(2, 1);
@@ -57,7 +59,6 @@ public class SecondPanel extends JPanel{
 			}
 			
 		}
-		public void mouseEntered(MouseEvent e){}
-		public void mouseExited(MouseEvent e){}
 	}
 }
+
