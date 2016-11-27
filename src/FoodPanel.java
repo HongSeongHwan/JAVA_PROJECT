@@ -10,7 +10,7 @@ public class FoodPanel extends JPanel {
 		setBackground(Color.BLUE);
 		setLayout(null);
 		
-		list = new FoodButtonList();
+		list = new FoodButtonList(this);
 		
 		FoodButton button1 = new FoodButton(new ImageIcon("ssalbab.jpg"));
 		//button1.setBorderPainted(false);
@@ -51,6 +51,6 @@ public class FoodPanel extends JPanel {
 	}
 	void foodAdd(FoodButton x){
 		list.addB(x);
-		add(list.getB(list.getNum()));
+	//	add(list.getB(list.getNum()));
 	}
 }

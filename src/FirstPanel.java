@@ -23,9 +23,9 @@ public class FirstPanel extends JPanel {
 		man=new ImageIcon("man.jpg");
 		woman=new ImageIcon("woman.jpg");
 		rb1=new JRadioButton("남성");
-		rb1.addMouseListener(listener);
+		rb1.addActionListener(listener);
 		rb2=new JRadioButton("여성");
-		rb2.addMouseListener(listener);
+		rb2.addActionListener(listener);
 		group=new ButtonGroup();
 		
 		title.setText("당신은 누구 인가요?");
@@ -86,13 +86,13 @@ public class FirstPanel extends JPanel {
 		
 		
 		bbtn= new JButton("◀");
-		bbtn.addMouseListener(listener);
+		bbtn.addActionListener(listener);
 		bbtn.setBounds(670, 900, 50, 50);
 		add(bbtn);
 		bbtn.setEnabled(false);
 		
 		nbtn = new JButton("▶");
-		nbtn.addMouseListener(listener);
+		nbtn.addActionListener(listener);
 		nbtn.setBounds(720, 900, 50, 50);
 		add(nbtn);
 		
@@ -100,13 +100,11 @@ public class FirstPanel extends JPanel {
 		
 	}
 	
-	public class FirstPanelListener implements MouseListener {
+	private class FirstPanelListener implements ActionListener
+	{
 		private PrivateInfo informed;
-		
-		
-		public void mousePressed(MouseEvent e){}
-		public void mouseReleased(MouseEvent e){}
-		public void mouseClicked(MouseEvent e){
+		public void actionPerformed(ActionEvent e){
+
 			if(e.getSource()==rb1)
 			{				
 				informed.setSex(1);//1==남자				
@@ -150,7 +148,5 @@ public class FirstPanel extends JPanel {
 				}
 			}
 		}
-		public void mouseEntered(MouseEvent e){}
-		public void mouseExited(MouseEvent e){}
 	}
 }

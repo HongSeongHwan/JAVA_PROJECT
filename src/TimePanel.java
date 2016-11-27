@@ -16,6 +16,7 @@ public class TimePanel extends JPanel
 		tlp = new ArrayList<TimeLinePanel>();
 		setLayout(null);
 		listener = new MoveFoodListener();
+		listener.setTimePanel(this);
 		this.setBackground(Color.BLACK);
 		this.setBounds(1,1,190,400);
 		TimeLinePanel temp;
@@ -38,6 +39,11 @@ public class TimePanel extends JPanel
 		x.setLocation(10,10+(num)*140);
 		num++;
 	}
-	
+	public void deleteT(TimeLinePanel t){
+		tlp.remove(t);
+		for(int i=0 ; i<tlp.size();i++){
+			tlp.get(i).setLocation(10,10+(i)*140);		
+		}
+	}
 	
 }
