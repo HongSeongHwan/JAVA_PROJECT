@@ -14,13 +14,19 @@ public class TimePanel extends JPanel
 		num = 0;
 		//btn  = new JButton[4];
 		tlp = new ArrayList<TimeLinePanel>();
-		setLayout(null);
+		
 		listener = new MoveFoodListener();
 		listener.setTimePanel(this);
+		
 		this.setBackground(Color.BLACK);
 		this.setBounds(1,1,190,400);
-		TimeLinePanel temp;
+		setLayout(null);
 		
+		TimeLinePanel temp;
+		GridLayout l = new GridLayout(5,1);
+		l.setHgap(2);
+		l.setVgap(2);
+		this.setLayout(l);
 		temp = new TimeLinePanel();
 		temp.addMouseListener(listener);
 		addTimeLine(temp);
@@ -36,14 +42,13 @@ public class TimePanel extends JPanel
 	public void addTimeLine(TimeLinePanel x){
 		tlp.add(x);
 		add(x);
-		x.setLocation(10,10+(num)*140);
 		num++;
 	}
 	public void deleteT(TimeLinePanel t){
+		t.setVisible(false);
+		this.remove(t);
 		tlp.remove(t);
-		for(int i=0 ; i<tlp.size();i++){
-			tlp.get(i).setLocation(10,10+(i)*140);		
-		}
+
 	}
 	
 }

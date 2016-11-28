@@ -11,10 +11,17 @@ public class FoodButtonList
 	private ArrayList<FoodButton> list;
 	private int num;
 	private MoveFoodListener listener;
+	
+	
 	public int getNum()
 	{
 		return num;
 	}
+	public FoodButton getB(int a)
+	{
+		return list.get(a);
+	}	
+
 	public FoodButtonList(FoodPanel x)
 	{
 		p = x;
@@ -22,29 +29,20 @@ public class FoodButtonList
 		num = -1;		
 		listener = new MoveFoodListener();
 		listener.setFoodButtonList(this);
-	}
-	
+	}	
 	public void addB(FoodButton k)
 	{
 		p.add(k);
 		k.addMouseListener(listener);
 		list.add(k);
 		num++;
-		list.get(num).setLocation(2+(num%2)*160, (num/2)*110 );
-	}
-	
-	public FoodButton getB(int a)
-	{
-		return list.get(a);
+		//list.get(num).setLocation(2+(num%2)*160, (num/2)*110 );
 	}
 	public void deleteF(FoodButton item){
+		item.setVisible(false);
 		p.remove(item);
 		list.remove(item);		
 		//System.out.println(k);
 		num--;
-		for(int i=0 ; i<num+1;i++){
-			list.get(i).setLocation(2+(i%2)*160, (i/2)*110 );
-			//p.add(list.get(i));
-		}
 	}
 }

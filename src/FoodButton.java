@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class FoodButton extends JButton {
+public class FoodButton extends JButton implements Cloneable {
 	private int key;
 	private int fat;
 	private int calories;
@@ -9,8 +9,11 @@ public class FoodButton extends JButton {
 	private int tansoo;
 	private String name;
 	
+	public FoodButton clone() throws CloneNotSupportedException {
+	      return (FoodButton)super.clone();
+	 }
 	public int getKey() {
-		return key;
+		return key;		
 	}
 
 	public void setKey(int key) {
