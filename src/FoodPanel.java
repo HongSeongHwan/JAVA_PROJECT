@@ -35,6 +35,7 @@ public class FoodPanel extends JPanel {
 		foodAdd(button3);
 		
 		FoodButton button4 = new FoodButton(new ImageIcon("picture/food/jajang.jpg"));
+		button4.setName("Â¥Àå¸é");
 		//button4.setBorderPainted(false);
 		//button4.setFocusPainted(false);
 		//button4.setContentAreaFilled(false);

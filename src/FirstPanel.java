@@ -144,7 +144,6 @@ public class FirstPanel extends JPanel {
 					}
 					else
 						JOptionPane.showMessageDialog(FirstPanel.this, "Error : Input Natural Number.","Error",JOptionPane.WARNING_MESSAGE);
-			
 				}
 			}
 		}
