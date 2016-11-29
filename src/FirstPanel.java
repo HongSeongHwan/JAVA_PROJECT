@@ -20,8 +20,8 @@ public class FirstPanel extends JPanel {
 		field = new JTextField[num];
 		lbl = new JLabel[num];
 		title = new JLabel();
-		man=new ImageIcon("man.jpg");
-		woman=new ImageIcon("woman.jpg");
+		man=new ImageIcon("picture/first/man.jpg");
+		woman=new ImageIcon("picture/first/woman.jpg");
 		rb1=new JRadioButton("남성");
 		rb1.addActionListener(listener);
 		rb2=new JRadioButton("여성");

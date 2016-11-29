@@ -11,42 +11,42 @@ public class FoodPanel extends JPanel {
 		setBackground(Color.BLUE);
 		setLayout(null);
 		list = new FoodButtonList(this);
-		GridLayout l = new GridLayout(3,3);
+		GridLayout l = new GridLayout(10,3);
 		
 		l.setHgap(2);
 		l.setVgap(2);
 		this.setLayout(l);
-		FoodButton button1 = new FoodButton(new ImageIcon("ssalbab.jpg"));
+		FoodButton button1 = new FoodButton(new ImageIcon("picture/food/ssalbab.jpg"));
 		//button1.setBorderPainted(false);
 		//button1.setFocusPainted(false);
 	//	button1.setContentAreaFilled(false);
 		foodAdd(button1);
 		
-		FoodButton button2 = new FoodButton(new ImageIcon("kimbab.jpg"));
+		FoodButton button2 = new FoodButton(new ImageIcon("picture/food/kimbab.jpg"));
 		//button2.setBorderPainted(false);
 		//button2.setFocusPainted(false);
 	//	button2.setContentAreaFilled(false);
 		foodAdd(button2);
 		
-		FoodButton button3 = new FoodButton(new ImageIcon("rameon.jpg"));
+		FoodButton button3 = new FoodButton(new ImageIcon("picture/food/rameon.jpg"));
 		//button3.setBorderPainted(false);
 		//button3.setFocusPainted(false);
 	//	button3.setContentAreaFilled(false);
 		foodAdd(button3);
 		
-		FoodButton button4 = new FoodButton(new ImageIcon("jajang.jpg"));
+		FoodButton button4 = new FoodButton(new ImageIcon("picture/food/jajang.jpg"));
 		//button4.setBorderPainted(false);
 		//button4.setFocusPainted(false);
 		//button4.setContentAreaFilled(false);
 		foodAdd(button4);
 		
-		FoodButton button5 = new FoodButton(new ImageIcon("jjam.jpg"));
+		FoodButton button5 = new FoodButton(new ImageIcon("picture/food/jjam.jpg"));
 		//button5.setBorderPainted(false);
 		//button5.setFocusPainted(false);
 		//button5.setContentAreaFilled(false);
 		foodAdd(button5);
 		
-		FoodButton button6 = new FoodButton(new ImageIcon("miyeok.jpg"));
+		FoodButton button6 = new FoodButton(new ImageIcon("picture/food/miyeok.jpg"));
 		//button6.setBorderPainted(false);
 		//button6.setFocusPainted(false);
 		//button6.setContentAreaFilled(false);

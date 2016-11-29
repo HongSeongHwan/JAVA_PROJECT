@@ -17,11 +17,11 @@ public class TimePanel extends JPanel
 		//listener =	ViewControl.getMoveFoodListener();
 		//listener.setTime();
 		this.setBackground(Color.BLACK);
-		this.setBounds(1,1,190,400);
+	//	this.setBounds(1,1,190,400);
 		setLayout(null);
 		
 		TimeLinePanel temp;
-		GridLayout l = new GridLayout(5,1);
+		GridLayout l = new GridLayout(10,1);
 		l.setHgap(2);
 		l.setVgap(2);
 		this.setLayout(l);

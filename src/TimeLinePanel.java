@@ -12,15 +12,17 @@ public class TimeLinePanel extends JPanel {
 		this.setBackground(Color.black);
 		this.setLayout(new GridLayout(1,3));
 	}
-	void addF(JPanel b){
+	public void addF(JPanel b){
 		list.add(b);
 		this.add(b);
 		validate();
 	}
-	void deleteF(JPanel b){
+	public void deleteF(JPanel b){
 		this.remove(b);
 		list.remove(b);
-		validate();
-		
+		validate();	
+	}
+	public ArrayList<JPanel>  getList(){
+		return list;
 	}
 }

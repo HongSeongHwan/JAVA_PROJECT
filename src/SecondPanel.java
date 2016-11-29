@@ -76,13 +76,16 @@ public class SecondPanel extends JPanel{
 		
 		
 		option_time.setBounds(10, 10, 50, 50);
-		//option_time.addActionListener(listener);
+		option_time.addMouseListener(move_listener);
 		add(option_time);	
 		
 		option_food.setBounds(670, 10, 50, 50);
-		//option_food.addActionListener(option_food);
+		option_food.addMouseListener(move_listener);
 		add(option_food);
 		
+	}
+	public JButton getOption_time(){
+		return option_time;
 	}
 	public MoveFoodListener getMoveFoodListener(){
 		return move_listener;

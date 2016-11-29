@@ -42,7 +42,7 @@ public class ThirdPanel extends JPanel{
 		add(adv);
 		
 		// img panel .. Mid left
-		iconQurio = new ImageIcon("documents/picture/third/quriosity.jpg");
+		iconQurio = new ImageIcon("picture/third/quriosity.jpg");
 		lblImg = new JLabel(iconQurio);
 		img = new JPanel();
 		img.setBounds(20,90,300,630);
@@ -121,7 +121,6 @@ public class ThirdPanel extends JPanel{
 		
 		public void actionPerformed(ActionEvent e){
 			ViewControl.viewPanel(3, 2);
-		}
-		
+		}		
 	}
 }
