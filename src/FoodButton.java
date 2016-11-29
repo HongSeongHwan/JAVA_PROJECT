@@ -13,7 +13,8 @@ public class FoodButton extends JButton implements Cloneable {
 	      return (FoodButton)super.clone();
 	 }
 	public int getKey() {
-		return key;		
+		return key;
+		
 	}
 
 	public void setKey(int key) {
@@ -62,10 +63,10 @@ public class FoodButton extends JButton implements Cloneable {
 
 	FoodButton(){
 		super();
-		this.setSize(150,100);
+		this.setPreferredSize(new Dimension(185, 50));
 	}
 	FoodButton(ImageIcon x){
 		super(x);
-		this.setSize(150,100);
+		this.setPreferredSize(new Dimension(185, 50));
 	}
 }

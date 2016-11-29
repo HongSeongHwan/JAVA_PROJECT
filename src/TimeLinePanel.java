@@ -1,27 +1,26 @@
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import javax.swing.*;
 import java.util.*;
 
 public class TimeLinePanel extends JPanel {
-	private ArrayList<FoodButton> list;
-	
+	private ArrayList<JPanel> list;
 	public TimeLinePanel(){
-		list = new ArrayList<FoodButton>();
-		this.setSize(360, 130);
+		list = new ArrayList<JPanel>();
+		this.setPreferredSize(new Dimension(360, 130));
 		this.setBackground(Color.black);
 		this.setLayout(new GridLayout(1,3));
-		
 	}
-	void addF(FoodButton b){
+	void addF(JPanel b){
 		list.add(b);
 		this.add(b);
+		validate();
 	}
-	void deleteF(FoodButton b){
+	void deleteF(JPanel b){
 		this.remove(b);
 		list.remove(b);
+		validate();
 		
 	}
 }

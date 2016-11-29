@@ -5,19 +5,17 @@ import java.awt.event.*;
 import java.util.*;
 public class TimePanel extends JPanel 
 {
-	//JButton [] btn;
+
 	private int target;
 	private int num;
 	private ArrayList<TimeLinePanel> tlp;
-	private MoveFoodListener listener;
-	public TimePanel(){
+	private SecondPanel second;
+	public TimePanel(SecondPanel second){
+		this.second = second;
 		num = 0;
-		//btn  = new JButton[4];
 		tlp = new ArrayList<TimeLinePanel>();
-		
-		listener = new MoveFoodListener();
-		listener.setTimePanel(this);
-		
+		//listener =	ViewControl.getMoveFoodListener();
+		//listener.setTime();
 		this.setBackground(Color.BLACK);
 		this.setBounds(1,1,190,400);
 		setLayout(null);
@@ -27,16 +25,17 @@ public class TimePanel extends JPanel
 		l.setHgap(2);
 		l.setVgap(2);
 		this.setLayout(l);
+		
 		temp = new TimeLinePanel();
-		temp.addMouseListener(listener);
+		//temp.addMouseListener(second.getMoveFoodListener());
 		addTimeLine(temp);
 		
 		temp = new TimeLinePanel();
-		temp.addMouseListener(listener);
+		//temp.addMouseListener(second.getMoveFoodListener());
 		addTimeLine(temp);
 		
 		temp = new TimeLinePanel();
-		temp.addMouseListener(listener);
+		//temp.addMouseListener(second.getMoveFoodListener());
 		addTimeLine(temp);
 	}
 	public void addTimeLine(TimeLinePanel x){
@@ -48,7 +47,12 @@ public class TimePanel extends JPanel
 		t.setVisible(false);
 		this.remove(t);
 		tlp.remove(t);
-
+	}
+	public void listenerAdd(){
+		for(TimeLinePanel temp : tlp){
+			temp.addMouseListener(second.getMoveFoodListener());
+			
+		}
 	}
 	
 }

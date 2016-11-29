@@ -33,7 +33,7 @@ public class StartPanel extends JPanel{
 		mainPanel.setLayout(null);
 		add(mainPanel);				
 		
-		iconQuestion = new ImageIcon("question.png");		
+		iconQuestion = new ImageIcon("documents/picture/start/question.png");		
 
 		lblQuestion = new JLabel(iconQuestion);
 		lblQuestion.setBounds(0,50,670,580);

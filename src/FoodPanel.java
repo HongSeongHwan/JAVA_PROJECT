@@ -5,13 +5,13 @@ public class FoodPanel extends JPanel {
 	
 	private FoodButtonList	list;
 	private int	target;
-	
-	FoodPanel(){
+	private SecondPanel second;
+	FoodPanel(SecondPanel second){
+		this.second = second;
 		setBackground(Color.BLUE);
 		setLayout(null);
-		
 		list = new FoodButtonList(this);
-		GridLayout l = new GridLayout(2,2);
+		GridLayout l = new GridLayout(3,3);
 		
 		l.setHgap(2);
 		l.setVgap(2);
@@ -52,8 +52,16 @@ public class FoodPanel extends JPanel {
 		//button6.setContentAreaFilled(false);
 		foodAdd(button6);
 	}
-	void foodAdd(FoodButton x){
+	public void listenerAdd(){
+		for(FoodButton btn : list.getList()){
+			btn.addMouseListener(second.getMoveFoodListener());
+		}
+	}
+	public void foodAdd(FoodButton x){
 		list.addB(x);
 	//	add(list.getB(list.getNum()));
+	}
+	public FoodButtonList getFoodButtonList(){
+		return list;
 	}
 }

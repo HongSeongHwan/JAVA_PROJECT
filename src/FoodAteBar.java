@@ -3,9 +3,10 @@ import javax.swing.*;
 
 public class FoodAteBar extends JPanel {		
 			
-	private double destiny;
+	private int destiny,delay,rectX;
 	private double data,dataD;
 	private EverageLine eLine;
+	private GraphThread t;
 	
 	public FoodAteBar() {}
 	public FoodAteBar(double a, double b)
@@ -13,22 +14,51 @@ public class FoodAteBar extends JPanel {
 		setLayout(null);
 		setBackground(Color.white);
 		
+		delay = 30;
 		data = a;
 		dataD = b;
-		eLine=new EverageLine(5,10);
+		rectX=0;
+		destiny =  (int)((data*600)/dataD);
+		eLine=new EverageLine(5,10);		
 		
+		t = new GraphThread(this);
+		t.start();
 	}
+
 	
 	public void paintComponent(Graphics page)
 	{
 		super.paintComponent(page);
 		
-		destiny = (data*74)/dataD;
 		page.setColor(Color.blue);
-		page.fillRect(0,5,(int)destiny,30);	
+		page.fillRect(0,5,rectX,30);	
 		
 		page.setColor(Color.red);
 		page.drawLine((int)eLine.getRecomanded(), 0, (int)eLine.getRecomanded(), 40);
 		
-	}	// paintComponent();	
+	}	// paintComponent();
+	
+
+		// thread
+	class  GraphThread extends Thread
+	{
+ 		FoodAteBar graph;
+ 	 	
+ 		public GraphThread(FoodAteBar p){
+			graph = p;
+ 		}
+ 
+ 		public void run(){
+  			
+ 			while(destiny >= rectX){
+  				rectX += 1;
+				graph.repaint();
+				   
+   				try{
+   					 Thread.sleep(delay);
+   				}catch(Exception e){}
+  			}
+ 		}
+	}
+	
 }

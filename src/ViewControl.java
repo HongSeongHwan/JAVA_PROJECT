@@ -9,7 +9,6 @@ public class ViewControl
 	private static ThirdPanel third;
 	private static Main main;
 	private static StartPanel start;
-	
 	public Component getPanel(int i){
 		return x[i-1];
 	}
@@ -20,6 +19,7 @@ public class ViewControl
 		first = new FirstPanel();
 		second = new SecondPanel();
 		third = new ThirdPanel();
+		
 		x[0]=first;
 		x[1]=second;
 		x[2]=third;
@@ -44,4 +44,5 @@ public class ViewControl
 		main.setVisible(false);
 		main.setVisible(true);	
 	}
+
 }

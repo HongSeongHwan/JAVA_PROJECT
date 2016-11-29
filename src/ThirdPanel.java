@@ -1,6 +1,6 @@
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
+
 
 import javax.swing.*;
 public class ThirdPanel extends JPanel{
@@ -9,8 +9,9 @@ public class ThirdPanel extends JPanel{
 	private ThirdPanelListener listener;
 	private AdviceLabel lblTot,lblDan,lblTan,lblJi;
 	private JPanel img,tot,dan,tan,ji,recom;
-	private JLabel adv;
+	private JLabel adv,lblImg;
 	private int check;
+	private ImageIcon iconQurio;
 	
 	public ThirdPanel(){
 		this.setBounds(0,0,800,1000);
@@ -24,16 +25,16 @@ public class ThirdPanel extends JPanel{
 		listener = new ThirdPanelListener();		
 		
 		bbtn.setBounds(670, 900, 50, 50);
-		bbtn.addMouseListener(listener);
+		bbtn.addActionListener(listener);
 		add(bbtn);
 		
 		nbtn.setBounds(720, 900, 50, 50);
-		nbtn.addMouseListener(listener);
+		nbtn.addActionListener(listener);
 		nbtn.setEnabled(false);
 		add(nbtn);	
 		
 		// advice title .. Top
-		adv = new JLabel("Advice...");
+		adv = new JLabel("Result! Check please!");
 		adv.setFont(new Font("Verdana",Font.BOLD,30));
 		adv.setBounds(10,10,780,50);
 		adv.setHorizontalAlignment(SwingConstants.CENTER);
@@ -41,9 +42,12 @@ public class ThirdPanel extends JPanel{
 		add(adv);
 		
 		// img panel .. Mid left
+		iconQurio = new ImageIcon("documents/picture/third/quriosity.jpg");
+		lblImg = new JLabel(iconQurio);
 		img = new JPanel();
 		img.setBounds(20,90,300,630);
-		img.setBackground(Color.cyan);
+		img.setBackground(Color.white);
+		img.add(lblImg);
 		add(img);
 		
 		
@@ -113,13 +117,11 @@ public class ThirdPanel extends JPanel{
 	
 	
 	
-	public class ThirdPanelListener implements MouseListener {
-		public void mousePressed(MouseEvent e){}
-		public void mouseReleased(MouseEvent e){}
-		public void mouseClicked(MouseEvent e){
+	private class ThirdPanelListener implements ActionListener {
+		
+		public void actionPerformed(ActionEvent e){
 			ViewControl.viewPanel(3, 2);
 		}
-		public void mouseEntered(MouseEvent e){}
-		public void mouseExited(MouseEvent e){}
+		
 	}
 }
