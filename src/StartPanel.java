@@ -42,13 +42,13 @@ public class StartPanel extends JPanel{
 		
 		btnWonder = new JButton("wonder");
 		btnWonder.setFont(fntButton);
-		btnWonder.setBounds(640,300,130,50);
+		btnWonder.setBounds(610,300,130,50);
 		btnWonder.addActionListener(btnL);
 		mainPanel.add(btnWonder);		
 		
 		btnNoWonder = new JButton("no wonder");
 		btnNoWonder.setFont(fntButton);
-		btnNoWonder.setBounds(640,390,130,50);
+		btnNoWonder.setBounds(610,390,130,50);
 		btnNoWonder.addActionListener(btnL);
 		mainPanel.add(btnNoWonder);	
 		

@@ -15,7 +15,7 @@ public class SecondPanel extends JPanel{
 	private SecondPanelListener listener;
 	private MoveFoodListener move_listener;
 	private JScrollPane scroll1, scroll2;
-	private final int loction_pane_x = 50;
+	private final int loction_pane_x = 55;
 	private final int height_pane = 600;
 	
 	private JButton option_time ,option_food;
@@ -30,8 +30,8 @@ public class SecondPanel extends JPanel{
 		graphPanel = new GraphPanel();
 		bbtn = new JButton("¢¸");
 		nbtn = new JButton("¢º");
-		option_time = new JButton("+");
-		option_food = new JButton("+");
+		option_time = new JButton(new ImageIcon("picture/second/plus2.jpg"));
+		option_food = new JButton(new ImageIcon("picture/second/plus2.jpg"));
 		
 		listener=new SecondPanelListener();	
 		timePanel.listenerAdd();
@@ -75,11 +75,11 @@ public class SecondPanel extends JPanel{
 		
 		
 		
-		option_time.setBounds(10, 10, 50, 50);
+		option_time.setBounds(10, 5, 50, 50);
 		option_time.addMouseListener(move_listener);
 		add(option_time);	
 		
-		option_food.setBounds(670, 10, 50, 50);
+		option_food.setBounds(720, 5, 50, 50);
 		option_food.addMouseListener(move_listener);
 		add(option_food);
 		
