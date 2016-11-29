@@ -60,6 +60,7 @@ public class FoodPanel extends JPanel {
 	}
 	public void foodAdd(FoodButton x){
 		list.addB(x);
+		x.addMouseListener(second.getMoveFoodListener());
 	//	add(list.getB(list.getNum()));
 	}
 	public FoodButtonList getFoodButtonList(){

@@ -14,6 +14,18 @@ public class MoveFoodListener implements MouseListener
 	private  FoodButton cur;
 
 	private MyListener listener;
+	
+	private JTextField name = new JTextField();
+	private JTextField tan = new JTextField();
+	private JTextField fat = new JTextField();
+	private JTextField protein = new JTextField();
+	private JTextField cal = new JTextField();
+	
+	private JLabel lname;
+	private JLabel ltan;
+	private JLabel lfat;
+	private JLabel lprotein;
+	private JLabel lcal;
 
 	private SecondPanel second;
 	public  MoveFoodListener(SecondPanel s){
@@ -112,12 +124,24 @@ public class MoveFoodListener implements MouseListener
 				FoodButton temp = new FoodButton();
 				JPanel pan = new JPanel();
 				pan.setSize(400,500);
-				popup.setLayout(null);
-				JTextField name = new JTextField();
-				JTextField tan= new JTextField();
-				JTextField fat= new JTextField();
-				JTextField protein= new JTextField();
-				JTextField cal= new JTextField();
+				pan.setLayout(null);
+				
+				
+				
+				lname = new JLabel(" Name : ");
+				lname.setFont(new Font("Arial black",Font.PLAIN,20));
+				lname.setBounds(20,20,20,20);
+				pan.add(lname);
+				 
+				
+				
+				/*
+		
+		field[0] = new JTextField();
+		field[0].setBounds(300, 400, 200, 50);
+		add(field[0]);
+				 */
+				
 				cal.setBounds(30,30,30,100);
 				popup.setSize(new Dimension(400,500));
 				pan.add(name);

@@ -40,6 +40,7 @@ public class TimePanel extends JPanel
 	}
 	public void addTimeLine(TimeLinePanel x){
 		tlp.add(x);
+		x.addMouseListener(second.getMoveFoodListener());
 		add(x);
 		num++;
 	}

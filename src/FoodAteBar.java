@@ -18,8 +18,8 @@ public class FoodAteBar extends JPanel {
 		data = a;
 		dataD = b;
 		rectX=0;
-		destiny =  (int)((data*600)/dataD);
-		eLine=new EverageLine(5,10);		
+		destiny = (int)((data/(dataD*1.2))*740);
+		eLine=new EverageLine(dataD/3);		
 		
 		t = new GraphThread(this);
 		t.start();

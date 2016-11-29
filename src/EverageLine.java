@@ -3,17 +3,15 @@ import javax.swing.*;
 
 
 public class EverageLine extends JPanel{
-	private double datae, dataE;
+
 	private double recomanded;
 	
 	public EverageLine(){}
-	public EverageLine(double a, double b)
+	public EverageLine(double a)
 	{
 		setLayout(null);
 		setBackground(Color.white);
-		datae = a;
-		dataE = b;
-		recomanded = (datae*74)/dataE;
+		recomanded = a;
 	}
 	public double getRecomanded()
 	{
@@ -21,10 +19,7 @@ public class EverageLine extends JPanel{
 	}
 	public void paintComponent(Graphics page2)
 	{
-		super.paintComponent(page2);
-		 
-		
-		
+		super.paintComponent(page2);		
 		
 	}	// paintComponent();	
 }

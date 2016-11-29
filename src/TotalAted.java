@@ -1,8 +1,8 @@
 public class TotalAted {
-	private static double tCal;
-	private static double tCarbo;
-	private static double tProt;
-	private static double tFat;
+	private static double tCal=0;
+	private static double tCarbo=0;
+	private static double tProt=0;
+	private static double tFat=0;
 	public static double gettCal() {
 		return tCal;
 	}
@@ -27,6 +27,4 @@ public class TotalAted {
 	public static void settFat(double tFat) {
 		TotalAted.tFat = tFat;
 	}
-
-
 }
