@@ -30,7 +30,7 @@ public class TotalAted {
 	}
 	
 	// food was deleted
-	public static void minus(FoodButton x) {
+	public static void minus(FoodButtonPanel x) {
 		tCarbo	-= x.getTansoo();
 		tFat	-= x.getFat();
 		tProt	-= x.getProtein();

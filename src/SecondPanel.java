@@ -40,8 +40,8 @@ public class SecondPanel extends JPanel{
 		graphPanel = new GraphPanel();
 		bbtn= new JButton(new ImageIcon("picture/first/back.png"));
 		nbtn = new JButton(new ImageIcon("picture/first/next.png"));
-		option_time = new JButton(new ImageIcon("picture/second/plus2.jpg"));
-		option_food = new JButton(new ImageIcon("picture/second/plus2.jpg"));
+		option_time = new JButton(new ImageIcon("picture/second/add.png"));
+		option_food = new JButton(new ImageIcon("picture/second/add.png"));
 		
 		listener=new SecondPanelListener();	
 		timePanel.listenerAdd();
@@ -92,12 +92,19 @@ public class SecondPanel extends JPanel{
 		
 		
 		
+
 		option_time.setBounds(10, 5, 50, 50);
 		option_time.addMouseListener(move_listener);
+		option_time.setBorder(new RoundedBorder(70));
+		option_time.setBackground(n);
+		option_time.setForeground(n);
 		add(option_time);	
 		
 		option_food.setBounds(720, 5, 50, 50);
 		option_food.addMouseListener(move_listener);
+		option_food.setBorder(new RoundedBorder(70));
+		option_food.setBackground(n);
+		option_food.setForeground(n);
 		add(option_food);
 		
 	}

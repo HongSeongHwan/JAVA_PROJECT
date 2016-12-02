@@ -18,7 +18,7 @@ public class FirstPanel extends JPanel {
 
 	
 	FirstPanel(){
-		Color n=new Color(255, 207, 181);
+		Color n=Constant.c3;
 		
 		num = 4;
 		field = new JTextField[num];

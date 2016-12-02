@@ -1,5 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.awt.event.*;
 
 public class StartPanel extends JPanel{
@@ -39,19 +41,26 @@ public class StartPanel extends JPanel{
 
 		lblQuestion = new JLabel(iconQuestion);
 		lblQuestion.setBounds(0,50,670,580);
-		mainPanel.add(lblQuestion);							
-		Font fntButton = new Font("Verdana",Font.PLAIN,15);	
+		mainPanel.add(lblQuestion);	
 		
-		btnWonder = new JButton("wonder");
+		Font fntButton = new Font("Segoe Print",Font.PLAIN,15);	
+		
+	//	btnWonder = new JButton(new ImageIcon("picture/start/wNw.png"));
+		btnWonder = new JButton("Wonder");
 		btnWonder.setFont(fntButton);
+		btnWonder.setBackground(n);
 		btnWonder.setBounds(610,420,120,50);
 		btnWonder.addActionListener(btnL);
+		btnWonder.setBorder(new RoundedBorder(20));
 		mainPanel.add(btnWonder);		
 		
-		btnNoWonder = new JButton("no wonder");
+//		btnNoWonder = new JButton(new ImageIcon("picture/start/wNw.png"));
+		btnNoWonder = new JButton("No Wonder");
 		btnNoWonder.setFont(fntButton);
-		btnNoWonder.setBounds(610,500,120,50);
+		btnNoWonder.setBackground(n);
+		btnNoWonder.setBounds(610,500,140,50);
 		btnNoWonder.addActionListener(btnL);
+		btnNoWonder.setBorder(new RoundedBorder(20));
 		mainPanel.add(btnNoWonder);	
 		
 		bottomPanel = new JPanel();
@@ -66,6 +75,22 @@ public class StartPanel extends JPanel{
 		lblCopyright.setBounds(0,0,800,50);
 		bottomPanel.add(lblCopyright);		
 	}	
+	class RoundedBorder implements Border { 
+		int radius;
+		RoundedBorder(int radius) { 
+			this.radius = radius; 
+		} 
+		public Insets getBorderInsets(Component c) { 
+			return new Insets(this.radius + 1, this.radius + 1, this.radius + 2, this.radius); 
+		} 
+		public boolean isBorderOpaque() { 
+			return true; 
+		} 
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) { 
+			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius); 
+		} 
+	}
+	
 	public void wannaOut() {
 		int question = JOptionPane.showConfirmDialog(null,"Do you want to go out?");
 		if(question == JOptionPane.YES_OPTION) {
