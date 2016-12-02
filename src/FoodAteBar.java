@@ -3,28 +3,30 @@ import javax.swing.*;
 
 public class FoodAteBar extends JPanel {		
 			
-	private int destiny,delay,rectX;
+	private int destiny,delay;
 	private double data,dataD;
 	private EverageLine eLine;
-	private GraphThread t;
+	private int rectX;
+	private static GraphThread t;
 	
-	public FoodAteBar() {}
 	public FoodAteBar(double a, double b)
 	{
-		setLayout(null);
-		setBackground(Color.white);
-																																		
-		delay = 30;
-		data = a;
-		dataD = b;
-		rectX=0;
-		destiny = (int)((data*740)/(dataD*1.2));
-		eLine = new EverageLine(740/1.2);		
-		
-		t = new GraphThread(this);
-		t.start();
-	}
+		setBackground(Color.white);	
 
+		eLine = new EverageLine(740/1.2);
+		delay = 30;
+	}
+	public void renew(int x, double a, double b){
+		rectX = x;
+		data = a;
+		dataD = b;		
+		destiny = (int)((data*740)/(dataD*1.2));
+		
+		new GraphThread(this).start();	
+	}
+	
+//	public double getData()		{ return data; }
+//	public double getDataD()	{ return dataD; }	
 	
 	public void paintComponent(Graphics page)
 	{
@@ -34,8 +36,7 @@ public class FoodAteBar extends JPanel {
 		page.fillRect(0,5,rectX,30);	
 		
 		page.setColor(Color.red);
-		page.drawLine((int)eLine.getRecomanded(), 0, (int)eLine.getRecomanded(), 40);
-		
+		page.drawLine((int)eLine.getRecomanded(), 0, (int)eLine.getRecomanded(), 40);		
 	}	// paintComponent();
 	
 
@@ -46,11 +47,9 @@ public class FoodAteBar extends JPanel {
  	 	
  		public GraphThread(FoodAteBar p){
 			graph = p;
- 		}
- 
- 		public void run(){
-  			
- 			while(destiny >= rectX){
+ 		} 
+ 		public void run(){  			
+ 			while(destiny > rectX){
   				rectX += 1;
 				graph.repaint();
 				   
@@ -58,6 +57,7 @@ public class FoodAteBar extends JPanel {
    					 Thread.sleep(delay);
    				}catch(Exception e){}
   			}
+ 			/*
  			while(destiny < rectX){
   				rectX -= 1;
 				graph.repaint();
@@ -65,9 +65,9 @@ public class FoodAteBar extends JPanel {
    				try{
    					 Thread.sleep(delay);
    				}catch(Exception e){}
-  			}
- 		}
- 		
+  			} 	
+  			*/		
+ 		} 		
 	}
 	
 }

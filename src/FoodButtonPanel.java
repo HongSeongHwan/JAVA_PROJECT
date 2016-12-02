@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class FoodButton extends JButton {
+public class FoodButtonPanel extends JPanel{
 	private double fat;
 	private double calories;
 	private double protein;
@@ -10,7 +10,7 @@ public class FoodButton extends JButton {
 	private ImageIcon imageIcon;
 	private Image image;
 	
-	public  FoodButton(FoodButton f) {
+	public  FoodButtonPanel(FoodButtonPanel f) {
 		fat = f.fat;
 		calories = f.calories;
 		protein = f.protein;
@@ -31,16 +31,15 @@ public class FoodButton extends JButton {
 	public void setProtein(double protein)		{ this.protein = protein;	}
 	public void setTansoo(double tansoo)		{ this.tansoo = tansoo;		}
 	public void setName(String name)		{ this.name = name;			}
-	public ImageIcon getImageIcon(){
-		return imageIcon;
-	}
-	FoodButton() {
+
+	public FoodButtonPanel() {
 		super();
 		this.setPreferredSize(new Dimension(185, 50));
 	}
 
-	FoodButton(ImageIcon x) {
-		image = x.getImage();		
+	public FoodButtonPanel (ImageIcon x) {
+		imageIcon = x;
+		image = imageIcon.getImage();
 		//super(x);
 		//this.setPreferredSize(new Dimension(185, 50));
 	}

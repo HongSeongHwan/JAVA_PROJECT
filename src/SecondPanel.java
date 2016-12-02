@@ -91,18 +91,13 @@ public class SecondPanel extends JPanel{
 		add(option_food);
 		
 	}
-	public JButton getOption_time(){
-		return option_time;
-	}
-	public MoveFoodListener getMoveFoodListener(){
-		return move_listener;
-	}
-	public FoodPanel getFoodPanel(){
-		return foodPanel;
-	}
-	public TimePanel getTimePanel(){
-		return timePanel;
-	}
+	public JButton getOption_time()					{ return option_time;	}
+	public MoveFoodListener getMoveFoodListener()	{ return move_listener;	}
+	public FoodPanel getFoodPanel()					{ return foodPanel;	}
+	public TimePanel getTimePanel()					{ return timePanel;	}
+	public GraphPanel getGraphPanel()				{ return graphPanel; }
+	
+	
 	private class SecondPanelListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
@@ -116,16 +111,6 @@ public class SecondPanel extends JPanel{
 			{
 				ViewControl.viewPanel(2, 3);
 				((ThirdPanel)ViewControl.getPanel(2) ).Analysis();
-				
-				System.out.println("ated_tot>>"+TotalAted.gettCal());
-				System.out.println("2.sex>>"+PrivateInfo.getSex());
-				System.out.println("2.age>>"+PrivateInfo.getAge());
-				System.out.println("2.height>>"+PrivateInfo.getHeight());
-				System.out.println("2.weight>>"+PrivateInfo.getWeight());
-				System.out.println("2.cal>>"+PrivateInfo.getRecomCal());
-				System.out.println("2.dan>>"+PrivateInfo.getRecomProt());
-				System.out.println("2.tan>>"+PrivateInfo.getRecomCarbo());
-				System.out.println("2.ji>>"+PrivateInfo.getRecomFat());
 			}
 			
 		}

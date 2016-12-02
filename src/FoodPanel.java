@@ -29,7 +29,7 @@ public class FoodPanel extends JPanel {
 		setBackground(Color.BLUE);
 		setLayout(null);
 		list = new FoodButtonList(this);
-		GridLayout l = new GridLayout(5, 2);
+		GridLayout l = new GridLayout(10, 2);
 
 		l.setHgap(2);
 		l.setVgap(2);

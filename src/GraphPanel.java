@@ -3,15 +3,12 @@ import javax.swing.*;
 import java.util.concurrent.*;
 public class GraphPanel extends JPanel {
 	private FoodAteBar 	tot,dan,tan,ji;
-	private DataSample 	a;
-	//private PrivateInfo	recom;
+	private static int totX,danX,tanX,jiX;
 	
 	GraphPanel(){
 		setLayout(null);
 		setBackground(Color.gray);
 		setPreferredSize(new Dimension(760,230));
-		
-		a = new DataSample();
 		
 		// main
 		tot = new FoodAteBar(TotalAted.gettCal(),PrivateInfo.getRecomCal());
@@ -30,5 +27,11 @@ public class GraphPanel extends JPanel {
 		ji.setBounds(10,170,740,40);
 		add(ji);
 	}
-
+	
+	public void startThread() {		
+		tot.renew(totX, TotalAted.gettCal(),PrivateInfo.getRecomCal());
+		dan.renew(danX, TotalAted.gettCarbo(),PrivateInfo.getRecomProt());
+		tan.renew(tanX, TotalAted.gettProt(),PrivateInfo.getRecomCarbo());
+		ji.renew(jiX, TotalAted.gettFat(),PrivateInfo.getRecomFat());		
+	}
 }

@@ -23,7 +23,7 @@ public class StartPanel extends JPanel{
 		add(titlePanel);
 		
 		lblTitle = new JLabel("Eating is important");
-		lblTitle.setBounds(0,0,800,70);
+		lblTitle.setBounds(0,0,800,72);
 		lblTitle.setFont(new Font("Segoe Print",Font.BOLD,40));
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitle.setVerticalAlignment(SwingConstants.CENTER);
@@ -44,13 +44,13 @@ public class StartPanel extends JPanel{
 		
 		btnWonder = new JButton("wonder");
 		btnWonder.setFont(fntButton);
-		btnWonder.setBounds(630,300,120,50);
+		btnWonder.setBounds(610,420,120,50);
 		btnWonder.addActionListener(btnL);
 		mainPanel.add(btnWonder);		
 		
 		btnNoWonder = new JButton("no wonder");
 		btnNoWonder.setFont(fntButton);
-		btnNoWonder.setBounds(630,390,120,50);
+		btnNoWonder.setBounds(610,500,120,50);
 		btnNoWonder.addActionListener(btnL);
 		mainPanel.add(btnNoWonder);	
 		

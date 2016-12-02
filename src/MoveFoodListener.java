@@ -62,10 +62,10 @@ public class MoveFoodListener implements MouseListener
 			}
 			else // 타임라인 선택 변경
 			{
-				for(JPanel temp : t_prev.getList()){
+				for(FoodButtonPanel temp : t_prev.getList()){
 					temp.removeMouseListener(listener);
 				}
-				for(JPanel temp : t_cur.getList()){
+				for(FoodButtonPanel temp : t_cur.getList()){
 					temp.addMouseListener(listener);
 				}
 				t_cur.setBorder(BorderFactory.createMatteBorder(3,3,3,3,Color.red));
@@ -79,28 +79,28 @@ public class MoveFoodListener implements MouseListener
 			System.out.println("aaa");
 			cur = (FoodButton)e.getSource();
 			if(t_prev!=null){            //타임에 음식추가********************************************
-				System.out.println("aaa");
-
-				JPanel temp = new JPanel();
+				second.getGraphPanel().startThread();
+				
+			//	ImageIcon tempimage = ((FoodButton)(e.getSource())).getImageIcon();
+				FoodButtonPanel temp = new FoodButtonPanel();
 				//temp.add(new FoodButton(prev));
 				//temp.add(new JLabel(cur.getIcon()));
 				temp.addMouseListener(listener);
 				//temp.removeMouseListener(this);
 				t_prev.addF(temp);
 				TotalAted.add(cur);
-				System.out.println(TotalAted.gettCal());
-				
-				
+				System.out.println("Cal>>"+TotalAted.gettCal());
+				System.out.println("Prot>>"+TotalAted.gettProt());
+				System.out.println("Carbo>>"+TotalAted.gettCarbo());
+				System.out.println("Fat>>"+TotalAted.gettFat());
 			}
 			if(prev==null)
 			{
-				System.out.println("aaa");
 				cur.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.red));
 				prev = cur;
 				
 			}
 			else if(cur==prev){					//푸드에서 음식지우기********************************************
-				System.out.println("aaa");
 			//	food.deleteF(prev);
 			//	prev=null;
 
@@ -111,14 +111,12 @@ public class MoveFoodListener implements MouseListener
 			}
 			else
 			{
-				System.out.println("aaa");
 				cur.setBorder(BorderFactory.createMatteBorder(3,3,3,3,Color.red));
 				prev.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.white));
 				prev = cur;
 
 			}		
 		}else if(e.getSource() == second.getOption_time()){
-			System.out.println("a22aa");
 			time.addTimeLine(new TimeLinePanel());
 			time.setVisible(false);
 			time.setVisible(true);
@@ -126,7 +124,7 @@ public class MoveFoodListener implements MouseListener
 			JDialog popup = new JDialog();
 			popup.setTitle("food setup");
 			{
-				DialogPan pan = new DialogPan(popup,prev);
+				DialogPan pan = new DialogPan(popup);
 				popup.setSize(new Dimension(500,750));
 				//popup.setLayout(null);
 				popup.add(pan);
@@ -158,7 +156,7 @@ public class MoveFoodListener implements MouseListener
 		{
 			if(t_prev!=null )
 			{					
-				t_prev.deleteF((JPanel)e.getSource());
+				t_prev.deleteF((FoodButtonPanel)e.getSource());
 				t_prev.setVisible(false);
 				t_prev.setVisible(true);
 			}

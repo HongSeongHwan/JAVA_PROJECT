@@ -35,8 +35,8 @@ public class ThirdPanel extends JPanel{
 		
 		// advice title .. Top
 		adv = new JLabel("Result! Check please!");
-		adv.setFont(new Font("Verdana",Font.BOLD,30));
-		adv.setBounds(10,10,780,50);
+		adv.setFont(new Font("Segoe Print",Font.BOLD,40));
+		adv.setBounds(10,20,780,50);
 		adv.setHorizontalAlignment(SwingConstants.CENTER);
 		adv.setVerticalAlignment(SwingConstants.CENTER);
 		add(adv);
@@ -45,7 +45,7 @@ public class ThirdPanel extends JPanel{
 		iconQurio = new ImageIcon("picture/third/quriosity.jpg");
 		lblImg = new JLabel(iconQurio);
 		img = new JPanel();
-		img.setBounds(20,90,300,630);
+		img.setBounds(40,90,300,630);
 		img.setBackground(Color.white);
 		img.add(lblImg);
 		add(img);
@@ -61,7 +61,7 @@ public class ThirdPanel extends JPanel{
 		// main	.. Mid right
 		// 1. Total
 		tot = new AdvicePanel("Total",TotalAted.gettCal(),PrivateInfo.getRecomCal());
-		tot.setBounds(330,90,400,150);
+		tot.setBounds(350,90,400,150);
 		add(tot);
 		
 		// 2. Protein

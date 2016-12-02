@@ -32,29 +32,29 @@ public class FirstPanel extends JPanel {
 		
 		
 		
-		title.setText("당신은 누구 인가요?");
-		title.setFont(new Font("Araial black",Font.BOLD,30));
-		title.setBounds(230, 10, 500, 100);
+		title.setText("당신은 누구인가요?");
+		title.setFont(new Font("HYGothic",Font.BOLD,40));
+		title.setBounds(210, 100, 500, 100);
 		this.setBounds(0,0,800,1000);
 		this.setLayout(null);
 		this.setBackground(n);
 		add(title);
 		
 		JLabel image1=new JLabel(man);
-		image1.setBounds(150, 80, 200, 250);
+		image1.setBounds(175, 210, 200, 250);
 		add(image1);
 		
 		JLabel image2=new JLabel(woman);
-		image2.setBounds(400,80,200,250);
+		image2.setBounds(425,210,200,250);
 		add(image2);
 		
-		rb1.setFont(new Font("Araial black",20,20));
-		rb1.setBounds(200, 330, 80, 50);
+		rb1.setFont(new Font("HYGothic",20,20));
+		rb1.setBounds(235, 430, 80, 50);
 		rb1.setBackground(n);
 		add(rb1);
 		
-		rb2.setFont(new Font("Araial black",20,20));
-		rb2.setBounds(460, 330, 80, 50);
+		rb2.setFont(new Font("HYGothic",20,20));
+		rb2.setBounds(485, 430, 80, 50);
 		rb2.setBackground(n);
 		add(rb2);
 		
@@ -62,30 +62,30 @@ public class FirstPanel extends JPanel {
 		group.add(rb2);
 		
 		lbl[0] = new JLabel("Age :");
-		lbl[0].setFont(new Font("Arial black",Font.BOLD,20));
-		lbl[0].setBounds(200, 400, 100, 50);
+		lbl[0].setFont(new Font("Segoe Print",Font.BOLD,20));
+		lbl[0].setBounds(235, 530, 100, 50);
 		add(lbl[0]);
 		
 		field[0] = new JTextField();
-		field[0].setBounds(300, 400, 200, 50);
+		field[0].setBounds(360, 530, 200, 50);
 		add(field[0]);
 		
 		lbl[1] = new JLabel("Weight :");
-		lbl[1].setFont(new Font("Arial black",Font.BOLD,20));
-		lbl[1].setBounds(200, 460, 150, 50);
+		lbl[1].setFont(new Font("Segoe Print",Font.BOLD,20));
+		lbl[1].setBounds(235, 600, 150, 50);
 		add(lbl[1]);
 		
 		field[1] = new JTextField();
-		field[1].setBounds(300, 460, 200, 50);
+		field[1].setBounds(360, 600, 200, 50);
 		add(field[1]);
 		
 		lbl[2] = new JLabel("Height :");
-		lbl[2].setFont(new Font("Arial black",Font.BOLD,20));
-		lbl[2].setBounds(200, 520, 150, 50);
+		lbl[2].setFont(new Font("Segoe Print",Font.BOLD,20));
+		lbl[2].setBounds(235, 670, 150, 50);
 		add(lbl[2]);
 		
 		field[2] = new JTextField();
-		field[2].setBounds(300, 520, 200, 50);
+		field[2].setBounds(360, 670, 200, 50);
 		add(field[2]);
 		
 		
@@ -138,15 +138,6 @@ public class FirstPanel extends JPanel {
 						PrivateInfo.setHeight(Integer.parseInt(field[2].getText()));						
 						PrivateInfo.recommend();
 						
-						// test 
-						System.out.println("sex>>"+PrivateInfo.getSex());
-						System.out.println("age>>"+PrivateInfo.getAge());
-						System.out.println("height>>"+PrivateInfo.getHeight());
-						System.out.println("weight>>"+PrivateInfo.getWeight());
-						System.out.println("cal>>"+PrivateInfo.getRecomCal());
-						System.out.println("dan>>"+PrivateInfo.getRecomProt());
-						System.out.println("tan>>"+PrivateInfo.getRecomCarbo());
-						System.out.println("ji>>"+PrivateInfo.getRecomFat());
 						//다음장으로 넘기기
 						ViewControl.viewPanel(1, 2);
 					}
