@@ -8,6 +8,7 @@ import javax.swing.*;
 public class SecondPanel extends JPanel{
 	private static final int VERTICAL = 0;
 	private static final int HORIZONTAL = 0;
+	private static SecondPanel out;
 	private FoodPanel foodPanel;
 	private TimePanel timePanel;
 	private GraphPanel graphPanel;
@@ -17,10 +18,12 @@ public class SecondPanel extends JPanel{
 	private JScrollPane scroll1, scroll2;
 	private final int loction_pane_x = 55;
 	private final int height_pane = 600;
-	
 	private JButton option_time ,option_food;
+	static public SecondPanel getSecondPanel(){
+		return out;
+	}
 	public SecondPanel(){
-		
+		out = this;
 		foodPanel = new FoodPanel(this);
 		timePanel = new TimePanel(this);
 		
@@ -108,6 +111,19 @@ public class SecondPanel extends JPanel{
 			else if(e.getSource()==nbtn)
 			{
 				ViewControl.viewPanel(2, 3);
+				// test 
+				System.out.println("sex>>"+PrivateInfo.getSex());
+				System.out.println("age>>"+PrivateInfo.getAge());
+				System.out.println("height>>"+PrivateInfo.getHeight());
+				System.out.println("weight>>"+PrivateInfo.getWeight());
+				System.out.println("cal>>"+PrivateInfo.getRecomCal());
+				System.out.println("dan>>"+PrivateInfo.getRecomProt());
+				System.out.println("tan>>"+PrivateInfo.getRecomCarbo());
+				System.out.println("ji>>"+PrivateInfo.getRecomFat());
+				System.out.println("sex>>"+PrivateInfo.getSex());
+				System.out.println("age>>"+PrivateInfo.getAge());
+				System.out.println("height>>"+PrivateInfo.getHeight());
+				System.out.println("weight>>"+PrivateInfo.getWeight());
 			}
 			
 		}

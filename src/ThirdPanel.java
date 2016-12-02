@@ -6,12 +6,13 @@ import javax.swing.*;
 public class ThirdPanel extends JPanel{
 	//private JPanel upPanel, downPanel;
 	private JButton bbtn,nbtn;
-	private ThirdPanelListener listener;
-	private AdviceLabel lblTot,lblDan,lblTan,lblJi;
-	private JPanel img,tot,dan,tan,ji,recom;
+	private JPanel img,recom;
 	private JLabel adv,lblImg;
 	private int check;
 	private ImageIcon iconQurio;
+	
+	private ThirdPanelListener listener;
+	private AdvicePanel tot,dan,tan,ji;
 	
 	public ThirdPanel(){
 		this.setBounds(0,0,800,1000);
@@ -50,70 +51,33 @@ public class ThirdPanel extends JPanel{
 		img.add(lblImg);
 		add(img);
 		
-		
-		// result .. Mid right
-		tot = new JPanel();
-		tot.setBounds(340,90,400,150);
-		// making color
-		check = 1; // tmp		
-		if(check == 1)			tot.setBackground(Color.blue);
-		else if(check == -1)	tot.setBackground(Color.red);
-		else 					tot.setBackground(Color.green);
-		// etc..
-		tot.setLayout(null);		
-		lblTot = new AdviceLabel(1,check);
-		tot.add(lblTot);
+		// main	.. Mid right
+		// 1. Total
+		tot = new AdvicePanel("Total",TotalAted.gettCal(),PrivateInfo.getRecomCal());
+		tot.setBounds(330,90,400,150);
 		add(tot);
 		
-		
-		dan = new JPanel();
-		dan.setBounds(340,250,400,150);
-		
-		check = 0; // tmp		
-		if(check == 1)			dan.setBackground(Color.blue);
-		else if(check == -1)	dan.setBackground(Color.red);
-		else 					dan.setBackground(Color.green);
-		
-		dan.setLayout(null);		
-		lblDan = new AdviceLabel(2,check);
-		dan.add(lblDan);
+		// 2. Protein
+		dan = new AdvicePanel("Protein",TotalAted.gettProt(),PrivateInfo.getRecomProt());
+		dan.setBounds(330,250,400,150);
 		add(dan);
 		
-		
-		tan = new JPanel();
-		tan.setBounds(340,410,400,150);
-		
-		check = -1; // tmp		
-		if(check == 1)			tan.setBackground(Color.blue);
-		else if(check == -1)	tan.setBackground(Color.red);
-		else 					tan.setBackground(Color.green);
-		
-		tan.setLayout(null);		
-		lblTan = new AdviceLabel(2,check);
-		tan.add(lblTan);
+		// 3. Carbohydrate
+		tan = new AdvicePanel("Carbo",TotalAted.gettCarbo(),PrivateInfo.getRecomCarbo());
+		tan.setBounds(330,410,400,150);
 		add(tan);
-			
-			
-		ji = new JPanel();
-		ji.setBounds(340,570,400,150);
 		
-		check = 1; // tmp		
-		if(check == 1)			ji.setBackground(Color.blue);
-		else if(check == -1)	ji.setBackground(Color.red);
-		else 					ji.setBackground(Color.green);
-		
-		ji.setLayout(null);		
-		lblJi = new AdviceLabel(2,check);
-		ji.add(lblJi);		
-		add(ji);
-		
+		// 4. Fat
+		ji = new AdvicePanel("Fat",TotalAted.gettFat(),PrivateInfo.getRecomFat());
+		ji.setBounds(330,570,400,150);
+		add(ji);		
 		
 		// Recomand - Bottom
 		recom = new JPanel();
 		recom.setBounds(20,730,720,150);
 		recom.setBackground(Color.yellow);
 		add(recom);
-	}
+	}	// ThirdPanel()
 	
 	
 	

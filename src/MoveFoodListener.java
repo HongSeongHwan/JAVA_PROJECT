@@ -23,8 +23,12 @@ public class MoveFoodListener implements MouseListener
 	private MyListener listener;
 
 	private SecondPanel second;
-	
+	private static MoveFoodListener me;
+	public static MoveFoodListener getMoveFoodListener(){
+		return me;
+	}
 	public  MoveFoodListener(SecondPanel s){
+		me = this;
 		listener = new MyListener();
 		second = s;
 		setTime();
@@ -84,6 +88,7 @@ public class MoveFoodListener implements MouseListener
 				//temp.removeMouseListener(this);
 				t_prev.addF(temp);
 				TotalAted.add(cur);
+				System.out.println(TotalAted.gettCal());
 				
 			}
 			if(prev==null)
@@ -119,22 +124,14 @@ public class MoveFoodListener implements MouseListener
 		}else{
 			JDialog popup = new JDialog();
 			popup.setTitle("food setup");
-			apply = new JButton("apply");
-			exit = new JButton("eixt");
-			
-			if(prev==null){
-				
-				DialogPan pan = new DialogPan();
-				popup.setSize(new Dimension(1000,1000));
-				popup.setLayout(null);
+			{
+				DialogPan pan = new DialogPan(popup,prev);
+				popup.setSize(new Dimension(500,750));
+				//popup.setLayout(null);
 				popup.add(pan);
-				popup.show();
-			}else {
+				popup.setVisible(true);
 			}
-
 		}
-
-
 	}
 	public void mouseEntered(MouseEvent e){}
 	public void mouseExited(MouseEvent e){}

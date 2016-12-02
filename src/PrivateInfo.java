@@ -36,13 +36,13 @@ public class PrivateInfo {
 		recomCarbo = 4 * weight;
 		
 		//지방
-		if(sex == 1)
+		if(sex == 1)	//	man
 			recomFat = 58.9;
-		else
+		else			// woman
 			recomFat = 43.0;
 		
 		//칼로리, 단백질
-		if (sex == 1) {
+		if (sex == 1) {	// man
 			if (age>=1 && age<=3) {
 				recomCal = 1200;
 				recomProt = 25;
@@ -74,10 +74,9 @@ public class PrivateInfo {
 			else {
 				recomCal = 1900;
 				recomProt = 60;
-			}
-			
+			}			
 		}
-		else {
+		else {	// woman
 			if (age>=1 && age<=3) {
 				recomCal = 1200;
 				recomProt = 25;
@@ -118,8 +117,5 @@ public class PrivateInfo {
 	public static void setRecomCal(double recomCal)			{ PrivateInfo.recomCal = recomCal; }
 	public static void setRecomCarbo(double recomCarbo) 	{ PrivateInfo.recomCarbo = recomCarbo; }
 	public static void setRecomProt(double recomProt)		{ PrivateInfo.recomProt = recomProt; }
-	public static void setRecomFat(double recomFat)			{ PrivateInfo.recomFat = recomFat; }
-	
-	
-	
+	public static void setRecomFat(double recomFat)			{ PrivateInfo.recomFat = recomFat; }	
 }

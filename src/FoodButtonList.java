@@ -11,17 +11,11 @@ public class FoodButtonList
 	private ArrayList<FoodButton> list;
 	private int num;
 //	private MoveFoodListener listener;
-	public int getNum()
-	{
-		return num;
-	}
-	public FoodButton getB(int a)
-	{
-		return list.get(a);
-	}	
-	public ArrayList<FoodButton> getList(){
-		return list;
-	}
+	
+	// get
+	public int getNum()						{ return num;			}
+	public FoodButton getB(int a)			{ return list.get(a);	}	
+	public ArrayList<FoodButton> getList()	{ return list;			}
 
 	public FoodButtonList(FoodPanel x)
 	{

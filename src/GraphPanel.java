@@ -12,9 +12,11 @@ public class GraphPanel extends JPanel {
 		setPreferredSize(new Dimension(760,230));
 		
 		a = new DataSample();
-		PrivateInfo.recommend();
+	//	PrivateInfo.recommend();
 		
-		// test 
+
+		
+		// main
 		tot = new FoodAteBar(TotalAted.gettCal(),PrivateInfo.getRecomCal());
 		tot.setBounds(10,20,740,40);
 		add(tot);

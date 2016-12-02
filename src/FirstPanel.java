@@ -16,24 +16,28 @@ public class FirstPanel extends JPanel {
 
 	
 	FirstPanel(){
+		Color n=new Color(255, 207, 181);
+		
 		num = 4;
 		field = new JTextField[num];
 		lbl = new JLabel[num];
 		title = new JLabel();
-		man=new ImageIcon("picture/first/man.jpg");
-		woman=new ImageIcon("picture/first/woman.jpg");
+		man=new ImageIcon("picture/first/man.png");
+		woman=new ImageIcon("picture/first/woman.png");
 		rb1=new JRadioButton("남성");
 		rb1.addActionListener(listener);
 		rb2=new JRadioButton("여성");
 		rb2.addActionListener(listener);
 		group=new ButtonGroup();
 		
+		
+		
 		title.setText("당신은 누구 인가요?");
-		title.setFont(new Font("Araial black",Font.BOLD,20));
-		title.setBounds(300, 10, 500, 100);
+		title.setFont(new Font("Araial black",Font.BOLD,30));
+		title.setBounds(230, 10, 500, 100);
 		this.setBounds(0,0,800,1000);
 		this.setLayout(null);
-		this.setBackground(Color.white);
+		this.setBackground(n);
 		add(title);
 		
 		JLabel image1=new JLabel(man);
@@ -46,12 +50,12 @@ public class FirstPanel extends JPanel {
 		
 		rb1.setFont(new Font("Araial black",20,20));
 		rb1.setBounds(200, 330, 80, 50);
-		rb1.setBackground(Color.white);
+		rb1.setBackground(n);
 		add(rb1);
 		
 		rb2.setFont(new Font("Araial black",20,20));
 		rb2.setBounds(460, 330, 80, 50);
-		rb2.setBackground(Color.white);
+		rb2.setBackground(n);
 		add(rb2);
 		
 		group.add(rb1);
@@ -102,23 +106,23 @@ public class FirstPanel extends JPanel {
 	
 	private class FirstPanelListener implements ActionListener
 	{
-		private PrivateInfo informed;
+		//private PrivateInfo informed;
 		public void actionPerformed(ActionEvent e){
 
 			if(e.getSource()==rb1)
 			{				
-				informed.setSex(1);//1==남자				
-				System.out.println(informed.getSex());			
+				PrivateInfo.setSex(1);//1==남자				
+				System.out.println(PrivateInfo.getSex());			
 			}
 			else if(e.getSource()==rb2)
 			{
-				informed.setSex(2);//2==여자
+				PrivateInfo.setSex(2);//2==여자
 				
-				System.out.println(informed.getSex());
+				System.out.println(PrivateInfo.getSex());
 			}
 			else if(e.getSource()==nbtn)
 			{
-				if(informed.getSex()==0)
+				if(PrivateInfo.getSex()==0)
 					{JOptionPane.showMessageDialog(FirstPanel.this, "Error : Select Gender.","Error",JOptionPane.WARNING_MESSAGE);}
 
 				else {
@@ -130,15 +134,15 @@ public class FirstPanel extends JPanel {
 					
 					}catch(IllegalArgumentException ectn){JOptionPane.showMessageDialog(FirstPanel.this, "Error : Input Natural Number.","Error",JOptionPane.WARNING_MESSAGE);}
 				
-					if(informed.getSex()!=0&&Integer.parseInt(field[0].getText())>0&&Integer.parseInt(field[1].getText())>0&&Integer.parseInt(field[2].getText())>0)
+					if(PrivateInfo.getSex()!=0&&Integer.parseInt(field[0].getText())>0&&Integer.parseInt(field[1].getText())>0&&Integer.parseInt(field[2].getText())>0)
 					{
-						informed.setAge(Integer.parseInt(field[0].getText()));
-						informed.setWeight(Integer.parseInt(field[1].getText()));
-						informed.setHeight(Integer.parseInt(field[2].getText()));
-												
-						System.out.println(informed.getAge());
-						System.out.println(informed.getHeight());
-						System.out.println(informed.getWeight());
+						PrivateInfo.setAge(Integer.parseInt(field[0].getText()));
+						PrivateInfo.setWeight(Integer.parseInt(field[1].getText()));
+						PrivateInfo.setHeight(Integer.parseInt(field[2].getText()));
+				
+						System.out.println(PrivateInfo.getAge());
+						System.out.println(PrivateInfo.getHeight());
+						System.out.println(PrivateInfo.getWeight());
 						//다음장으로 넘기기
 						ViewControl.viewPanel(1, 2);
 					}

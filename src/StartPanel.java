@@ -9,10 +9,12 @@ public class StartPanel extends JPanel{
 	private ImageIcon	iconQuestion;	// 메인화면 - 사진, 말풍선
 	private ButtonListener btnL;
 	
-	public StartPanel(){				
+	public StartPanel(){		
+		Color n=new Color(255, 207, 181);
 		this.setBounds(0,0,800,1000);
 		this.setLayout(null);
-		this.setBackground(Color.white);
+		this.setBackground(n);
+		
 
 		btnL = new ButtonListener();	
 		titlePanel = new JPanel();
@@ -29,7 +31,7 @@ public class StartPanel extends JPanel{
 		
 		mainPanel = new JPanel();
 		mainPanel.setBounds(0,110,800,650);
-		mainPanel.setBackground(Color.white);
+		mainPanel.setBackground(n);
 		mainPanel.setLayout(null);
 		add(mainPanel);				
 		
@@ -42,13 +44,13 @@ public class StartPanel extends JPanel{
 		
 		btnWonder = new JButton("wonder");
 		btnWonder.setFont(fntButton);
-		btnWonder.setBounds(610,300,130,50);
+		btnWonder.setBounds(630,300,120,50);
 		btnWonder.addActionListener(btnL);
 		mainPanel.add(btnWonder);		
 		
 		btnNoWonder = new JButton("no wonder");
 		btnNoWonder.setFont(fntButton);
-		btnNoWonder.setBounds(610,390,130,50);
+		btnNoWonder.setBounds(630,390,120,50);
 		btnNoWonder.addActionListener(btnL);
 		mainPanel.add(btnNoWonder);	
 		

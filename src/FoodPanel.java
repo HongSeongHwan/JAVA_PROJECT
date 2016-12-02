@@ -25,7 +25,7 @@ public class FoodPanel extends JPanel {
 		setBackground(Color.BLUE);
 		setLayout(null);
 		list = new FoodButtonList(this);
-		GridLayout l = new GridLayout(10, 3);
+		GridLayout l = new GridLayout(5, 2);
 
 		l.setHgap(2);
 		l.setVgap(2);
@@ -33,10 +33,12 @@ public class FoodPanel extends JPanel {
 		
 		for(i=0; i<FOODA.length; i++) {
 			button[i] = new FoodButton();
+		//	button[i].setName(foodData[i][]);
 		}
 		
-		/*
 		FoodButton button1 = new FoodButton(new ImageIcon("picture/food/ssalbab.jpg"));
+		button1.setCalories(11);
+		
 		// button1.setBorderPainted(false);
 		// button1.setFocusPainted(false);
 		// button1.setContentAreaFilled(false);
@@ -71,7 +73,9 @@ public class FoodPanel extends JPanel {
 		// button6.setBorderPainted(false);
 		// button6.setFocusPainted(false);
 		// button6.setContentAreaFilled(false);
-		foodAdd(button6);*/
+		foodAdd(button6);
+		foodAdd(button6);
+		foodAdd(button6);
 	}
 
 	public void listenerAdd() {
@@ -85,7 +89,10 @@ public class FoodPanel extends JPanel {
 		x.addMouseListener(second.getMoveFoodListener());
 		// add(list.getB(list.getNum()));
 	}
-
+	public void foodDelete(FoodButton x) {
+		list.deleteF(x);
+		// add(list.getB(list.getNum()));
+	}
 	public FoodButtonList getFoodButtonList() {
 		return list;
 	}
