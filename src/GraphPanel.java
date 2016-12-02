@@ -30,8 +30,13 @@ public class GraphPanel extends JPanel {
 	
 	public void startThread() {		
 		tot.renew(totX, TotalAted.gettCal(),PrivateInfo.getRecomCal());
-		dan.renew(danX, TotalAted.gettCarbo(),PrivateInfo.getRecomProt());
-		tan.renew(tanX, TotalAted.gettProt(),PrivateInfo.getRecomCarbo());
-		ji.renew(jiX, TotalAted.gettFat(),PrivateInfo.getRecomFat());		
+		dan.renew(danX, TotalAted.gettProt(),PrivateInfo.getRecomProt());
+		tan.renew(tanX, TotalAted.gettCarbo(),PrivateInfo.getRecomCarbo());
+		ji.renew(jiX, TotalAted.gettFat(),PrivateInfo.getRecomFat());	
+		
+		totX	= tot.getDestiny(TotalAted.gettCal(),PrivateInfo.getRecomCal());
+		danX	= dan.getDestiny(TotalAted.gettProt(),PrivateInfo.getRecomProt());
+		tanX	= tan.getDestiny(TotalAted.gettCarbo(),PrivateInfo.getRecomCarbo());
+		jiX		= ji.getDestiny(TotalAted.gettFat(),PrivateInfo.getRecomFat());
 	}
 }

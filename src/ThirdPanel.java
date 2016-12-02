@@ -3,6 +3,8 @@ import java.awt.event.*;
 
 
 import javax.swing.*;
+import javax.swing.border.Border;
+
 public class ThirdPanel extends JPanel{
 	//private JPanel upPanel, downPanel;
 	private JButton bbtn,nbtn;
@@ -15,27 +17,35 @@ public class ThirdPanel extends JPanel{
 	private AdvicePanel tot,dan,tan,ji;
 	
 	public ThirdPanel(){
+		Color n=new Color(255, 207, 181);
 		this.setBounds(0,0,800,1000);
 		this.setLayout(null);
-		this.setBackground(Color.white);
+		this.setBackground(n);
 		
 		// page change button
-		bbtn = new JButton("¢¸");
-		nbtn = new JButton("¢º");
+		bbtn= new JButton(new ImageIcon("picture/first/back.png"));
+		nbtn = new JButton(new ImageIcon("picture/first/next.png"));
 		listener = new ThirdPanelListener();		
 		
-		bbtn.setBounds(670, 900, 50, 50);
 		bbtn.addActionListener(listener);
+		bbtn.setBounds(670, 900, 50, 50);
+		bbtn.setBorder(new RoundedBorder(70));
+		bbtn.setBackground(n);
+		bbtn.setForeground(n);
 		add(bbtn);
 		
-		nbtn.setBounds(720, 900, 50, 50);
+		
 		nbtn.addActionListener(listener);
+		nbtn.setBounds(720, 900, 50, 50);
+		nbtn.setBorder(new RoundedBorder(70));
+		nbtn.setBackground(n);
+		nbtn.setForeground(n);	
 		nbtn.setEnabled(false);
 		add(nbtn);	
 		
 		// advice title .. Top
-		adv = new JLabel("Result! Check please!");
-		adv.setFont(new Font("Segoe Print",Font.BOLD,40));
+		adv = new JLabel("Result! Check Please!");
+		adv.setFont(new Font("Segoe Print",Font.BOLD,50));
 		adv.setBounds(10,20,780,50);
 		adv.setHorizontalAlignment(SwingConstants.CENTER);
 		adv.setVerticalAlignment(SwingConstants.CENTER);
@@ -45,17 +55,33 @@ public class ThirdPanel extends JPanel{
 		iconQurio = new ImageIcon("picture/third/quriosity.jpg");
 		lblImg = new JLabel(iconQurio);
 		img = new JPanel();
-		img.setBounds(40,90,300,630);
+		img.setBounds(35,85,300,635);
 		img.setBackground(Color.white);
 		img.add(lblImg);
 		add(img);
 				
 		// Recomand - Bottom
 		recom = new JPanel();
-		recom.setBounds(20,730,720,150);
+		recom.setBounds(35,735,715,150);
 		recom.setBackground(Color.yellow);
 		add(recom);
 	}	// ThirdPanel()
+	
+	class RoundedBorder implements Border { 
+		int radius;
+		RoundedBorder(int radius) { 
+			this.radius = radius; 
+		} 
+		public Insets getBorderInsets(Component c) { 
+			return new Insets(this.radius + 1, this.radius + 1, this.radius + 2, this.radius); 
+		} 
+		public boolean isBorderOpaque() { 
+			return true; 
+		} 
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) { 
+			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius); 
+		} 
+	}
 	
 	public void Analysis() {
 		// main	.. Mid right
@@ -66,17 +92,17 @@ public class ThirdPanel extends JPanel{
 		
 		// 2. Protein
 		dan = new AdvicePanel("Protein",TotalAted.gettProt(),PrivateInfo.getRecomProt());
-		dan.setBounds(330,250,400,150);
+		dan.setBounds(350,250,400,150);
 		add(dan);
 		
 		// 3. Carbohydrate
 		tan = new AdvicePanel("Carbo",TotalAted.gettCarbo(),PrivateInfo.getRecomCarbo());
-		tan.setBounds(330,410,400,150);
+		tan.setBounds(350,410,400,150);
 		add(tan);
 		
 		// 4. Fat
 		ji = new AdvicePanel("Fat",TotalAted.gettFat(),PrivateInfo.getRecomFat());
-		ji.setBounds(330,570,400,150);
+		ji.setBounds(350,570,400,150);
 		add(ji);
 	}
 	

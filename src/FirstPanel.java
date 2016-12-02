@@ -1,5 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.awt.event.*;
 
 
@@ -89,20 +91,44 @@ public class FirstPanel extends JPanel {
 		add(field[2]);
 		
 		
-		bbtn= new JButton("¢¸");
+		bbtn= new JButton(new ImageIcon("picture/first/back.png"));
 		bbtn.addActionListener(listener);
 		bbtn.setBounds(670, 900, 50, 50);
+		bbtn.setBorder(new RoundedBorder(70));
+		bbtn.setBackground(n);
+		bbtn.setForeground(n);
 		add(bbtn);
 		bbtn.setEnabled(false);
 		
-		nbtn = new JButton("¢º");
+		nbtn = new JButton(new ImageIcon("picture/first/next.png"));
 		nbtn.addActionListener(listener);
 		nbtn.setBounds(720, 900, 50, 50);
+		nbtn.setBorder(new RoundedBorder(70));
+		nbtn.setBackground(n);
+		nbtn.setForeground(n);
 		add(nbtn);
 		
 		
 		
 	}
+	
+	class RoundedBorder implements Border { 
+		int radius;
+		RoundedBorder(int radius) { 
+			this.radius = radius; 
+		} 
+		public Insets getBorderInsets(Component c) { 
+			return new Insets(this.radius + 1, this.radius + 1, this.radius + 2, this.radius); 
+		} 
+		public boolean isBorderOpaque() { 
+			return true; 
+		} 
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) { 
+			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius); 
+		} 
+	}
+
+
 	
 	private class FirstPanelListener implements ActionListener
 	{

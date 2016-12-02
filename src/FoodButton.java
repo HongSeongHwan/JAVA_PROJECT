@@ -9,28 +9,31 @@ public class FoodButton extends JButton {
 	private String name;
 	private ImageIcon imageIcon;
 	private Image image;
-	
+	private int key;
 	public  FoodButton(FoodButton f) {
 		fat = f.fat;
 		calories = f.calories;
 		protein = f.protein;
 		tansoo = f.tansoo;
 		name = f.name;
+		key = f.key;
 	}
 	
 	// get
+	public int  getKey()			{return key;}
 	public double getFat()			{ return fat;		}
-	public double getCalories()	{ return calories;	}
+	public double getCalories()		{ return calories;	}
 	public double getProtein()		{ return protein;	}
 	public double getTansoo()		{ return tansoo;	}
-	public String getName()		{ return name;		}
+	public String getName()			{ return name;		}
 	
 	// set
+	public void setKey(int key){this.key = key;}
 	public void setFat(double fat)				{ this.fat = fat;			}
 	public void setCalories(double calories)	{ this.calories = calories; }
 	public void setProtein(double protein)		{ this.protein = protein;	}
 	public void setTansoo(double tansoo)		{ this.tansoo = tansoo;		}
-	public void setName(String name)		{ this.name = name;			}
+	public void setName(String name)			{ this.name = name;			}
 	public ImageIcon getImageIcon(){
 		return imageIcon;
 	}

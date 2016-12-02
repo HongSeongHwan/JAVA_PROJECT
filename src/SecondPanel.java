@@ -5,6 +5,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.concurrent.*;
 import javax.swing.*;
+import javax.swing.border.Border;
+
 
 public class SecondPanel extends JPanel{
 	//private final Semaphore sem;
@@ -25,6 +27,7 @@ public class SecondPanel extends JPanel{
 		return out;
 	}
 	public SecondPanel(){
+		Color n=new Color(255, 207, 181);
 	//	sem = new Semaphore(4);
 		
 		out = this;
@@ -35,8 +38,8 @@ public class SecondPanel extends JPanel{
 		
 		
 		graphPanel = new GraphPanel();
-		bbtn = new JButton("¢¸");
-		nbtn = new JButton("¢º");
+		bbtn= new JButton(new ImageIcon("picture/first/back.png"));
+		nbtn = new JButton(new ImageIcon("picture/first/next.png"));
 		option_time = new JButton(new ImageIcon("picture/second/plus2.jpg"));
 		option_food = new JButton(new ImageIcon("picture/second/plus2.jpg"));
 		
@@ -56,7 +59,7 @@ public class SecondPanel extends JPanel{
 		
 		this.setBounds(0,0,800,1000);
 		this.setLayout(null);
-		this.setBackground(Color.white);
+		this.setBackground(n);
 		
 		timePanel.setBounds(10, loction_pane_x, 370, height_pane);
 		timePanel.setBackground(Color.orange);
@@ -72,12 +75,19 @@ public class SecondPanel extends JPanel{
 		graphPanel.setBackground(Color.gray);
 		add(graphPanel);
 		
-		bbtn.setBounds(670, 900, 50, 50);
 		bbtn.addActionListener(listener);
+		bbtn.setBounds(670, 900, 50, 50);
+		bbtn.setBorder(new RoundedBorder(70));
+		bbtn.setBackground(n);
+		bbtn.setForeground(n);
 		add(bbtn);
 		
-		nbtn.setBounds(720, 900, 50, 50);
+		
 		nbtn.addActionListener(listener);
+		nbtn.setBounds(720, 900, 50, 50);
+		nbtn.setBorder(new RoundedBorder(70));
+		nbtn.setBackground(n);
+		nbtn.setForeground(n);
 		add(nbtn);	
 		
 		
@@ -97,6 +107,21 @@ public class SecondPanel extends JPanel{
 	public TimePanel getTimePanel()					{ return timePanel;	}
 	public GraphPanel getGraphPanel()				{ return graphPanel; }
 	
+	class RoundedBorder implements Border { 
+		int radius;
+		RoundedBorder(int radius) { 
+			this.radius = radius; 
+		} 
+		public Insets getBorderInsets(Component c) { 
+			return new Insets(this.radius + 1, this.radius + 1, this.radius + 2, this.radius); 
+		} 
+		public boolean isBorderOpaque() { 
+			return true; 
+		} 
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) { 
+			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius); 
+		} 
+	}
 	
 	private class SecondPanelListener implements ActionListener
 	{

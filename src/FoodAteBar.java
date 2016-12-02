@@ -14,7 +14,7 @@ public class FoodAteBar extends JPanel {
 		setBackground(Color.white);	
 
 		eLine = new EverageLine(740/1.2);
-		delay = 30;
+		delay = 15;
 	}
 	public void renew(int x, double a, double b){
 		rectX = x;
@@ -25,8 +25,10 @@ public class FoodAteBar extends JPanel {
 		new GraphThread(this).start();	
 	}
 	
-//	public double getData()		{ return data; }
-//	public double getDataD()	{ return dataD; }	
+	public int getDestiny(double a, double b)	{ 
+		destiny = (int)((a*740)/(b*1.2));
+		return destiny; 
+	}
 	
 	public void paintComponent(Graphics page)
 	{
@@ -56,8 +58,7 @@ public class FoodAteBar extends JPanel {
    				try{
    					 Thread.sleep(delay);
    				}catch(Exception e){}
-  			}
- 			/*
+  			} 			
  			while(destiny < rectX){
   				rectX -= 1;
 				graph.repaint();
@@ -65,8 +66,7 @@ public class FoodAteBar extends JPanel {
    				try{
    					 Thread.sleep(delay);
    				}catch(Exception e){}
-  			} 	
-  			*/		
+  			} 		
  		} 		
 	}
 	

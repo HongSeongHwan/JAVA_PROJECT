@@ -21,13 +21,15 @@ public class TotalAted {
 	public static void addtFat(double tFat)		{ TotalAted.tFat	+= tFat;	}
 	public static void addProt(double tProt)	{ TotalAted.tProt	+= tProt;	}
 
+	// food was added
 	public static void add(FoodButton x) {
 		tCarbo	+= x.getTansoo();
 		tFat 	+= x.getFat();
 		tProt 	+= x.getProtein();
 		tCal 	+= x.getCalories();
 	}
-
+	
+	// food was deleted
 	public static void minus(FoodButton x) {
 		tCarbo	-= x.getTansoo();
 		tFat	-= x.getFat();

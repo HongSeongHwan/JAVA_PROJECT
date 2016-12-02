@@ -47,7 +47,6 @@ public class MoveFoodListener implements MouseListener
 
 		if(e.getSource().getClass()==(new TimeLinePanel()).getClass()) //타임라인에서 이벤트 발생
 		{
-			System.out.println("aaa");
 			t_cur = (TimeLinePanel)e.getSource();
 			if(t_prev==null) //선택 되었던 타임 라인 존재 하지 않음
 			{
@@ -76,29 +75,29 @@ public class MoveFoodListener implements MouseListener
 		}
 		else if(e.getSource().getClass()==(new FoodButton()).getClass())
 		{
-			System.out.println("aaa");
 			cur = (FoodButton)e.getSource();
 			if(t_prev!=null){            //타임에 음식추가********************************************
 				second.getGraphPanel().startThread();
 				
-			//	ImageIcon tempimage = ((FoodButton)(e.getSource())).getImageIcon();
-				FoodButtonPanel temp = new FoodButtonPanel();
+				ImageIcon tempimage = new ImageIcon(LoadImage.FOODIMAGE[cur.getKey() ]);
+				FoodButtonPanel temp = new FoodButtonPanel(tempimage,cur );
 				//temp.add(new FoodButton(prev));
 				//temp.add(new JLabel(cur.getIcon()));
 				temp.addMouseListener(listener);
 				//temp.removeMouseListener(this);
 				t_prev.addF(temp);
 				TotalAted.add(cur);
-				System.out.println("Cal>>"+TotalAted.gettCal());
-				System.out.println("Prot>>"+TotalAted.gettProt());
-				System.out.println("Carbo>>"+TotalAted.gettCarbo());
-				System.out.println("Fat>>"+TotalAted.gettFat());
+				
+				System.out.println("insert");
+				System.out.println("tot >> " + TotalAted.gettCal());
+				System.out.println("dan >> " + TotalAted.gettProt());
+				System.out.println("tan >> " +TotalAted.gettCarbo());
+				System.out.println("ji >> " + TotalAted.gettFat());
 			}
 			if(prev==null)
 			{
 				cur.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.red));
-				prev = cur;
-				
+				prev = cur;				
 			}
 			else if(cur==prev){					//푸드에서 음식지우기********************************************
 			//	food.deleteF(prev);
@@ -114,7 +113,6 @@ public class MoveFoodListener implements MouseListener
 				cur.setBorder(BorderFactory.createMatteBorder(3,3,3,3,Color.red));
 				prev.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.white));
 				prev = cur;
-
 			}		
 		}else if(e.getSource() == second.getOption_time()){
 			time.addTimeLine(new TimeLinePanel());
@@ -139,10 +137,6 @@ public class MoveFoodListener implements MouseListener
 		public void actionPerformed(ActionEvent e){
 			if(e.getSource() == apply && prev==null){
 				FoodButton temp = new FoodButton();
-//			22	temp.setTansoo();
-//				temp.setCalories();
-//				temp.setProtein();
-//				temp.setFat();
 				second.getFoodPanel().foodAdd(temp);
 				second.getFoodPanel().setVisible(false);
 				second.getFoodPanel().setVisible(true);
@@ -154,11 +148,19 @@ public class MoveFoodListener implements MouseListener
 		public void mouseReleased(MouseEvent e){}
 		public void mouseClicked(MouseEvent e)
 		{
-			if(t_prev!=null )
+			if(t_prev!=null )	// 타임에서 음식제거
 			{					
+				second.getGraphPanel().startThread();
+				TotalAted.minus(cur);
 				t_prev.deleteF((FoodButtonPanel)e.getSource());
 				t_prev.setVisible(false);
 				t_prev.setVisible(true);
+				
+				System.out.println("delete");
+				System.out.println("tot >> " + TotalAted.gettCal());
+				System.out.println("dan >> " + TotalAted.gettProt());
+				System.out.println("tan >> " +TotalAted.gettCarbo());
+				System.out.println("ji >> " + TotalAted.gettFat());
 			}
 		}
 		public void mouseEntered(MouseEvent e){}

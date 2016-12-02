@@ -9,13 +9,14 @@ public class FoodButtonPanel extends JPanel{
 	private String name;
 	private ImageIcon imageIcon;
 	private Image image;
-	
+	private int key;
 	public  FoodButtonPanel(FoodButtonPanel f) {
 		fat = f.fat;
 		calories = f.calories;
 		protein = f.protein;
 		tansoo = f.tansoo;
 		name = f.name;
+		key =f.key;
 	}
 	
 	// get
@@ -37,9 +38,15 @@ public class FoodButtonPanel extends JPanel{
 		this.setPreferredSize(new Dimension(185, 50));
 	}
 
-	public FoodButtonPanel (ImageIcon x) {
+	public FoodButtonPanel (ImageIcon x,FoodButton f ) {
 		imageIcon = x;
 		image = imageIcon.getImage();
+		fat = f.getFat();
+		calories = f.getCalories();
+		protein = f.getProtein();
+		tansoo = f.getTansoo();
+		name = f.getName();
+		key = f.getKey();
 		//super(x);
 		//this.setPreferredSize(new Dimension(185, 50));
 	}
