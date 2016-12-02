@@ -38,7 +38,7 @@ public class AdvicePanel extends JPanel
 		lblName.setBounds(0,0,200,100);	
 		anaP.add(lblName);
 		// lblAna
-		lblAna.setText("(" + data + "/" + dataD + ")");
+		lblAna.setText("(" + Math.round(data*100d)/100d + "/" +Math.round(dataD*100d)/100d + ")");
 		lblAna.setFont(new Font("Verdana",Font.BOLD,15));
 		lblAna.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAna.setVerticalAlignment(SwingConstants.CENTER);

@@ -58,7 +58,16 @@ public class FoodAteBar extends JPanel {
    					 Thread.sleep(delay);
    				}catch(Exception e){}
   			}
+ 			while(destiny < rectX){
+  				rectX -= 1;
+				graph.repaint();
+				   
+   				try{
+   					 Thread.sleep(delay);
+   				}catch(Exception e){}
+  			}
  		}
+ 		
 	}
 	
 }

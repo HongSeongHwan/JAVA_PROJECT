@@ -78,7 +78,7 @@ public class MoveFoodListener implements MouseListener
 		{
 			System.out.println("aaa");
 			cur = (FoodButton)e.getSource();
-			if(t_prev!=null && cur!=prev){            //타임에 음식추가********************************************
+			if(t_prev!=null){            //타임에 음식추가********************************************
 				System.out.println("aaa");
 
 				JPanel temp = new JPanel();
@@ -90,6 +90,7 @@ public class MoveFoodListener implements MouseListener
 				TotalAted.add(cur);
 				System.out.println(TotalAted.gettCal());
 				
+				
 			}
 			if(prev==null)
 			{
@@ -100,8 +101,8 @@ public class MoveFoodListener implements MouseListener
 			}
 			else if(cur==prev){					//푸드에서 음식지우기********************************************
 				System.out.println("aaa");
-				food.deleteF(prev);
-				prev=null;
+			//	food.deleteF(prev);
+			//	prev=null;
 
 				//	prev=null;
 				//	prev.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.white));
@@ -156,8 +157,7 @@ public class MoveFoodListener implements MouseListener
 		public void mouseClicked(MouseEvent e)
 		{
 			if(t_prev!=null )
-			{	
-				
+			{					
 				t_prev.deleteF((JPanel)e.getSource());
 				t_prev.setVisible(false);
 				t_prev.setVisible(true);

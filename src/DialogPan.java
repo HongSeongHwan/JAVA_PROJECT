@@ -60,7 +60,7 @@ public class DialogPan extends JPanel
 		ltan.setBounds(40,150,170,30);
 		add(ltan);		
 		tan.setBounds(220, 150, 120, 35);
-		tan.setText(Integer.toString(f.getTansoo()));
+		tan.setText(Double.toString(f.getTansoo()));
 		add(tan);
 		
 
@@ -68,7 +68,7 @@ public class DialogPan extends JPanel
 		lprotein.setFont(new Font("Segoe Print",Font.PLAIN,20));
 		lprotein.setBounds(40,190,170,30);
 		add(lprotein);
-		protein.setText(Integer.toString(f.getProtein()));
+		protein.setText(Double.toString(f.getProtein()));
 		protein.setBounds(220, 190, 120, 35);
 		add(protein);
 		
@@ -77,7 +77,7 @@ public class DialogPan extends JPanel
 		lfat.setFont(new Font("Segoe Print",Font.PLAIN,20));
 		lfat.setBounds(40,230,170,30);
 		add(lfat);
-		fat.setText(Integer.toString(f.getFat()));
+		fat.setText(Double.toString(f.getFat()));
 		fat.setBounds(220, 230, 120, 35);
 		add(fat);
 		

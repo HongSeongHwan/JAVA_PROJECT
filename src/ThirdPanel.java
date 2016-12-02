@@ -16,7 +16,6 @@ public class ThirdPanel extends JPanel{
 	
 	public ThirdPanel(){
 		this.setBounds(0,0,800,1000);
-	//	this.setPreferredSize(new Dimension(800,1000));
 		this.setLayout(null);
 		this.setBackground(Color.white);
 		
@@ -50,7 +49,15 @@ public class ThirdPanel extends JPanel{
 		img.setBackground(Color.white);
 		img.add(lblImg);
 		add(img);
-		
+				
+		// Recomand - Bottom
+		recom = new JPanel();
+		recom.setBounds(20,730,720,150);
+		recom.setBackground(Color.yellow);
+		add(recom);
+	}	// ThirdPanel()
+	
+	public void Analysis() {
 		// main	.. Mid right
 		// 1. Total
 		tot = new AdvicePanel("Total",TotalAted.gettCal(),PrivateInfo.getRecomCal());
@@ -70,21 +77,20 @@ public class ThirdPanel extends JPanel{
 		// 4. Fat
 		ji = new AdvicePanel("Fat",TotalAted.gettFat(),PrivateInfo.getRecomFat());
 		ji.setBounds(330,570,400,150);
-		add(ji);		
-		
-		// Recomand - Bottom
-		recom = new JPanel();
-		recom.setBounds(20,730,720,150);
-		recom.setBackground(Color.yellow);
-		add(recom);
-	}	// ThirdPanel()
+		add(ji);
+	}
 	
+	public ThirdPanel getThird()	{ return this;}
 	
 	
 	private class ThirdPanelListener implements ActionListener {
 		
 		public void actionPerformed(ActionEvent e){
 			ViewControl.viewPanel(3, 2);
+			remove(tot);
+			remove(tan);
+			remove(ji);
+			remove(dan);			
 		}		
 	}
 }

@@ -3,9 +3,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.concurrent.*;
 import javax.swing.*;
 
 public class SecondPanel extends JPanel{
+	//private final Semaphore sem;
 	private static final int VERTICAL = 0;
 	private static final int HORIZONTAL = 0;
 	private static SecondPanel out;
@@ -23,6 +25,8 @@ public class SecondPanel extends JPanel{
 		return out;
 	}
 	public SecondPanel(){
+	//	sem = new Semaphore(4);
+		
 		out = this;
 		foodPanel = new FoodPanel(this);
 		timePanel = new TimePanel(this);
@@ -111,19 +115,17 @@ public class SecondPanel extends JPanel{
 			else if(e.getSource()==nbtn)
 			{
 				ViewControl.viewPanel(2, 3);
-				// test 
-				System.out.println("sex>>"+PrivateInfo.getSex());
-				System.out.println("age>>"+PrivateInfo.getAge());
-				System.out.println("height>>"+PrivateInfo.getHeight());
-				System.out.println("weight>>"+PrivateInfo.getWeight());
-				System.out.println("cal>>"+PrivateInfo.getRecomCal());
-				System.out.println("dan>>"+PrivateInfo.getRecomProt());
-				System.out.println("tan>>"+PrivateInfo.getRecomCarbo());
-				System.out.println("ji>>"+PrivateInfo.getRecomFat());
-				System.out.println("sex>>"+PrivateInfo.getSex());
-				System.out.println("age>>"+PrivateInfo.getAge());
-				System.out.println("height>>"+PrivateInfo.getHeight());
-				System.out.println("weight>>"+PrivateInfo.getWeight());
+				((ThirdPanel)ViewControl.getPanel(2) ).Analysis();
+				
+				System.out.println("ated_tot>>"+TotalAted.gettCal());
+				System.out.println("2.sex>>"+PrivateInfo.getSex());
+				System.out.println("2.age>>"+PrivateInfo.getAge());
+				System.out.println("2.height>>"+PrivateInfo.getHeight());
+				System.out.println("2.weight>>"+PrivateInfo.getWeight());
+				System.out.println("2.cal>>"+PrivateInfo.getRecomCal());
+				System.out.println("2.dan>>"+PrivateInfo.getRecomProt());
+				System.out.println("2.tan>>"+PrivateInfo.getRecomCarbo());
+				System.out.println("2.ji>>"+PrivateInfo.getRecomFat());
 			}
 			
 		}

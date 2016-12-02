@@ -24,7 +24,7 @@ public class StartPanel extends JPanel{
 		
 		lblTitle = new JLabel("Eating is important");
 		lblTitle.setBounds(0,0,800,70);
-		lblTitle.setFont(new Font("Verdana",Font.BOLD,40));
+		lblTitle.setFont(new Font("Segoe Print",Font.BOLD,40));
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitle.setVerticalAlignment(SwingConstants.CENTER);
 		titlePanel.add(lblTitle);				

@@ -111,14 +111,11 @@ public class FirstPanel extends JPanel {
 
 			if(e.getSource()==rb1)
 			{				
-				PrivateInfo.setSex(1);//1==남자				
-				System.out.println(PrivateInfo.getSex());			
+				PrivateInfo.setSex(1);//1==남자						
 			}
 			else if(e.getSource()==rb2)
 			{
-				PrivateInfo.setSex(2);//2==여자
-				
-				System.out.println(PrivateInfo.getSex());
+				PrivateInfo.setSex(2);//2==여자				
 			}
 			else if(e.getSource()==nbtn)
 			{
@@ -138,11 +135,18 @@ public class FirstPanel extends JPanel {
 					{
 						PrivateInfo.setAge(Integer.parseInt(field[0].getText()));
 						PrivateInfo.setWeight(Integer.parseInt(field[1].getText()));
-						PrivateInfo.setHeight(Integer.parseInt(field[2].getText()));
-				
-						System.out.println(PrivateInfo.getAge());
-						System.out.println(PrivateInfo.getHeight());
-						System.out.println(PrivateInfo.getWeight());
+						PrivateInfo.setHeight(Integer.parseInt(field[2].getText()));						
+						PrivateInfo.recommend();
+						
+						// test 
+						System.out.println("sex>>"+PrivateInfo.getSex());
+						System.out.println("age>>"+PrivateInfo.getAge());
+						System.out.println("height>>"+PrivateInfo.getHeight());
+						System.out.println("weight>>"+PrivateInfo.getWeight());
+						System.out.println("cal>>"+PrivateInfo.getRecomCal());
+						System.out.println("dan>>"+PrivateInfo.getRecomProt());
+						System.out.println("tan>>"+PrivateInfo.getRecomCarbo());
+						System.out.println("ji>>"+PrivateInfo.getRecomFat());
 						//다음장으로 넘기기
 						ViewControl.viewPanel(1, 2);
 					}

@@ -9,8 +9,8 @@ public class ViewControl
 	private static ThirdPanel third;
 	private static Main main;
 	private static StartPanel start;
-	public Component getPanel(int i){
-		return x[i-1];
+	public static Component getPanel(int i){
+		return x[i];
 	}
 	public ViewControl(Main main)
 	{

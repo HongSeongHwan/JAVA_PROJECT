@@ -2,17 +2,15 @@ import java.awt.*;
 import javax.swing.*;
 
 public class FoodButton extends JButton {
-	private int key;
-	private int fat;
-	private int calories;
-	private int protein;
-	private int tansoo;
+	private double fat;
+	private double calories;
+	private double protein;
+	private double tansoo;
 	private String name;
 	private ImageIcon imageIcon;
 	private Image image;
 	
 	public  FoodButton(FoodButton f) {
-		key = f.key;
 		fat = f.fat;
 		calories = f.calories;
 		protein = f.protein;
@@ -21,19 +19,17 @@ public class FoodButton extends JButton {
 	}
 	
 	// get
-	public int getKey()			{ return key;		}
-	public int getFat()			{ return fat;		}
-	public int getCalories()	{ return calories;	}
-	public int getProtein()		{ return protein;	}
-	public int getTansoo()		{ return tansoo;	}
+	public double getFat()			{ return fat;		}
+	public double getCalories()	{ return calories;	}
+	public double getProtein()		{ return protein;	}
+	public double getTansoo()		{ return tansoo;	}
 	public String getName()		{ return name;		}
 	
 	// set
-	public void setKey(int key)				{ this.key = key;			}
-	public void setFat(int fat)				{ this.fat = fat;			}
-	public void setCalories(int calories)	{ this.calories = calories; }
-	public void setProtein(int protein)		{ this.protein = protein;	}
-	public void setTansoo(int tansoo)		{ this.tansoo = tansoo;		}
+	public void setFat(double fat)				{ this.fat = fat;			}
+	public void setCalories(double calories)	{ this.calories = calories; }
+	public void setProtein(double protein)		{ this.protein = protein;	}
+	public void setTansoo(double tansoo)		{ this.tansoo = tansoo;		}
 	public void setName(String name)		{ this.name = name;			}
 
 	FoodButton() {

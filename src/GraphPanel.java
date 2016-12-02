@@ -1,6 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
-
+import java.util.concurrent.*;
 public class GraphPanel extends JPanel {
 	private FoodAteBar 	tot,dan,tan,ji;
 	private DataSample 	a;
@@ -12,9 +12,6 @@ public class GraphPanel extends JPanel {
 		setPreferredSize(new Dimension(760,230));
 		
 		a = new DataSample();
-	//	PrivateInfo.recommend();
-		
-
 		
 		// main
 		tot = new FoodAteBar(TotalAted.gettCal(),PrivateInfo.getRecomCal());
