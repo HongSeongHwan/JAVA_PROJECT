@@ -135,7 +135,7 @@ public class FirstPanel extends JPanel {
 						informed.setAge(Integer.parseInt(field[0].getText()));
 						informed.setWeight(Integer.parseInt(field[1].getText()));
 						informed.setHeight(Integer.parseInt(field[2].getText()));
-				
+												
 						System.out.println(informed.getAge());
 						System.out.println(informed.getHeight());
 						System.out.println(informed.getWeight());

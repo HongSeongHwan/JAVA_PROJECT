@@ -1,20 +1,27 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class FoodButton extends JButton implements Cloneable {
+public class FoodButton extends JButton {
 	private int key;
 	private int fat;
 	private int calories;
 	private int protein;
 	private int tansoo;
 	private String name;
-	
-	public FoodButton clone() throws CloneNotSupportedException {
-	      return (FoodButton)super.clone();
-	 }
+	private ImageIcon imageIcon;
+	private Image image;
+	public  FoodButton(FoodButton f) {
+		key = f.key;
+		fat = f.fat;
+		calories = f.calories;
+		protein = f.protein;
+		tansoo = f.tansoo;
+		name = f.name;
+	}
+
 	public int getKey() {
 		return key;
-		
+
 	}
 
 	public void setKey(int key) {
@@ -61,12 +68,18 @@ public class FoodButton extends JButton implements Cloneable {
 		this.name = name;
 	}
 
-	FoodButton(){
+	FoodButton() {
 		super();
 		this.setPreferredSize(new Dimension(185, 50));
 	}
-	FoodButton(ImageIcon x){
-		super(x);
-		this.setPreferredSize(new Dimension(185, 50));
+
+	FoodButton(ImageIcon x) {
+		image = x.getImage();
+		//super(x);
+		//this.setPreferredSize(new Dimension(185, 50));
+	}
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawImage(image, 0, 0, getWidth(), getHeight(),this );
 	}
 }

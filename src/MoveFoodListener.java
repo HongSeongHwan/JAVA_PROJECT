@@ -5,6 +5,13 @@ import java.util.*;
 public class MoveFoodListener implements MouseListener 
 {	
 
+	JTextField name = new JTextField();
+	JTextField tan= new JTextField();
+	JTextField fat= new JTextField();
+	JTextField protein= new JTextField();
+	JTextField cal= new JTextField();
+	JButton apply ;
+	JButton exit ;
 	private  TimePanel time;
 	private  FoodButtonList food;
 
@@ -14,20 +21,9 @@ public class MoveFoodListener implements MouseListener
 	private  FoodButton cur;
 
 	private MyListener listener;
-	
-	private JTextField name = new JTextField();
-	private JTextField tan = new JTextField();
-	private JTextField fat = new JTextField();
-	private JTextField protein = new JTextField();
-	private JTextField cal = new JTextField();
-	
-	private JLabel lname;
-	private JLabel ltan;
-	private JLabel lfat;
-	private JLabel lprotein;
-	private JLabel lcal;
 
 	private SecondPanel second;
+	
 	public  MoveFoodListener(SecondPanel s){
 		listener = new MyListener();
 		second = s;
@@ -45,22 +41,22 @@ public class MoveFoodListener implements MouseListener
 	public void mouseClicked(MouseEvent e)
 	{
 
-		if(e.getSource().getClass()==(new TimeLinePanel()).getClass())
+		if(e.getSource().getClass()==(new TimeLinePanel()).getClass()) //타임라인에서 이벤트 발생
 		{
 			System.out.println("aaa");
 			t_cur = (TimeLinePanel)e.getSource();
-			if(t_prev==null)
+			if(t_prev==null) //선택 되었던 타임 라인 존재 하지 않음
 			{
 				t_cur.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.red));
 			}
-			else if(t_cur==t_prev){
+			else if(t_cur==t_prev){// 타임라인 지우기
 				time.deleteT(t_prev);
 				t_prev=null;
 				//	t_prev =null;
 				//	t_prev.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.white));
 
 			}
-			else
+			else // 타임라인 선택 변경
 			{
 				for(JPanel temp : t_prev.getList()){
 					temp.removeMouseListener(listener);
@@ -78,14 +74,16 @@ public class MoveFoodListener implements MouseListener
 		{
 			System.out.println("aaa");
 			cur = (FoodButton)e.getSource();
-			if(t_prev!=null && cur!=prev){//타임에 음식추가
+			if(t_prev!=null && cur!=prev){            //타임에 음식추가********************************************
 				System.out.println("aaa");
 
 				JPanel temp = new JPanel();
-				temp.add(new JLabel(cur.getIcon()));
+				//temp.add(new FoodButton(prev));
+				//temp.add(new JLabel(cur.getIcon()));
 				temp.addMouseListener(listener);
 				//temp.removeMouseListener(this);
 				t_prev.addF(temp);
+				TotalAted.add(cur);
 				
 			}
 			if(prev==null)
@@ -93,11 +91,13 @@ public class MoveFoodListener implements MouseListener
 				System.out.println("aaa");
 				cur.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.red));
 				prev = cur;
+				
 			}
-			else if(cur==prev){//타임에서 음식지우기
+			else if(cur==prev){					//푸드에서 음식지우기********************************************
 				System.out.println("aaa");
 				food.deleteF(prev);
 				prev=null;
+
 				//	prev=null;
 				//	prev.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.white));
 				//	time.delete(prev);
@@ -119,64 +119,17 @@ public class MoveFoodListener implements MouseListener
 		}else{
 			JDialog popup = new JDialog();
 			popup.setTitle("food setup");
-
+			apply = new JButton("apply");
+			exit = new JButton("eixt");
+			
 			if(prev==null){
-				FoodButton temp = new FoodButton();
-				JPanel pan = new JPanel();
-				pan.setSize(400,500);
-				pan.setLayout(null);
 				
-				
-				
-				lname = new JLabel(" Name : ");
-				lname.setFont(new Font("Arial black",Font.PLAIN,20));
-				lname.setBounds(20,20,20,20);
-				pan.add(lname);
-				 
-				
-				
-				/*
-		
-		field[0] = new JTextField();
-		field[0].setBounds(300, 400, 200, 50);
-		add(field[0]);
-				 */
-				
-				cal.setBounds(30,30,30,100);
-				popup.setSize(new Dimension(400,500));
-				pan.add(name);
-				pan.add(tan);
-				pan.add(fat);
-				pan.add(protein);
-				pan.add(cal);
+				DialogPan pan = new DialogPan();
+				popup.setSize(new Dimension(1000,1000));
+				popup.setLayout(null);
 				popup.add(pan);
-				second.getFoodPanel().foodAdd(temp);
-				second.getFoodPanel().setVisible(false);
-				second.getFoodPanel().setVisible(true);
 				popup.show();
 			}else {
-				
-				JPanel pan = new JPanel();
-				pan.setSize(400,500);
-				pan.setLayout(null);
-				//popup.setLayout(null);
-				JTextField name = new JTextField(prev.getName());
-				JTextField tan= new JTextField(prev.getTansoo());
-				JTextField fat= new JTextField(prev.getFat());
-				JTextField protein= new JTextField(prev.getProtein());
-				JTextField cal= new JTextField(prev.getCalories());
-				name.setBounds(1, 1, 100, 30);
-				tan.setBounds(1, 200, 100, 30);
-				popup.setSize(new Dimension(400,500));
-				pan.add(name);
-				pan.add(tan);
-				pan.add(fat);
-				pan.add(protein);
-				pan.add(cal);
-				popup.add(pan);
-				second.getFoodPanel().setVisible(false);
-				second.getFoodPanel().setVisible(true);
-				popup.show();
 			}
 
 		}
@@ -186,13 +139,28 @@ public class MoveFoodListener implements MouseListener
 	public void mouseEntered(MouseEvent e){}
 	public void mouseExited(MouseEvent e){}
 	//
+	private class DialogListener implements ActionListener {
+		public void actionPerformed(ActionEvent e){
+			if(e.getSource() == apply && prev==null){
+				FoodButton temp = new FoodButton();
+//			22	temp.setTansoo();
+//				temp.setCalories();
+//				temp.setProtein();
+//				temp.setFat();
+				second.getFoodPanel().foodAdd(temp);
+				second.getFoodPanel().setVisible(false);
+				second.getFoodPanel().setVisible(true);
+			}
+		}
+	}
 	private class MyListener implements MouseListener{
 		public void mousePressed(MouseEvent e){}
 		public void mouseReleased(MouseEvent e){}
 		public void mouseClicked(MouseEvent e)
 		{
-			if(t_prev!=null)
+			if(t_prev!=null )
 			{	
+				
 				t_prev.deleteF((JPanel)e.getSource());
 				t_prev.setVisible(false);
 				t_prev.setVisible(true);

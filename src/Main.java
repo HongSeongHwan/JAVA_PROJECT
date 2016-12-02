@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
-public class Main extends JFrame {
-	
+
+public class Main extends JFrame {	
 	ViewControl controller;
 	public Main(String title){
 		super(title);

@@ -9,24 +9,14 @@ public class PrivateInfo {
 	private static double recomProt;
 	private static double recomFat;
 		
+	// private information
 	public PrivateInfo(){};
 	public PrivateInfo(int age, int sex, int weight, int height) {
 		PrivateInfo.age = age;
 		PrivateInfo.sex = sex;
 		PrivateInfo.weight = weight;
 		PrivateInfo.height = height;
-	}
-	
-	// Recom get/set
-	public static double getRecomCal()		{ return recomCal;}	
-	public static double getRecomCarbo()	{ return recomCarbo; }	
-	public static double getRecomProt()		{ return recomProt; }	
-	public static double getRecomFat()		{ return recomFat; }
-	
-	public static void setRecomCal(double recomCal)			{ PrivateInfo.recomCal = recomCal; }
-	public static void setRecomCarbo(double recomCarbo) 	{ PrivateInfo.recomCarbo = recomCarbo; }
-	public static void setRecomProt(double recomProt)		{ PrivateInfo.recomProt = recomProt; }
-	public static void setRecomFat(double recomFat)			{ PrivateInfo.recomFat = recomFat; }
+	}	// PrivateInfo()
 	
 	// privateinfo get/set
 	public static int getAge()			{ return age; }	
@@ -34,13 +24,14 @@ public class PrivateInfo {
 	public static int getWeight()		{ return weight;}	
 	public static int getHeight() 		{ return height; }	
 	
+
 	public static void setAge(int age)			{ PrivateInfo.age = age;	}
 	public static void setSex(int sex)			{ PrivateInfo.sex = sex;	}
 	public static void setWeight(int weight)	{ PrivateInfo.weight = weight; }
 	public static void setHeight(int height)	{ PrivateInfo.height = height; }
-	
+		
+	// recom
 	public static void recommend() {
-
 		//Åº¼öÈ­¹°
 		recomCarbo = 4 * weight;
 		
@@ -116,7 +107,19 @@ public class PrivateInfo {
 				recomProt = 55;
 			}
 		}		
-	}
+	}	// recommend()
+	
+	// Recom get/set
+	public static double getRecomCal()		{ return recomCal;}	
+	public static double getRecomCarbo()	{ return recomCarbo; }	
+	public static double getRecomProt()		{ return recomProt; }	
+	public static double getRecomFat()		{ return recomFat; }
+	
+	public static void setRecomCal(double recomCal)			{ PrivateInfo.recomCal = recomCal; }
+	public static void setRecomCarbo(double recomCarbo) 	{ PrivateInfo.recomCarbo = recomCarbo; }
+	public static void setRecomProt(double recomProt)		{ PrivateInfo.recomProt = recomProt; }
+	public static void setRecomFat(double recomFat)			{ PrivateInfo.recomFat = recomFat; }
+	
 	
 	
 }

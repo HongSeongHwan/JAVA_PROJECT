@@ -13,13 +13,13 @@ public class FoodAteBar extends JPanel {
 	{
 		setLayout(null);
 		setBackground(Color.white);
-		
+																																		
 		delay = 30;
 		data = a;
 		dataD = b;
 		rectX=0;
-		destiny = (int)((data/(dataD*1.2))*740);
-		eLine=new EverageLine(dataD/3);		
+		destiny = (int)((data*740)/(dataD*1.2));
+		eLine = new EverageLine(740/1.2);		
 		
 		t = new GraphThread(this);
 		t.start();
