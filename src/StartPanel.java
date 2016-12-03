@@ -1,7 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
-
 import java.awt.event.*;
 
 public class StartPanel extends JPanel{
@@ -103,7 +102,7 @@ public class StartPanel extends JPanel{
 			// do nothing
 			// stay this page	
 		}
-	}
+	}	// wannaOut()
 	private class ButtonListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent event)

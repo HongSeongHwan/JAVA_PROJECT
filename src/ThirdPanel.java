@@ -76,15 +76,20 @@ public class ThirdPanel extends JPanel{
 		
 		JLabel title = new JLabel("Recommend!");
 		title.setFont(fnt);
-		title.setBounds(20,5,150,40);
+		title.setBounds(20,5,200,30);
 		recom.add(title);		
+		
+		Recommend rec = new Recommend();
+		rec.setBounds(20,40,420,100);
+		recom.add(rec);
 		
 		ImageIcon thxImg = new ImageIcon("picture/third/thx.png");
 		JLabel lblThx = new JLabel(thxImg);
 		lblThx.setBounds(450, 5, 250, 115);
 		recom.add(lblThx);
 		
-		btnThx = new JButton("Thank you");
+		btnThx = new JButton("ReStart");
+		btnThx.addActionListener(listener);
 		btnThx.setBounds(550,120,150,25);
 		btnThx.setFont(fnt);
 		recom.add(btnThx);
@@ -131,12 +136,17 @@ public class ThirdPanel extends JPanel{
 	
 	private class ThirdPanelListener implements ActionListener {		
 		public void actionPerformed(ActionEvent e){
-			ViewControl.viewPanel(3, 2);
-			remove(tot);
-			remove(tan);
-			remove(ji);
-			remove(dan);
-			remove(recom);
+			Object obj = e.getSource();
+			if(obj == bbtn) {
+				ViewControl.viewPanel(3, 2);
+				remove(tot);
+				remove(tan);
+				remove(ji);
+				remove(dan);
+				remove(recom);
+			} else if (obj == btnThx) {
+				ViewControl.viewPanel(3, 4);
+			}	// if.. else..
 		}		// actionPerformed()
 	}	// ThirdPanelListner class
 }	// ThirdPanel class

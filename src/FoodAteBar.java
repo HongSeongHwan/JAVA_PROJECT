@@ -15,7 +15,7 @@ public class FoodAteBar extends JPanel {
 		setBackground(Color.white);	
 
 		i=0;
-		eLine = new EverageLine(630/1.2);
+		eLine = new EverageLine(630/1.5);
 		delay = 15;
 	}	// FoodAteBar()
 	
@@ -24,7 +24,7 @@ public class FoodAteBar extends JPanel {
 		prePer = y;
 		data = a;
 		dataD = b;		
-		destiny = (int)((data*630)/(dataD*1.2));
+		destiny = (int)((data*630)/(dataD*1.5));
 		percent = (int)	((data/dataD)*100);
 		
 		new GraphThread(this).start();	
@@ -32,7 +32,7 @@ public class FoodAteBar extends JPanel {
 	
 	// get / set
 	public int getDestiny(double a, double b)	{ 
-		destiny = (int)((a*630)/(b*1.2));
+		destiny = (int)((a*630)/(b*1.5));
 		return destiny; 
 	}	// getDestiny()
 	public int getPercent() {

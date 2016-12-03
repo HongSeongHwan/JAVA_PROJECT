@@ -135,7 +135,6 @@ public class GraphPanel extends JPanel {
 		else 			lblCD.setForeground(Color.black);
 		if(jiP>100)		lblFD.setForeground(Color.red);
 		else 			lblFD.setForeground(Color.black);
-
 	}	// countD
 	
 	// Make a thread. 	// Repainting graph
