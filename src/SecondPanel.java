@@ -137,11 +137,14 @@ public class SecondPanel extends JPanel{
 
 			if(e.getSource()==bbtn)
 			{
+				// page control
 				ViewControl.viewPanel(2, 1);
 			}
 			else if(e.getSource()==nbtn)
 			{
+				// page control
 				ViewControl.viewPanel(2, 3);
+				// renew
 				((ThirdPanel)ViewControl.getPanel(2) ).Analysis();
 				((ThirdPanel)ViewControl.getPanel(2) ).recommend();
 			}

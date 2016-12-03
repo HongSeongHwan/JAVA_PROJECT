@@ -31,7 +31,7 @@ public class StartPanel extends JPanel{
 		titlePanel.add(lblTitle);				
 		
 		mainPanel = new JPanel();
-		mainPanel.setBounds(0,110,800,650);
+		mainPanel.setBounds(0,110,800,700);
 		mainPanel.setBackground(n);
 		mainPanel.setLayout(null);
 		add(mainPanel);				
@@ -48,7 +48,7 @@ public class StartPanel extends JPanel{
 		btnWonder = new JButton("Wonder");
 		btnWonder.setFont(fntButton);
 		btnWonder.setBackground(n);
-		btnWonder.setBounds(610,420,120,50);
+		btnWonder.setBounds(600,420,140,50);
 		btnWonder.addActionListener(btnL);
 		btnWonder.setBorder(new RoundedBorder(20));
 		mainPanel.add(btnWonder);		
@@ -57,7 +57,7 @@ public class StartPanel extends JPanel{
 		btnNoWonder = new JButton("No Wonder");
 		btnNoWonder.setFont(fntButton);
 		btnNoWonder.setBackground(n);
-		btnNoWonder.setBounds(610,500,140,50);
+		btnNoWonder.setBounds(600,500,140,50);
 		btnNoWonder.addActionListener(btnL);
 		btnNoWonder.setBorder(new RoundedBorder(20));
 		mainPanel.add(btnNoWonder);	

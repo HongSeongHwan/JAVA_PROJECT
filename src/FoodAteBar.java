@@ -15,17 +15,17 @@ public class FoodAteBar extends JPanel {
 		setBackground(Color.white);	
 
 		i=0;
-		eLine = new EverageLine(630/1.5);
-		delay = 15;
+		eLine = new EverageLine(630/1.5);	// 권장량 눈금선
+		delay = 15;		// thread speed
 	}	// FoodAteBar()
 	
 	public void renew(int x, int y, double a, double b){
-		rectX = x;
-		prePer = y;
+		rectX = x;	// 지난 그래프
+		prePer = y;	// 지난 퍼센트
 		data = a;
 		dataD = b;		
-		destiny = (int)((data*630)/(dataD*1.5));
-		percent = (int)	((data/dataD)*100);
+		destiny = (int)((data*630)/(dataD*1.5));	// 그래프의 목표점
+		percent = (int)	((data/dataD)*100);	// 퍼센트의 목표점
 		
 		new GraphThread(this).start();	
 	}	// renew()
@@ -36,6 +36,7 @@ public class FoodAteBar extends JPanel {
 		return destiny; 
 	}	// getDestiny()
 	public int getPercent() {
+		if (i<0) i = 0;
 		return i;
 	}	// getPercent()
 	
@@ -66,34 +67,32 @@ public class FoodAteBar extends JPanel {
  		} 
  		public void run(){
  			// percent counting
- 			if(percent > prePer) {	// 목적지가 더 크다면 증가
+ 			if(percent > prePer) {	// 입력 시 
  				for (i = prePer; i<=percent ; i++){
  					primary.countD();
  				}	
- 			} else if(percent < prePer){	// 목적지가 더 작다면 감소
+ 			} else if(percent < prePer){	// 삭제 시
 				for (i = prePer; i>=percent ; i--){
  					primary.countD();
 				}	  	
  			}	// if.. else
  			
  			// graph
- 			while(destiny > rectX){
+ 			while(destiny > rectX){	// 입력할 때
   				rectX += 1;
-				graph.repaint();
-				  		  
+				graph.repaint();				  		  
    				try{
    					 Thread.sleep(delay);
    				}catch(Exception e){}
   			} 	// while
- 			while(destiny < rectX){
+ 			while(destiny < rectX){	// 삭제할 때
   				rectX -= 1;
 				graph.repaint();	
    				try{
    					 Thread.sleep(delay);
    				}catch(Exception e){}
   			} 	// while
- 		} 	// run()
- 		
+ 		} 	// run() 		
 	}	// GraphThread()
 	
 }	// FoodAteBar class

@@ -12,6 +12,7 @@ public class ThirdPanel extends JPanel{
 	private JLabel adv,lblImg;
 	private int check;
 	private ImageIcon iconQurio;
+	private Recommend rec;
 	
 	private ThirdPanelListener listener;
 	private AdvicePanel tot,dan,tan,ji;
@@ -25,15 +26,16 @@ public class ThirdPanel extends JPanel{
 		// page change button
 		bbtn= new JButton(new ImageIcon("picture/first/back.png"));
 		nbtn = new JButton(new ImageIcon("picture/first/next.png"));
+		btnThx = new JButton("ReStart");
 		listener = new ThirdPanelListener();		
+		btnThx.addActionListener(listener);
 		
 		bbtn.addActionListener(listener);
 		bbtn.setBounds(670, 900, 50, 50);
 		bbtn.setBorder(new RoundedBorder(70));
 		bbtn.setBackground(n);
 		bbtn.setForeground(n);
-		add(bbtn);
-		
+		add(bbtn);		
 		
 		nbtn.addActionListener(listener);
 		nbtn.setBounds(720, 900, 50, 50);
@@ -59,13 +61,11 @@ public class ThirdPanel extends JPanel{
 		img.setBackground(Color.white);
 		img.add(lblImg);
 		add(img);
-				
-		// Recommend - Bottom
-		recommend();
 	}	// ThirdPanel()
 	
 	public void recommend() {
 		// background panel
+		rec = new Recommend();
 		recom = new JPanel();
 		recom.setBounds(35,735,715,150);
 		recom.setBackground(Color.gray);
@@ -74,12 +74,11 @@ public class ThirdPanel extends JPanel{
 		
 		Font fnt = new Font("Segoe Print",Font.BOLD,20);
 		
-		JLabel title = new JLabel("Recommend!");
+		JLabel title = new JLabel("Advice!");
 		title.setFont(fnt);
 		title.setBounds(20,5,200,30);
 		recom.add(title);		
 		
-		Recommend rec = new Recommend();
 		rec.setBounds(20,40,420,100);
 		recom.add(rec);
 		
@@ -88,8 +87,6 @@ public class ThirdPanel extends JPanel{
 		lblThx.setBounds(450, 5, 250, 115);
 		recom.add(lblThx);
 		
-		btnThx = new JButton("ReStart");
-		btnThx.addActionListener(listener);
 		btnThx.setBounds(550,120,150,25);
 		btnThx.setFont(fnt);
 		recom.add(btnThx);
