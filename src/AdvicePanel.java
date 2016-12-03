@@ -17,7 +17,7 @@ public class AdvicePanel extends JPanel
 		lblResult	= new JLabel();
 		lblName		= new JLabel();
 		vs= new ImageIcon("picture/third/very serious.png");
-		lbs=new ImageIcon("picture/third/little bit serous.png");
+		lbs=new ImageIcon("picture/third/little bit serious.png");
 		ok=new ImageIcon("picture/third/ok.png");
 		
 		this.setPreferredSize(new Dimension(400,150));

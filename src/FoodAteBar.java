@@ -3,32 +3,46 @@ import javax.swing.*;
 
 public class FoodAteBar extends JPanel {		
 			
-	private int destiny,delay;
-	private double data,dataD;
+	private int destiny,delay,i;
+	private double data,dataD;	
+	private int rectX,percent,prePer;
+	
 	private EverageLine eLine;
-	private int rectX;
-	private static GraphThread t;
+	private GraphPanel primary;
 	
 	public FoodAteBar(double a, double b)
 	{
 		setBackground(Color.white);	
 
-		eLine = new EverageLine(740/1.2);
+		i=0;
+		eLine = new EverageLine(630/1.2);
 		delay = 15;
-	}
-	public void renew(int x, double a, double b){
+	}	// FoodAteBar()
+	
+	public void renew(int x, int y, double a, double b){
 		rectX = x;
+		prePer = y;
 		data = a;
 		dataD = b;		
-		destiny = (int)((data*740)/(dataD*1.2));
+		destiny = (int)((data*630)/(dataD*1.2));
+		percent = (int)	((data/dataD)*100);
 		
 		new GraphThread(this).start();	
-	}
+	}	// renew()
 	
+	// get / set
 	public int getDestiny(double a, double b)	{ 
-		destiny = (int)((a*740)/(b*1.2));
+		destiny = (int)((a*630)/(b*1.2));
 		return destiny; 
-	}
+	}	// getDestiny()
+	public int getPercent() {
+		return i;
+	}	// getPercent()
+	
+	public void setThis(GraphPanel p)
+	{
+		primary = p;	
+	}	// setThis()
 	
 	public void paintComponent(Graphics page)
 	{
@@ -50,24 +64,36 @@ public class FoodAteBar extends JPanel {
  		public GraphThread(FoodAteBar p){
 			graph = p;
  		} 
- 		public void run(){  			
+ 		public void run(){
+ 			// percent counting
+ 			if(percent > prePer) {	// 목적지가 더 크다면 증가
+ 				for (i = prePer; i<=percent ; i++){
+ 				//	primary.countD();
+ 				}	
+ 			} else if(percent < prePer){	// 목적지가 더 작다면 감소
+				for (i = prePer; i>=percent ; i--){
+ 				//	primary.countD();
+				}	  	
+ 			}	// if.. else
+ 			
+ 			// graph
  			while(destiny > rectX){
   				rectX += 1;
 				graph.repaint();
-				   
+				  		  
    				try{
    					 Thread.sleep(delay);
    				}catch(Exception e){}
-  			} 			
+  			} 	// while
  			while(destiny < rectX){
   				rectX -= 1;
-				graph.repaint();
-				   
+				graph.repaint();	
    				try{
    					 Thread.sleep(delay);
    				}catch(Exception e){}
-  			} 		
- 		} 		
-	}
+  			} 	// while
+ 		} 	// run()
+ 		
+	}	// GraphThread()
 	
-}
+}	// FoodAteBar class
