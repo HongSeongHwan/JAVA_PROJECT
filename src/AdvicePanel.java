@@ -26,18 +26,18 @@ public class AdvicePanel extends JPanel
 		check	= Math.abs((int)(data - dataD));
 		std		= (int) dataD;
 		
-		// anaP
+		// anaP	-- left
 		anaP.setLayout(null);
 		anaP.setBounds(0,0,200,150);
 		this.add(anaP);		
-		// lblName
+		// lblName	-- left top
 		lblName.setText(str);
 		lblName.setFont(new Font("Verdana",Font.BOLD,30));
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
 		lblName.setVerticalAlignment(SwingConstants.CENTER);
 		lblName.setBounds(0,0,200,100);	
 		anaP.add(lblName);
-		// lblAna
+		// lblAna	-- left bottom
 		lblAna.setText("(" + Math.round(data*100d)/100d + "/" +Math.round(dataD*100d)/100d + ")");
 		lblAna.setFont(new Font("Verdana",Font.BOLD,15));
 		lblAna.setHorizontalAlignment(SwingConstants.CENTER);
@@ -45,7 +45,7 @@ public class AdvicePanel extends JPanel
 		lblAna.setBounds(0,100,200,50);
 		anaP.add(lblAna);
 		
-		// resultP
+		// resultP	-- right
 		resultP.setLayout(null);
 		resultP.setBounds(210,0,190,150);
 		// Color

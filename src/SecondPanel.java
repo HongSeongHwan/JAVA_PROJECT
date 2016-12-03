@@ -143,6 +143,7 @@ public class SecondPanel extends JPanel{
 			{
 				ViewControl.viewPanel(2, 3);
 				((ThirdPanel)ViewControl.getPanel(2) ).Analysis();
+				((ThirdPanel)ViewControl.getPanel(2) ).recommend();
 			}
 			
 		}

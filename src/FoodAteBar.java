@@ -68,11 +68,11 @@ public class FoodAteBar extends JPanel {
  			// percent counting
  			if(percent > prePer) {	// 목적지가 더 크다면 증가
  				for (i = prePer; i<=percent ; i++){
- 				//	primary.countD();
+ 					primary.countD();
  				}	
  			} else if(percent < prePer){	// 목적지가 더 작다면 감소
 				for (i = prePer; i>=percent ; i--){
- 				//	primary.countD();
+ 					primary.countD();
 				}	  	
  			}	// if.. else
  			

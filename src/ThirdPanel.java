@@ -7,7 +7,7 @@ import javax.swing.border.Border;
 
 public class ThirdPanel extends JPanel{
 	//private JPanel upPanel, downPanel;
-	private JButton bbtn,nbtn;
+	private JButton bbtn,nbtn,btnThx;
 	private JPanel img,recom;
 	private JLabel adv,lblImg;
 	private int check;
@@ -60,12 +60,35 @@ public class ThirdPanel extends JPanel{
 		img.add(lblImg);
 		add(img);
 				
-		// Recomand - Bottom
+		// Recommend - Bottom
+		recommend();
+	}	// ThirdPanel()
+	
+	public void recommend() {
+		// background panel
 		recom = new JPanel();
 		recom.setBounds(35,735,715,150);
-		recom.setBackground(Color.yellow);
+		recom.setBackground(Color.gray);
+		recom.setLayout(null);
 		add(recom);
-	}	// ThirdPanel()
+		
+		Font fnt = new Font("Segoe Print",Font.BOLD,20);
+		
+		JLabel title = new JLabel("Recommend!");
+		title.setFont(fnt);
+		title.setBounds(20,5,150,40);
+		recom.add(title);		
+		
+		ImageIcon thxImg = new ImageIcon("picture/third/thx.png");
+		JLabel lblThx = new JLabel(thxImg);
+		lblThx.setBounds(450, 5, 250, 115);
+		recom.add(lblThx);
+		
+		btnThx = new JButton("Thank you");
+		btnThx.setBounds(550,120,150,25);
+		btnThx.setFont(fnt);
+		recom.add(btnThx);
+	}
 	
 	class RoundedBorder implements Border { 
 		int radius;
@@ -81,7 +104,7 @@ public class ThirdPanel extends JPanel{
 		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) { 
 			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius); 
 		} 
-	}
+	}	// RoundedBorder()
 	
 	public void Analysis() {
 		// main	.. Mid right
@@ -104,19 +127,16 @@ public class ThirdPanel extends JPanel{
 		ji = new AdvicePanel("Fat",TotalAted.gettFat(),PrivateInfo.getRecomFat());
 		ji.setBounds(350,570,400,150);
 		add(ji);
-	}
+	}	// Analysis()
 	
-	public ThirdPanel getThird()	{ return this;}
-	
-	
-	private class ThirdPanelListener implements ActionListener {
-		
+	private class ThirdPanelListener implements ActionListener {		
 		public void actionPerformed(ActionEvent e){
 			ViewControl.viewPanel(3, 2);
 			remove(tot);
 			remove(tan);
 			remove(ji);
-			remove(dan);			
-		}		
-	}
-}
+			remove(dan);
+			remove(recom);
+		}		// actionPerformed()
+	}	// ThirdPanelListner class
+}	// ThirdPanel class

@@ -39,7 +39,40 @@ public class GraphPanel extends JPanel {
 		lblPD = new JLabel();
 		lblCD = new JLabel();
 		lblFD = new JLabel();		
-		countD();
+		
+		lblTD.setText(totP+"%");
+		lblPD.setText(danP+"%");
+		lblCD.setText(tanP+"%");
+		lblFD.setText(jiP+"%");
+		
+		lblTD.setBounds(690,10,35,70);
+		lblPD.setBounds(690,60,35,70);
+		lblCD.setBounds(690,110,35,70);
+		lblFD.setBounds(690,160,35,70);
+		
+		lblTD.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTD.setVerticalAlignment(SwingConstants.CENTER);
+		
+		lblPD.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPD.setVerticalAlignment(SwingConstants.CENTER);
+		
+		lblCD.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCD.setVerticalAlignment(SwingConstants.CENTER);
+		
+		lblFD.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFD.setVerticalAlignment(SwingConstants.CENTER);
+		
+		Font fnt = new Font("Segoe Print",Font.BOLD,11);
+		
+		lblTD.setFont(fnt);
+		lblPD.setFont(fnt);
+		lblCD.setFont(fnt);
+		lblFD.setFont(fnt);
+		
+		add(lblTD);
+		add(lblPD);
+		add(lblCD);
+		add(lblFD);	
 	}	// GraphPanel()
 	
 	// Graph's type  // Total, Protein, Carbohydrate, Fat
@@ -79,7 +112,6 @@ public class GraphPanel extends JPanel {
 		add(lblF);		
 	}	// type()
 	
-	
 	// Counting the ated data
 	public void countD() {	
 		// percentage return
@@ -103,54 +135,26 @@ public class GraphPanel extends JPanel {
 		else 			lblCD.setForeground(Color.black);
 		if(jiP>100)		lblFD.setForeground(Color.red);
 		else 			lblFD.setForeground(Color.black);
-		
-		lblTD.setBounds(690,10,35,70);
-		lblPD.setBounds(690,60,35,70);
-		lblCD.setBounds(690,110,35,70);
-		lblFD.setBounds(690,160,35,70);
-		
-		lblTD.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTD.setVerticalAlignment(SwingConstants.CENTER);
-		
-		lblPD.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPD.setVerticalAlignment(SwingConstants.CENTER);
-		
-		lblCD.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCD.setVerticalAlignment(SwingConstants.CENTER);
-		
-		lblFD.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFD.setVerticalAlignment(SwingConstants.CENTER);
-		
-		Font fnt = new Font("Segoe Print",Font.BOLD,11);
-		
-		lblTD.setFont(fnt);
-		lblPD.setFont(fnt);
-		lblCD.setFont(fnt);
-		lblFD.setFont(fnt);
-		
-		add(lblTD);
-		add(lblPD);
-		add(lblCD);
-		add(lblFD);	
+
 	}	// countD
 	
 	// Make a thread. 	// Repainting graph
-	public void startThread() {		
-		// restart thread
+	public void startThread() {			
 		tot.setThis(this);
 		dan.setThis(this);
 		tan.setThis(this);
 		ji.setThis(this);
 		
+		// restart thread
 		tot.renew(totX, totP, TotalAted.gettCal(),PrivateInfo.getRecomCal());
 		dan.renew(danX, danP, TotalAted.gettProt(),PrivateInfo.getRecomProt());
 		tan.renew(tanX, tanP, TotalAted.gettCarbo(),PrivateInfo.getRecomCarbo());
-		ji.renew(jiX, jiP, TotalAted.gettFat(),PrivateInfo.getRecomFat());			
+		ji.renew(jiX, jiP, TotalAted.gettFat(),PrivateInfo.getRecomFat());	
+		
 		// graph bar size return
 		totX	= tot.getDestiny(TotalAted.gettCal(),PrivateInfo.getRecomCal());
 		danX	= dan.getDestiny(TotalAted.gettProt(),PrivateInfo.getRecomProt());
 		tanX	= tan.getDestiny(TotalAted.gettCarbo(),PrivateInfo.getRecomCarbo());
 		jiX		= ji.getDestiny(TotalAted.gettFat(),PrivateInfo.getRecomFat());
-	
 	}	// startThread()
 }	// GraphPanel class

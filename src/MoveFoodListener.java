@@ -87,11 +87,6 @@ public class MoveFoodListener implements MouseListener
 				t_prev.addF(temp);
 				TotalAted.add(cur);
 				second.getGraphPanel().startThread();
-				System.out.println("insert");
-				System.out.println("tot >> " + TotalAted.gettCal());
-				System.out.println("dan >> " + TotalAted.gettProt());
-				System.out.println("tan >> " +TotalAted.gettCarbo());
-				System.out.println("ji >> " + TotalAted.gettFat());
 			}
 			if(prev==null)
 			{
@@ -155,11 +150,6 @@ public class MoveFoodListener implements MouseListener
 				t_prev.setVisible(false);
 				t_prev.setVisible(true);
 				second.getGraphPanel().startThread();
-				System.out.println("delete");
-				System.out.println("tot >> " + TotalAted.gettCal());
-				System.out.println("dan >> " + TotalAted.gettProt());
-				System.out.println("tan >> " +TotalAted.gettCarbo());
-				System.out.println("ji >> " + TotalAted.gettFat());
 			}
 		}
 		public void mouseEntered(MouseEvent e){}
