@@ -16,6 +16,8 @@ public class AdvicePanel extends JPanel
 		lblAna		= new JLabel();
 		lblResult	= new JLabel();
 		lblName		= new JLabel();
+		
+		// image about result
 		vs= new ImageIcon("picture/third/very serious.png");
 		lbs=new ImageIcon("picture/third/little bit serious.png");
 		ok=new ImageIcon("picture/third/ok.png");
@@ -73,4 +75,4 @@ public class AdvicePanel extends JPanel
 		else 						lbl.setIcon(ok);	//	Àû´ç	
 	}	// AdviceLabel()
 	
-}
+}	// AdvicePanel class

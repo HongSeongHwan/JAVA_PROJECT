@@ -3,7 +3,7 @@ import javax.swing.*;
 
 
 public class EverageLine extends JPanel{
-
+	//추천되는 정도의 영양을 붉은 선으로 표시
 	private double recomanded;
 	
 	public EverageLine(){}
@@ -12,14 +12,14 @@ public class EverageLine extends JPanel{
 		setLayout(null);
 		setBackground(Color.white);
 		recomanded = a;
-	}
+	}//EverageLine()
 	public double getRecomanded()
 	{
 		return recomanded;
-	}
+	}//getRecomanded()
 	public void paintComponent(Graphics page2)
 	{
 		super.paintComponent(page2);		
 		
 	}	// paintComponent();	
-}
+}//EveageLine

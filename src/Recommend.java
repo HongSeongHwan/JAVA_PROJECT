@@ -1,66 +1,91 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
-public class Recommend extends JPanel
-{
-	private int num,max;
-	private int t,p,c,f;
-	private boolean check = true;
-	private JLabel lbl,comment;
-	
+public class Recommend extends JPanel {
+	private int loc;
+	private boolean check;
+	private JLabel lbl;
+	private double prot, carbo, fat, min, least;
+	private ArrayList<FoodButton> list;
+	private Imgpnl imgpnl;
+
 	public Recommend() {
-		this.setPreferredSize(new Dimension(420,100));
-		this.setLayout(null);
-		
-		t =	(int)	( 100-(TotalAted.gettCal()/PrivateInfo.getRecomCal()*100) );
-		p = (int)	( 100-(TotalAted.gettProt()/PrivateInfo.getRecomProt()*100) );
-		c = (int)	( 100-(TotalAted.gettCarbo()/PrivateInfo.getRecomCarbo()*100) );
-		f = (int)	( 100-(TotalAted.gettFat()/PrivateInfo.getRecomFat()*100) );
-		
-		// to find big problem
-		if(Math.abs(t)>Math.abs(p)) { max = Math.abs(t); if(t<0) check=false;	}
-		else 						{ max = Math.abs(p); if(p<0) check=false;	}
-		if(max<Math.abs(c))			{ max = Math.abs(c); if(c<0) check=false;	}
-		if(max<Math.abs(f)) 		{ max = Math.abs(f); if(f<0) check=false;	}
-	
+		this.setPreferredSize(new Dimension(420, 100));
+		check = true;
+
 		lbl = new JLabel();
-		lbl.setBounds(0,0,400,30);
-		lbl.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl.setFont(new Font("한컴 윤고딕 230", Font.BOLD, 15));
+		lbl.setHorizontalAlignment(SwingConstants.RIGHT);
 		lbl.setVerticalAlignment(SwingConstants.CENTER);
-		lbl.setFont(new Font("Segoe Print",Font.BOLD,20));
-		add(lbl);
+		lbl.setBounds(0, 0, 420, 100);
+		this.add(lbl);
+
+		// 음식 데이터 리스트
+		list = FoodButtonList.getFoodButtonList().getList();
+		// standard
+		prot = TotalAted.gettProt() - PrivateInfo.getRecomProt();
+		carbo = TotalAted.gettCarbo() - PrivateInfo.getRecomCarbo();
+		fat = TotalAted.gettFat() - PrivateInfo.getRecomFat();
 		
-		comment = new JLabel();
-		comment.setBounds(0,35,400,60);
-		comment.setHorizontalAlignment(SwingConstants.CENTER);
-		comment.setVerticalAlignment(SwingConstants.CENTER);
-		comment.setFont(new Font("Segoe Print",Font.BOLD,28));
-		comment.setForeground(Color.black);
-		add(comment);
+		// min data init
+		min =  (	(list.get(0).getProtein() - prot) * (list.get(0).getProtein() - prot) / PrivateInfo.getRecomProt()	/ PrivateInfo.getRecomProt()
+				+ 	(list.get(0).getTansoo() - carbo) * (list.get(0).getTansoo() - carbo)	/ PrivateInfo.getRecomCarbo() / PrivateInfo.getRecomCarbo()
+				+	(list.get(0).getFat() - fat) * (list.get(0).getFat() - fat) / PrivateInfo.getRecomFat()/ PrivateInfo.getRecomFat()	);
+
+		// find min value
+		for (int i = 1; i < list.size(); i++) {
+			least = (	(list.get(i).getProtein() - prot) * (list.get(i).getProtein() - prot) / PrivateInfo.getRecomProt()	/ PrivateInfo.getRecomProt()
+					+ 	(list.get(i).getTansoo() - carbo) * (list.get(i).getTansoo() - carbo)	/ PrivateInfo.getRecomCarbo() / PrivateInfo.getRecomCarbo()
+					+	(list.get(i).getFat() - fat) * (list.get(i).getFat() - fat) / PrivateInfo.getRecomFat()/ PrivateInfo.getRecomFat()	);
+			if (min > least) {
+				loc = i;
+				min = least;
+			}
+		}
+		for (int i = 1; i < list.size(); i++) {
+			least = (	(list.get(i).getProtein() + prot) * (list.get(i).getProtein() + prot) / PrivateInfo.getRecomProt()	/ PrivateInfo.getRecomProt()
+					+ 	(list.get(i).getTansoo() + carbo) * (list.get(i).getTansoo() + carbo)	/ PrivateInfo.getRecomCarbo() / PrivateInfo.getRecomCarbo()
+					+	(list.get(i).getFat() + fat) * (list.get(i).getFat() + fat) / PrivateInfo.getRecomFat()/ PrivateInfo.getRecomFat()	);
+			if (min > least) {
+				loc = i;
+				min = least;
+				check = false;
+			}
+		}
 		
-		setText();
-		if(check = false)		setCommentS();
-		else if(check = true)	setCommentA();		
-	}	// Recommend()	
-	
-	public void setText() {
-		if(max==t)		lbl.setText("Problem of Calories");
-		else if(max==p)	lbl.setText("Problem of Protein");
-		else if(max==c)	lbl.setText("Problem of Carbohydrate");
-		else			lbl.setText("Problem of Fat");
-	}	// setText()
-	
-	public void setCommentS() {
-		if(max==t)			comment.setText("Shortage of Calories " + max+ " kcal");
-		else if(max==p)		comment.setText("Shortage of Protein " + max+ " kcal");
-		else if(max==c)		comment.setText("Shortage of Carbohydrate " + max+ " kcal");
-		else				comment.setText("Shortage of Fat " + max+ " kcal");
-	}	// setCommenetS()
-	
-	public void setCommentA() {
-		if(max==t)			comment.setText("Abundance of Calories " + max + "kcal");
-		else if(max==p)		comment.setText("Abundance of Protein " + max+ "kcal");
-		else if(max==c)		comment.setText("Abundance of Carbohydrate " + max+ "kcal");
-		else				comment.setText("Abundance of Fat " + max+ "kcal");
-	}	// setCommenetA()
-}	// Recommend class
+		// adding img and label
+		imgpnl=new Imgpnl();
+		lbl.add(imgpnl);
+		this.printImg();
+		// testing
+	//	 if(check == true) System.out.println("Testing abundance>> " + list.get(loc).getName());
+	//	 if(check == false) System.out.println("Testing shortage>> " + list.get(loc).getName());
+	} // Recommend()
+
+	public void printImg() {
+		if (check == true) { // abundance.
+			lbl.setText("같은 음식은 피하는게 좋아요~");
+
+		} else { // shortage
+			lbl.setText("같은 음식을 찾아봐요~");
+		} // if.. else
+	}
+
+	class Imgpnl extends JPanel {
+		private ImageIcon imageIcon;
+		private Image image;
+
+		private Imgpnl() {
+			setPreferredSize(new Dimension(200, 100));
+			setBounds(0, 0, 200, 100);
+			imageIcon = new ImageIcon(list.get(loc).getImageIconPath());
+			image = imageIcon.getImage();
+		}	// Imgpnl()
+
+		public void paintComponent(Graphics g) {
+			super.paintComponent(g);
+			g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+		}	// paintComponent()
+	}	// Imgpnl class
+} // Recommend class

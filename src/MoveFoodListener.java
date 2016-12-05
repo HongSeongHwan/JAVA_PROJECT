@@ -78,8 +78,9 @@ public class MoveFoodListener implements MouseListener
 			cur = (FoodButton)e.getSource();
 			if(t_prev!=null){            //타임에 음식추가********************************************
 					
-				ImageIcon tempimage = new ImageIcon(Constant.FOODIMAGE[cur.getKey()]);
-				FoodButtonPanel temp = new FoodButtonPanel(tempimage,cur );
+				//ImageIcon tempimage = new ImageIcon(Constant.FOODIMAGE[cur.getKey()]);
+				
+				FoodButtonPanel temp = new FoodButtonPanel(cur );
 				//temp.add(new FoodButton(prev));
 				//temp.add(new JLabel(cur.getIcon()));
 				temp.addMouseListener(listener);
@@ -87,6 +88,7 @@ public class MoveFoodListener implements MouseListener
 				t_prev.addF(temp);
 				TotalAted.add(cur);
 				second.getGraphPanel().startThread();
+			
 			}
 			if(prev==null)
 			{

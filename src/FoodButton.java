@@ -8,6 +8,7 @@ public class FoodButton extends JButton {
 	private double tansoo;
 	private String name;
 	private ImageIcon imageIcon;
+	private String imageIconPath;
 	private Image image;
 	private int key;
 	public  FoodButton(FoodButton f) {
@@ -17,6 +18,12 @@ public class FoodButton extends JButton {
 		tansoo = f.tansoo;
 		name = f.name;
 		key = f.key;
+		imageIconPath = f.imageIconPath;
+	
+		imageIcon = new ImageIcon(imageIconPath);
+		image = imageIcon.getImage();
+	
+		
 	}
 	
 	// get
@@ -26,8 +33,11 @@ public class FoodButton extends JButton {
 	public double getProtein()		{ return protein;	}
 	public double getTansoo()		{ return tansoo;	}
 	public String getName()			{ return name;		}
+	public String getImageIconPath() {return imageIconPath;}
 	
 	// set
+	public void setImageIconPath(String imageIconPath) {this.imageIconPath =  imageIconPath;}
+	public void setImage() {image=new ImageIcon(imageIconPath).getImage();}
 	public void setKey(int key){this.key = key;}
 	public void setFat(double fat)				{ this.fat = fat;			}
 	public void setCalories(double calories)	{ this.calories = calories; }
@@ -39,13 +49,13 @@ public class FoodButton extends JButton {
 	}
 	FoodButton() {
 		super();
-		this.setPreferredSize(new Dimension(185, 50));
 	}
 
 	FoodButton(ImageIcon x) {
+		super(x);
 		image = x.getImage();		
-		//super(x);
-		//this.setPreferredSize(new Dimension(185, 50));
+	
+		this.setPreferredSize(new Dimension(185, 100));
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);

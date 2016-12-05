@@ -22,13 +22,17 @@ public class FoodPanel extends JPanel {
 		this.setLayout(l);		
 		
 		for(i=0; i<Constant.FOODA.length; i++) {
+			
 			button[i] = new FoodButton(new ImageIcon(Constant.FOODIMAGE[i]));
-			button[i].setKey(i);
+			button[i].setImageIconPath(Constant.FOODIMAGE[i]);
+		//	button[i].setIcon( );
+			//button[i].setKey(i);
 			button[i].setName(Constant.FOODA[i]);
 			button[i].setCalories(Constant.foodData[i][0]);
 			button[i].setTansoo(Constant.foodData[i][1]);
 			button[i].setProtein(Constant.foodData[i][2]);
 			button[i].setFat(Constant.foodData[i][3]);
+			//button[i].repaint();
 			foodAdd(button[i]);
 		}
 	}

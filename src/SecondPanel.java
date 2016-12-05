@@ -27,7 +27,7 @@ public class SecondPanel extends JPanel{
 		return out;
 	}
 	public SecondPanel(){
-		Color n=new Color(255, 207, 181);
+		Color n= Constant.backColor;
 	//	sem = new Semaphore(4);
 		
 		out = this;
@@ -62,12 +62,12 @@ public class SecondPanel extends JPanel{
 		this.setBackground(n);
 		
 		timePanel.setBounds(10, loction_pane_x, 370, height_pane);
-		timePanel.setBackground(Color.orange);
+		timePanel.setBackground(Color.white);
 		//add(timePanel);
 		add(scroll1);
 		
 		foodPanel.setBounds(395, loction_pane_x, 375, height_pane);
-		foodPanel.setBackground(Color.cyan);
+		foodPanel.setBackground(Color.white);
 		//add(foodPanel);
 		add(scroll2);			
 		

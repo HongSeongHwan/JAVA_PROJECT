@@ -26,7 +26,7 @@ public class ThirdPanel extends JPanel{
 		// page change button
 		bbtn= new JButton(new ImageIcon("picture/first/back.png"));
 		nbtn = new JButton(new ImageIcon("picture/first/next.png"));
-		btnThx = new JButton("ReStart");
+		btnThx = new JButton("Thx :)");
 		listener = new ThirdPanelListener();		
 		btnThx.addActionListener(listener);
 		
@@ -142,7 +142,8 @@ public class ThirdPanel extends JPanel{
 				remove(dan);
 				remove(recom);
 			} else if (obj == btnThx) {
-				ViewControl.viewPanel(3, 4);
+				System.exit(1);
+				
 			}	// if.. else..
 		}		// actionPerformed()
 	}	// ThirdPanelListner class

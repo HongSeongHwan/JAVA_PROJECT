@@ -30,6 +30,7 @@ public class FoodAteBar extends JPanel {
 		new GraphThread(this).start();	
 	}	// renew()
 	
+	
 	// get / set
 	public int getDestiny(double a, double b)	{ 
 		destiny = (int)((a*630)/(b*1.5));
@@ -70,10 +71,16 @@ public class FoodAteBar extends JPanel {
  			if(percent > prePer) {	// 입력 시 
  				for (i = prePer; i<=percent ; i++){
  					primary.countD();
+ 					try{
+ 	   					 Thread.sleep(delay*2);
+ 	   				}catch(Exception e){}
  				}	
  			} else if(percent < prePer){	// 삭제 시
 				for (i = prePer; i>=percent ; i--){
  					primary.countD();
+ 					try{
+	   					 Thread.sleep(delay*2);
+	   				}catch(Exception e){}
 				}	  	
  			}	// if.. else
  			

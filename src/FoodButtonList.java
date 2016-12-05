@@ -10,16 +10,18 @@ public class FoodButtonList
 	private FoodPanel p;
 	private ArrayList<FoodButton> list;
 	private int num;
+	private static FoodButtonList me;
 //	private MoveFoodListener listener;
 	
 	// get
 	public int getNum()						{ return num;			}
 	public FoodButton getB(int a)			{ return list.get(a);	}	
 	public ArrayList<FoodButton> getList()	{ return list;			}
-
+	public static FoodButtonList getFoodButtonList(){ return me;}
 	public FoodButtonList(FoodPanel x)
 	{
 		p = x;
+		me = this; 
 		list = new ArrayList<FoodButton>();
 		num = -1;		
 	//	listener = new MoveFoodListener();
@@ -28,6 +30,7 @@ public class FoodButtonList
 	public void addB(FoodButton k)
 	{
 		p.add(k);
+		
 	//	k.addMouseListener(listener);
 		list.add(k);
 		num++;

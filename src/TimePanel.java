@@ -16,7 +16,7 @@ public class TimePanel extends JPanel
 		tlp = new ArrayList<TimeLinePanel>();
 		//listener =	ViewControl.getMoveFoodListener();
 		//listener.setTime();
-		this.setBackground(Color.BLACK);
+		this.setBackground(Constant.c4);
 	//	this.setBounds(1,1,190,400);
 		setLayout(null);
 		
@@ -27,20 +27,24 @@ public class TimePanel extends JPanel
 		this.setLayout(l);
 		
 		temp = new TimeLinePanel();
+		temp.setBackground(Constant.c4);
 		//temp.addMouseListener(second.getMoveFoodListener());
 		addTimeLine(temp);
 		
 		temp = new TimeLinePanel();
+		temp.setBackground(Constant.c4);
 		//temp.addMouseListener(second.getMoveFoodListener());
 		addTimeLine(temp);
 		
 		temp = new TimeLinePanel();
+		temp.setBackground(Constant.c4);
 		//temp.addMouseListener(second.getMoveFoodListener());
 		addTimeLine(temp);
 	}
 	public void addTimeLine(TimeLinePanel x){
 		tlp.add(x);
 		x.addMouseListener(second.getMoveFoodListener());
+		x.setBackground(Constant.c4);
 		add(x);
 		num++;
 	}
