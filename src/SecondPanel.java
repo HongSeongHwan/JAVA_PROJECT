@@ -16,12 +16,13 @@ public class SecondPanel extends JPanel{
 	private FoodPanel foodPanel;
 	private TimePanel timePanel;
 	private GraphPanel graphPanel;
+	private JLabel timeLabel, foodLabel, graphLabel;
 	private JButton bbtn,nbtn;
 	private SecondPanelListener listener;
 	private MoveFoodListener move_listener;
 	private JScrollPane scroll1, scroll2;
-	private final int loction_pane_x = 55;
-	private final int height_pane = 600;
+	private final int loction_pane_x = 70;
+	private final int height_pane = 550;
 	private JButton option_time ,option_food;
 	static public SecondPanel getSecondPanel(){
 		return out;
@@ -36,6 +37,26 @@ public class SecondPanel extends JPanel{
 		
 		move_listener = new MoveFoodListener(this);
 		
+		timeLabel = new JLabel(" < TIME TABLE >");
+		timeLabel.setBounds(80, 0, 250, 80);
+		timeLabel.setFont(new Font("Segoe Print",Font.BOLD,25));
+		//timeLabel.setForeground(new Color(178,197,229));
+		timeLabel.setForeground(Constant.c5);
+		add(timeLabel);
+		
+		foodLabel = new JLabel(" < FOOD TABLE >");
+		foodLabel.setBounds(470, 0, 250, 80);
+		foodLabel.setFont(new Font("Segoe Print",Font.BOLD,25));
+		//foodLabel.setForeground(new Color(178,197,229));
+		foodLabel.setForeground(Constant.c5);
+		add(foodLabel);
+		
+		graphLabel = new JLabel(" < FOOD GRAPH >");
+		graphLabel.setBounds(40, 620, 250, 70);
+		graphLabel.setFont(new Font("Segoe Print",Font.BOLD,25));
+		//graphLabel.setForeground(new Color(178,197,229));
+		graphLabel.setForeground(Constant.c5);
+		add(graphLabel);
 		
 		graphPanel = new GraphPanel();
 		bbtn= new JButton(new ImageIcon("picture/first/back.png"));
@@ -71,8 +92,8 @@ public class SecondPanel extends JPanel{
 		//add(foodPanel);
 		add(scroll2);			
 		
-		graphPanel.setBounds(10, 670, 760, 230);
-		graphPanel.setBackground(Color.gray);
+		graphPanel.setBounds(20, 670, 760, 230);
+		graphPanel.setBackground(n);
 		add(graphPanel);
 		
 		bbtn.addActionListener(listener);
@@ -82,7 +103,6 @@ public class SecondPanel extends JPanel{
 		bbtn.setForeground(n);
 		add(bbtn);
 		
-		
 		nbtn.addActionListener(listener);
 		nbtn.setBounds(720, 900, 50, 50);
 		nbtn.setBorder(new RoundedBorder(70));
@@ -90,17 +110,14 @@ public class SecondPanel extends JPanel{
 		nbtn.setForeground(n);
 		add(nbtn);	
 		
-		
-		
-
-		option_time.setBounds(10, 5, 50, 50);
+		option_time.setBounds(10, 15, 50, 50);
 		option_time.addMouseListener(move_listener);
 		option_time.setBorder(new RoundedBorder(70));
 		option_time.setBackground(n);
 		option_time.setForeground(n);
 		add(option_time);	
 		
-		option_food.setBounds(720, 5, 50, 50);
+		option_food.setBounds(720, 15, 50, 50);
 		option_food.addMouseListener(move_listener);
 		option_food.setBorder(new RoundedBorder(70));
 		option_food.setBackground(n);

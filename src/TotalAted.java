@@ -27,7 +27,7 @@ public class TotalAted {
 		tFat 	+= x.getFat();
 		tProt 	+= x.getProtein();
 		tCal 	+= x.getCalories();
-	}
+	}//add
 	
 	// food was deleted
 	public static void minus(FoodButtonPanel x) {
@@ -35,5 +35,5 @@ public class TotalAted {
 		tFat	-= x.getFat();
 		tProt	-= x.getProtein();
 		tCal 	-= x.getCalories();
-	}
+	}//minus
 }

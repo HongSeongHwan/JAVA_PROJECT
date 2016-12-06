@@ -50,7 +50,7 @@ public class MoveFoodListener implements MouseListener
 			t_cur = (TimeLinePanel)e.getSource();
 			if(t_prev==null) //선택 되었던 타임 라인 존재 하지 않음
 			{
-				t_cur.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.red));
+				t_cur.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Constant.c2));
 			}
 			else if(t_cur==t_prev){// 타임라인 지우기
 				time.deleteT(t_prev);
@@ -67,7 +67,7 @@ public class MoveFoodListener implements MouseListener
 				for(FoodButtonPanel temp : t_cur.getList()){
 					temp.addMouseListener(listener);
 				}
-				t_cur.setBorder(BorderFactory.createMatteBorder(3,3,3,3,Color.red));
+				t_cur.setBorder(BorderFactory.createMatteBorder(3,3,3,3,Constant.c2));
 				t_prev.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.white));
 
 			}
@@ -92,7 +92,7 @@ public class MoveFoodListener implements MouseListener
 			}
 			if(prev==null)
 			{
-				cur.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.red));
+				cur.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Constant.c2));
 				prev = cur;				
 			}
 			else if(cur==prev){					//푸드에서 음식지우기********************************************
@@ -106,7 +106,7 @@ public class MoveFoodListener implements MouseListener
 			}
 			else
 			{
-				cur.setBorder(BorderFactory.createMatteBorder(3,3,3,3,Color.red));
+				cur.setBorder(BorderFactory.createMatteBorder(3,3,3,3,Constant.c2));
 				prev.setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.white));
 				prev = cur;
 			}		

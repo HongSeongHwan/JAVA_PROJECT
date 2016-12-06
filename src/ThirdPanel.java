@@ -1,24 +1,23 @@
 import java.awt.*;
 import java.awt.event.*;
-
-
 import javax.swing.*;
 import javax.swing.border.Border;
 
 public class ThirdPanel extends JPanel{
 	//private JPanel upPanel, downPanel;
 	private JButton bbtn,nbtn,btnThx;
-	private JPanel img,recom;
-	private JLabel adv,lblImg;
+	private JPanel imgPanel,recomPanel, titlePanel1, titlePanel2;
+	private JLabel lbladv,lblImg;
 	private int check;
-	private ImageIcon iconQurio;
+	private ImageIcon icon;
 	private Recommend rec;
 	
 	private ThirdPanelListener listener;
 	private AdvicePanel tot,dan,tan,ji;
+	Color n = Constant.backColor;
 	
 	public ThirdPanel(){
-		Color n=new Color(255, 207, 181);
+		
 		this.setBounds(0,0,800,1000);
 		this.setLayout(null);
 		this.setBackground(n);
@@ -45,51 +44,70 @@ public class ThirdPanel extends JPanel{
 		nbtn.setEnabled(false);
 		add(nbtn);	
 		
+		titlePanel1 = new JPanel();
+		titlePanel1.setBounds(0,85,800,120);
+		titlePanel1.setBackground(Constant.c5);
+		add(titlePanel1);
+		
+		
 		// advice title .. Top
-		adv = new JLabel("Result! Check Please!");
-		adv.setFont(new Font("Segoe Print",Font.BOLD,50));
-		adv.setBounds(10,20,780,50);
-		adv.setHorizontalAlignment(SwingConstants.CENTER);
-		adv.setVerticalAlignment(SwingConstants.CENTER);
-		add(adv);
+		lbladv = new JLabel("Result! Check Please!");
+		lbladv.setFont(new Font("Segoe Print",Font.BOLD,60));
+		lbladv.setForeground(n);
+		lbladv.setBounds(10,20,780,120);
+		lbladv.setHorizontalAlignment(SwingConstants.CENTER);
+		lbladv.setVerticalAlignment(SwingConstants.CENTER);
+		titlePanel1.add(lbladv);
 		
 		// img panel .. Mid left
-		iconQurio = new ImageIcon("picture/third/quriosity.jpg");
+	/*	iconQurio = new ImageIcon("picture/third/quriosity.jpg");
 		lblImg = new JLabel(iconQurio);
-		img = new JPanel();
-		img.setBounds(35,85,300,635);
-		img.setBackground(Color.white);
-		img.add(lblImg);
-		add(img);
+		imgPanel = new JPanel();
+		imgPanel.setBounds(35,85,300,635);
+		imgPanel.setBackground(Color.white);
+		imgPanel.add(lblImg);
+		add(imgPanel);*/
 	}	// ThirdPanel()
 	
 	public void recommend() {
 		// background panel
 		rec = new Recommend();
-		recom = new JPanel();
-		recom.setBounds(35,735,715,150);
-		recom.setBackground(Color.gray);
-		recom.setLayout(null);
-		add(recom);
+		recomPanel = new JPanel();
+		recomPanel.setBounds(0,700,800,180);
+		recomPanel.setBackground(n);
+		recomPanel.setLayout(null);
+		add(recomPanel);
 		
 		Font fnt = new Font("Segoe Print",Font.BOLD,20);
 		
+		
+		titlePanel2 = new JPanel();
+		titlePanel2.setBounds(0,600,800,60);
+		titlePanel2.setBackground(Constant.c5);
+		add(titlePanel2);
+		
 		JLabel title = new JLabel("Advice!");
-		title.setFont(fnt);
-		title.setBounds(20,5,200,30);
-		recom.add(title);		
+		title.setFont(new Font("Segoe Print",Font.BOLD,50));
+		title.setForeground(n);
+		title.setHorizontalAlignment(SwingConstants.CENTER);
+		title.setVerticalAlignment(SwingConstants.CENTER);
+		title.setBounds(0,10,800,40);
+		titlePanel2.add(title);		
 		
-		rec.setBounds(20,40,420,100);
-		recom.add(rec);
+		rec.setBounds(40,0,750,300);
+		recomPanel.add(rec);
 		
-		ImageIcon thxImg = new ImageIcon("picture/third/thx.png");
+		/*ImageIcon thxImg = new ImageIcon("picture/third/thx.png");
 		JLabel lblThx = new JLabel(thxImg);
 		lblThx.setBounds(450, 5, 250, 115);
-		recom.add(lblThx);
+		recomPanel.add(lblThx);*/
 		
-		btnThx.setBounds(550,120,150,25);
+		btnThx.setBounds(325,905,150,40);
+		btnThx.setBackground(n);
+		btnThx.setForeground(Constant.c5);
 		btnThx.setFont(fnt);
-		recom.add(btnThx);
+		btnThx.setBorder(new RoundedBorder(25));
+		add(btnThx);
 	}
 	
 	class RoundedBorder implements Border { 
@@ -111,23 +129,23 @@ public class ThirdPanel extends JPanel{
 	public void Analysis() {
 		// main	.. Mid right
 		// 1. Total
-		tot = new AdvicePanel("Total",TotalAted.gettCal(),PrivateInfo.getRecomCal());
-		tot.setBounds(350,90,400,150);
+		tot = new AdvicePanel("칼로리",TotalAted.gettCal(),PrivateInfo.getRecomCal());
+		tot.setBounds(75,250,315,150);
 		add(tot);
 		
 		// 2. Protein
-		dan = new AdvicePanel("Protein",TotalAted.gettProt(),PrivateInfo.getRecomProt());
-		dan.setBounds(350,250,400,150);
+		dan = new AdvicePanel("단백질",TotalAted.gettProt(),PrivateInfo.getRecomProt());
+		dan.setBounds(75,415,315,150);
 		add(dan);
 		
 		// 3. Carbohydrate
-		tan = new AdvicePanel("Carbo",TotalAted.gettCarbo(),PrivateInfo.getRecomCarbo());
-		tan.setBounds(350,410,400,150);
+		tan = new AdvicePanel("탄수화물",TotalAted.gettCarbo(),PrivateInfo.getRecomCarbo());
+		tan.setBounds(410,250,315,150);
 		add(tan);
 		
 		// 4. Fat
-		ji = new AdvicePanel("Fat",TotalAted.gettFat(),PrivateInfo.getRecomFat());
-		ji.setBounds(350,570,400,150);
+		ji = new AdvicePanel("지방",TotalAted.gettFat(),PrivateInfo.getRecomFat());
+		ji.setBounds(410,415,315,150);
 		add(ji);
 	}	// Analysis()
 	
@@ -140,7 +158,8 @@ public class ThirdPanel extends JPanel{
 				remove(tan);
 				remove(ji);
 				remove(dan);
-				remove(recom);
+				remove(recomPanel);
+				//remove(rec);
 			} else if (obj == btnThx) {
 				System.exit(1);
 				

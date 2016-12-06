@@ -16,8 +16,6 @@ public class AdvicePanel extends JPanel
 		lblAna		= new JLabel();
 		lblResult	= new JLabel();
 		lblName		= new JLabel();
-		
-		// image about result
 		vs= new ImageIcon("picture/third/very serious.png");
 		lbs=new ImageIcon("picture/third/little bit serious.png");
 		ok=new ImageIcon("picture/third/ok.png");
@@ -30,26 +28,28 @@ public class AdvicePanel extends JPanel
 		
 		// anaP	-- left
 		anaP.setLayout(null);
-		anaP.setBounds(0,0,200,150);
+		anaP.setBounds(0,0,160,150);
+		anaP.setBackground(Color.white);
+		
 		this.add(anaP);		
 		// lblName	-- left top
 		lblName.setText(str);
-		lblName.setFont(new Font("Verdana",Font.BOLD,30));
+		lblName.setFont(new Font("ÇÑÄÄ À±°íµñ 230",Font.BOLD,30));
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
 		lblName.setVerticalAlignment(SwingConstants.CENTER);
-		lblName.setBounds(0,0,200,100);	
+		lblName.setBounds(-20,20,200,100);	
 		anaP.add(lblName);
 		// lblAna	-- left bottom
 		lblAna.setText("(" + Math.round(data*100d)/100d + "/" +Math.round(dataD*100d)/100d + ")");
 		lblAna.setFont(new Font("Verdana",Font.BOLD,15));
 		lblAna.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAna.setVerticalAlignment(SwingConstants.CENTER);
-		lblAna.setBounds(0,100,200,50);
+		lblAna.setBounds(-20,80,200,50);
 		anaP.add(lblAna);
 		
 		// resultP	-- right
 		resultP.setLayout(null);
-		resultP.setBounds(210,0,190,150);
+		resultP.setBounds(140,0,175,150);
 		// Color
 		if(check>0)			resultP.setBackground(Color. yellow);
 		else if(check<0)	resultP.setBackground(Color.yellow);
@@ -75,4 +75,4 @@ public class AdvicePanel extends JPanel
 		else 						lbl.setIcon(ok);	//	Àû´ç	
 	}	// AdviceLabel()
 	
-}	// AdvicePanel class
+}

@@ -11,7 +11,7 @@ public class GraphPanel extends JPanel {
 	
 	public GraphPanel(){
 		setLayout(null);
-		setBackground(Color.gray);
+		setBackground(Constant.backColor);
 		setPreferredSize(new Dimension(760,230));
 		
 		// type
@@ -77,15 +77,15 @@ public class GraphPanel extends JPanel {
 	
 	// Graph's type  // Total, Protein, Carbohydrate, Fat
 	public void type() {
-		lblT = new JLabel("Tot");
+		lblT = new JLabel("Cal");
 		lblP = new JLabel("Pro");
 		lblC = new JLabel("Car");
 		lblF = new JLabel("Fat");
 		
-		lblT.setBounds(10,20,35,40);
-		lblP.setBounds(10,70,35,40);
-		lblC.setBounds(10,120,35,40);
-		lblF.setBounds(10,170,35,40);
+		lblT.setBounds(5,20,35,40);
+		lblP.setBounds(5,70,35,40);
+		lblC.setBounds(5,120,35,40);
+		lblF.setBounds(5,170,35,40);
 		
 		lblT.setHorizontalAlignment(SwingConstants.CENTER);
 		lblT.setVerticalAlignment(SwingConstants.CENTER);

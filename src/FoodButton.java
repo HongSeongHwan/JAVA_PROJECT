@@ -60,6 +60,5 @@ public class FoodButton extends JButton {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(image, 0, 0, getWidth(), getHeight(),this );
-		
 	}
 }

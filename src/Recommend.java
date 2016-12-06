@@ -11,14 +11,15 @@ public class Recommend extends JPanel {
 	private Imgpnl imgpnl;
 
 	public Recommend() {
-		this.setPreferredSize(new Dimension(420, 100));
+		this.setPreferredSize(new Dimension(650, 150));
+		this.setBackground(Constant.backColor);
 		check = true;
 
 		lbl = new JLabel();
-		lbl.setFont(new Font("ÇÑÄÄ À±°íµñ 230", Font.BOLD, 15));
+		lbl.setFont(new Font("ÇÑÄÄ À±°íµñ 230", Font.PLAIN, 25));
 		lbl.setHorizontalAlignment(SwingConstants.RIGHT);
 		lbl.setVerticalAlignment(SwingConstants.CENTER);
-		lbl.setBounds(0, 0, 420, 100);
+		lbl.setBounds(0, 0, 650, 150);
 		this.add(lbl);
 
 		// À½½Ä µ¥ÀÌÅÍ ¸®½ºÆ®
@@ -58,9 +59,6 @@ public class Recommend extends JPanel {
 		imgpnl=new Imgpnl();
 		lbl.add(imgpnl);
 		this.printImg();
-		// testing
-	//	 if(check == true) System.out.println("Testing abundance>> " + list.get(loc).getName());
-	//	 if(check == false) System.out.println("Testing shortage>> " + list.get(loc).getName());
 	} // Recommend()
 
 	public void printImg() {
@@ -77,8 +75,8 @@ public class Recommend extends JPanel {
 		private Image image;
 
 		private Imgpnl() {
-			setPreferredSize(new Dimension(200, 100));
-			setBounds(0, 0, 200, 100);
+			setPreferredSize(new Dimension(300, 150));
+			setBounds(0, 0, 300, 150);
 			imageIcon = new ImageIcon(list.get(loc).getImageIconPath());
 			image = imageIcon.getImage();
 		}	// Imgpnl()

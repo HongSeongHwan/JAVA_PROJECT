@@ -6,6 +6,7 @@ import java.awt.event.*;
 
 
 public class FirstPanel extends JPanel {
+	public JPanel titlePanel;
 	public JLabel title;
 	public JTextField [] field;
 	public JLabel [] lbl; 
@@ -19,10 +20,14 @@ public class FirstPanel extends JPanel {
 	
 	FirstPanel(){
 		Color n = Constant.backColor;
+		this.setBounds(0,0,800,1000);
+		this.setLayout(null);
+		this.setBackground(n);
 		
 		num = 4;
 		field = new JTextField[num];
 		lbl = new JLabel[num];
+		titlePanel = new JPanel();
 		title = new JLabel();
 		man=new ImageIcon("picture/first/man.png");
 		woman=new ImageIcon("picture/first/woman.png");
@@ -32,35 +37,42 @@ public class FirstPanel extends JPanel {
 		rb2.addActionListener(listener);
 		group=new ButtonGroup();//버튼을 그룹화하여 그룹화된 버튼중 하나만 선택가능하도록 설정
 		
+		titlePanel.setBounds(0,85,800,120);
+		titlePanel.setBackground(Constant.c5);
+		titlePanel.setLayout(null);
+		add(titlePanel);
 		
 		//제목
 		title.setText("당신은 누구인가요?");
 		title.setFont(new Font("한컴 윤고딕 230",Font.BOLD,60));
-		title.setBounds(150, 100, 550, 100);
-		this.setBounds(0,0,800,1000);
-		this.setLayout(null);
-		this.setBackground(n);
-		add(title);
+		title.setBounds(110, 0, 590, 120);
+		title.setForeground(Constant.backColor);
+		title.setHorizontalAlignment(SwingConstants.CENTER);
+		title.setVerticalAlignment(SwingConstants.CENTER);
+		titlePanel.add(title);
+		
+		
+		
 		
 		//남성 그림
 		JLabel image1=new JLabel(man);
-		image1.setBounds(175, 240, 200, 250);
+		image1.setBounds(175, 260, 200, 250);
 		add(image1);
 		
 		//여성 그림
 		JLabel image2=new JLabel(woman);
-		image2.setBounds(425,240,200,250);
+		image2.setBounds(425,260,200,250);
 		add(image2);
 		
 		//남성선택버튼 설정
-		rb1.setFont(new Font("HYGothic",20,20));
-		rb1.setBounds(235, 460, 80, 50);
+		rb1.setFont(new Font("한컴 윤고딕 230",20,20));
+		rb1.setBounds(235, 480, 80, 50);
 		rb1.setBackground(n);
 		add(rb1);
 		
 		//여성선택버튼 설정
-		rb2.setFont(new Font("HYGothic",20,20));
-		rb2.setBounds(485, 460, 80, 50);
+		rb2.setFont(new Font("한컴 윤고딕 230",20,20));
+		rb2.setBounds(485, 480, 80, 50);
 		rb2.setBackground(n);
 		add(rb2);
 		
@@ -71,43 +83,43 @@ public class FirstPanel extends JPanel {
 		//나이표시 라벨
 		lbl[0] = new JLabel("Age :");
 		lbl[0].setFont(new Font("Segoe Print",Font.BOLD,25));
-		lbl[0].setBounds(230, 570, 100, 50);
+		lbl[0].setBounds(230, 590, 100, 50);
 		add(lbl[0]);
 		
 		//나이를 입력받는 텍스트필드
 		field[0] = new JTextField();
-		field[0].setBounds(365, 570, 200, 50);
+		field[0].setBounds(365, 590, 200, 50);
 		field[0].setFont(new Font("한컴 윤고딕 230",Font.PLAIN,20));
 		add(field[0]);
 		
 		//몸무게표시 라벨
 		lbl[1] = new JLabel("Weight :");
 		lbl[1].setFont(new Font("Segoe Print",Font.BOLD,25));
-		lbl[1].setBounds(230, 640, 150, 50);
+		lbl[1].setBounds(230, 660, 150, 50);
 		add(lbl[1]);
 		
 		//몸무게를 입력받는 텍스트필드
 		field[1] = new JTextField();
-		field[1].setBounds(365, 640, 200, 50);
+		field[1].setBounds(365, 660, 200, 50);
 		field[1].setFont(new Font("한컴 윤고딕 230",Font.PLAIN,20));
 		add(field[1]);
 		
 		//키표시 라벨
 		lbl[2] = new JLabel("Height :");
 		lbl[2].setFont(new Font("Segoe Print",Font.BOLD,25));
-		lbl[2].setBounds(230, 710, 150, 50);
+		lbl[2].setBounds(230, 730, 150, 50);
 		add(lbl[2]);
 		
 		//키를 입력받는 텍스트필드
 		field[2] = new JTextField();
-		field[2].setBounds(365, 710, 200, 50);
+		field[2].setBounds(365, 730, 200, 50);
 		field[2].setFont(new Font("한컴 윤고딕 230",Font.PLAIN,20));
 		add(field[2]);
 		
 		//이전화면으로 돌아가는 버튼
 		bbtn= new JButton(new ImageIcon("picture/first/back.png"));
 		bbtn.addActionListener(listener);
-		bbtn.setBounds(630, 880, 66, 66);
+		bbtn.setBounds(670, 900, 50, 50);
 		bbtn.setBorder(new RoundedBorder(70));
 		bbtn.setBackground(n);
 		bbtn.setForeground(n);
@@ -117,7 +129,7 @@ public class FirstPanel extends JPanel {
 		//다음화면으로 넘아가는 버튼
 		nbtn = new JButton(new ImageIcon("picture/first/next.png"));
 		nbtn.addActionListener(listener);
-		nbtn.setBounds(700, 880, 66, 66);
+		nbtn.setBounds(720, 900, 50, 50);
 		nbtn.setBorder(new RoundedBorder(70));
 		nbtn.setBackground(n);
 		nbtn.setForeground(n);

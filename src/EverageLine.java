@@ -17,9 +17,4 @@ public class EverageLine extends JPanel{
 	{
 		return recomanded;
 	}//getRecomanded()
-	public void paintComponent(Graphics page2)
-	{
-		super.paintComponent(page2);		
-		
-	}	// paintComponent();	
 }//EveageLine

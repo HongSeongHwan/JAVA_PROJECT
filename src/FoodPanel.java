@@ -25,14 +25,11 @@ public class FoodPanel extends JPanel {
 			
 			button[i] = new FoodButton(new ImageIcon(Constant.FOODIMAGE[i]));
 			button[i].setImageIconPath(Constant.FOODIMAGE[i]);
-		//	button[i].setIcon( );
-			//button[i].setKey(i);
 			button[i].setName(Constant.FOODA[i]);
 			button[i].setCalories(Constant.foodData[i][0]);
 			button[i].setTansoo(Constant.foodData[i][1]);
 			button[i].setProtein(Constant.foodData[i][2]);
 			button[i].setFat(Constant.foodData[i][3]);
-			//button[i].repaint();
 			foodAdd(button[i]);
 		}
 	}
@@ -46,11 +43,9 @@ public class FoodPanel extends JPanel {
 	public void foodAdd(FoodButton x) {
 		list.addB(x);
 		x.addMouseListener(second.getMoveFoodListener());
-		// add(list.getB(list.getNum()));
 	}
 	public void foodDelete(FoodButton x) {
 		list.deleteF(x);
-		// add(list.getB(list.getNum()));
 	}
 	public FoodButtonList getFoodButtonList() {
 		return list;

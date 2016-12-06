@@ -56,8 +56,6 @@ public class FoodButtonPanel extends JPanel{
 		imageIcon = new ImageIcon(imageIconPath);
 		image = imageIcon.getImage();
 		
-		//super(x);
-		//this.setPreferredSize(new Dimension(185, 50));
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);

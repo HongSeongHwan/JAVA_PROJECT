@@ -50,10 +50,10 @@ public class FoodAteBar extends JPanel {
 	{
 		super.paintComponent(page);
 		
-		page.setColor(Color.blue);
+		page.setColor(new Color(120,170,175));
 		page.fillRect(0,5,rectX,30);	
 		
-		page.setColor(Color.red);
+		page.setColor(Constant.c2);
 		page.drawLine((int)eLine.getRecomanded(), 0, (int)eLine.getRecomanded(), 40);		
 	}	// paintComponent();
 	

@@ -19,14 +19,13 @@ public class StartPanel extends JPanel{
 
 		btnL = new ButtonListener();	
 		titlePanel = new JPanel();
-		titlePanel.setBounds(0,85,800,100);
+		titlePanel.setBounds(0,85,800,120);
 		titlePanel.setBackground(Constant.c5);
 		titlePanel.setLayout(null);
 		add(titlePanel);
 		
-		//타이틀
 		lblTitle = new JLabel("Eating is important");
-		lblTitle.setBounds(0,0,800,85);
+		lblTitle.setBounds(0,0,800,120);
 		lblTitle.setFont(new Font("Segoe Print",Font.BOLD,60));
 		lblTitle.setForeground(Constant.backColor);
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
@@ -39,13 +38,11 @@ public class StartPanel extends JPanel{
 		mainPanel.setLayout(null);
 		add(mainPanel);				
 		
-		//시작화면 그림
 		iconPhoto = new ImageIcon("picture/start/donguri.jpg");
 		lblPhoto = new JLabel(iconPhoto);
 		lblPhoto.setBounds(-154,88,750,780);
 		mainPanel.add(lblPhoto);	
 		
-		//시작화면 그림2
 		iconQuestion = new ImageIcon("picture/start/q.png");
 		lblQuestion = new JLabel(iconQuestion);
 		lblQuestion.setBounds(390,80,400,400);
@@ -53,17 +50,17 @@ public class StartPanel extends JPanel{
 		
 		Font fntButton = new Font("Segoe Print",Font.PLAIN,20);	
 		
-		//Wonder아이콘 설정
+	//	btnWonder = new JButton(new ImageIcon("picture/start/wNw.png"));
 		btnWonder = new JButton("Wonder");
 		btnWonder.setFont(fntButton);
 		btnWonder.setForeground(Constant.c2);
 		btnWonder.setBackground(n);
-		btnWonder.setBounds(530,485,170,60);
+		btnWonder.setBounds(530,495,170,60);
 		btnWonder.addActionListener(btnL);
 		btnWonder.setBorder(new RoundedBorder(25));
 		mainPanel.add(btnWonder);		
 		
-		//No Wonder아이콘 설정
+//		btnNoWonder = new JButton(new ImageIcon("picture/start/wNw.png"));
 		btnNoWonder = new JButton("No Wonder");
 		btnNoWonder.setFont(fntButton);
 		btnNoWonder.setBackground(n);
@@ -72,14 +69,12 @@ public class StartPanel extends JPanel{
 		btnNoWonder.setBorder(new RoundedBorder(25));
 		mainPanel.add(btnNoWonder);	
 		
-		//아래패널
 		bottomPanel = new JPanel();
 		bottomPanel.setBounds(0,880,800,50);
 		bottomPanel.setBackground(Constant.c5);
 		bottomPanel.setLayout(null);
 		add(bottomPanel);
 		
-		//저작권 표시
 		lblCopyright = new JLabel("COPYRIGHTS TEAM-10 Wellbeing.  ALL RIGHTS RESERVED");
 		lblCopyright.setFont(new Font("Verdana",Font.BOLD,15));
 		lblCopyright.setForeground(Constant.backColor);
@@ -87,8 +82,7 @@ public class StartPanel extends JPanel{
 		lblCopyright.setVerticalAlignment(SwingConstants.CENTER);
 		lblCopyright.setBounds(0,0,800,50);
 		bottomPanel.add(lblCopyright);		
-	}//StartPanel()
-	
+	}	
 	class RoundedBorder implements Border { 
 		int radius;
 		RoundedBorder(int radius) { 
@@ -103,7 +97,7 @@ public class StartPanel extends JPanel{
 		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) { 
 			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius); 
 		} 
-	}//RoundedBorder
+	}
 	
 	public void wannaOut() {
 		int question = JOptionPane.showConfirmDialog(null,"Do you want to go out?");
@@ -130,6 +124,6 @@ public class StartPanel extends JPanel{
 			else if(obj == btnNoWonder) {
 				wannaOut();
 			}
-		}//avtionPerformed()
-	}//ButtonListener
+		}
+	}
 }

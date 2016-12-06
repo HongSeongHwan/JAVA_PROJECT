@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 public class ViewControl
-{
+{//화면 전환을 제어하는 클래스
 	private static Component [] x;
 	private static Container contentPane;
 	private static FirstPanel first;
@@ -9,11 +9,12 @@ public class ViewControl
 	private static ThirdPanel third;
 	private static Main main;
 	private static StartPanel start;
+	
 	public static Component getPanel(int i){
 		return x[i];
-	}
+	}//getPanel()
 	public ViewControl(Main main)
-	{
+	{	
 		x = new Component[4];
 		start = new StartPanel();
 		first = new FirstPanel();
@@ -26,8 +27,7 @@ public class ViewControl
 		x[3]=start;
 		this.main = main;
 		init();
-		//this.viewSecondPanel();
-	}
+	}//ViewControl()
 	
 	public void init()
 	{
@@ -35,14 +35,14 @@ public class ViewControl
 		contentPane.add(start);
 		main.setVisible(false);
 		main.setVisible(true);
-	}
+	}//init()
 	
 	public static void viewPanel(int prev, int next)
-	{
+	{//화면전환을 실행하는 함수
 		contentPane.remove(x[prev-1]);
 		contentPane.add(x[next-1]);
 		main.setVisible(false);
 		main.setVisible(true);	
-	}
+	}//viewPanel()
 
 }
