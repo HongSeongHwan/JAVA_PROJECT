@@ -4,31 +4,30 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 public class ThirdPanel extends JPanel{
-	//private JPanel upPanel, downPanel;
 	private JButton bbtn,nbtn,btnThx;
 	private JPanel imgPanel,recomPanel, titlePanel1, titlePanel2;
 	private JLabel lbladv,lblImg;
 	private int check;
 	private ImageIcon icon;
 	private Recommend rec;
-	
 	private ThirdPanelListener listener;
 	private AdvicePanel tot,dan,tan,ji;
 	Color n = Constant.backColor;
 	
 	public ThirdPanel(){
-		
+		//ThirdPanel
 		this.setBounds(0,0,800,1000);
 		this.setLayout(null);
 		this.setBackground(n);
 		
-		// page change button
+		//bbtn=전 화면으로 돌아가는 버튼, nbtn=다음화면으로 넘어가는 버튼, btnThx=프로그램 종료
 		bbtn= new JButton(new ImageIcon("picture/first/back.png"));
 		nbtn = new JButton(new ImageIcon("picture/first/next.png"));
 		btnThx = new JButton("Thx :)");
 		listener = new ThirdPanelListener();		
 		btnThx.addActionListener(listener);
 		
+		//bbtn 전 화면으로 돌아가는 버튼
 		bbtn.addActionListener(listener);
 		bbtn.setBounds(670, 900, 50, 50);
 		bbtn.setBorder(new RoundedBorder(70));
@@ -36,6 +35,7 @@ public class ThirdPanel extends JPanel{
 		bbtn.setForeground(n);
 		add(bbtn);		
 		
+		//nbtn 다음화면으로 넘어가는 버튼
 		nbtn.addActionListener(listener);
 		nbtn.setBounds(720, 900, 50, 50);
 		nbtn.setBorder(new RoundedBorder(70));
@@ -44,6 +44,7 @@ public class ThirdPanel extends JPanel{
 		nbtn.setEnabled(false);
 		add(nbtn);	
 		
+		//titlePanel1
 		titlePanel1 = new JPanel();
 		titlePanel1.setBounds(0,85,800,120);
 		titlePanel1.setBackground(Constant.c5);
@@ -73,11 +74,13 @@ public class ThirdPanel extends JPanel{
 		
 		Font fnt = new Font("Segoe Print",Font.BOLD,20);		
 		
+		//titlePanel2
 		titlePanel2 = new JPanel();
 		titlePanel2.setBounds(0,0,800,80);
 		titlePanel2.setBackground(Constant.c5);
 		recomPanel.add(titlePanel2);
 		
+		//title
 		JLabel title = new JLabel("Advice!");
 		title.setFont(new Font("Segoe Print",Font.BOLD,50));
 		title.setForeground(n);
@@ -86,17 +89,20 @@ public class ThirdPanel extends JPanel{
 		title.setBounds(0,10,800,40);
 		titlePanel2.add(title);		
 		
+		//rec
 		rec.setBounds(40,100,900,300);
 		recomPanel.add(rec);
-
+		
+		//btnThx
 		btnThx.setBounds(325,280,150,40);
 		btnThx.setBackground(n);
 		btnThx.setForeground(Constant.c5);
 		btnThx.setFont(fnt);
 		btnThx.setBorder(new RoundedBorder(25));
 		recomPanel.add(btnThx);
-	}
+	}//ThirdPanel()
 	
+	//버튼 모양을 동그랗게 바꾸기 위한 클래스
 	class RoundedBorder implements Border { 
 		int radius;
 		RoundedBorder(int radius) { 
@@ -111,7 +117,7 @@ public class ThirdPanel extends JPanel{
 		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) { 
 			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius); 
 		} 
-	}	// RoundedBorder()
+	}// RoundedBorder()
 	
 	public void Analysis() {
 		// main	.. Mid right
@@ -134,7 +140,7 @@ public class ThirdPanel extends JPanel{
 		ji = new AdvicePanel("지방",TotalAted.gettFat(),PrivateInfo.getRecomFat());
 		ji.setBounds(410,415,315,150);
 		add(ji);
-	}	// Analysis()
+	}// Analysis()
 	
 	private class ThirdPanelListener implements ActionListener {		
 		public void actionPerformed(ActionEvent e){
@@ -145,11 +151,10 @@ public class ThirdPanel extends JPanel{
 				remove(tan);
 				remove(ji);
 				remove(dan);
-			//	remove(titlePanel2);
 				remove(recomPanel);
 			} else if (obj == btnThx) {
 				System.exit(1);				
-			}	// if.. else..
-		}		// actionPerformed()
-	}	// ThirdPanelListner class
-}	// ThirdPanel class
+			}// if.. else..
+		}// actionPerformed()
+	}// ThirdPanelListner class
+}// ThirdPanel class

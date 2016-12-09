@@ -16,7 +16,7 @@ public class FoodAteBar extends JPanel {
 
 		i=0;
 		eLine = new EverageLine(630/1.5);	// 권장량 눈금선
-		delay = 15;		// thread speed
+		delay = 10;		// thread speed
 	}	// FoodAteBar()
 	
 	public void renew(int x, int y, double a, double b){

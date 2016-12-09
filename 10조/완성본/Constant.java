@@ -1,7 +1,7 @@
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
-public class Constant {//각종 상수 정보
+public class Constant {
 
 	// food name
 	public static final String[] FOODA = { "쌀밥", "김밥", "라면", "짜장면", "짬뽕", "미역국", "삼계탕", "김치찌개", "된장찌개", "고등어구이", "계란말이",
