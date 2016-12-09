@@ -57,26 +57,34 @@ public class ThirdPanel extends JPanel{
 		lbladv.setBounds(10,20,780,120);
 		lbladv.setHorizontalAlignment(SwingConstants.CENTER);
 		lbladv.setVerticalAlignment(SwingConstants.CENTER);
-		titlePanel1.add(lbladv);		
+		titlePanel1.add(lbladv);
 		
-		
+		// img panel .. Mid left
+	/*	iconQurio = new ImageIcon("picture/third/quriosity.jpg");
+		lblImg = new JLabel(iconQurio);
+		imgPanel = new JPanel();
+		imgPanel.setBounds(35,85,300,635);
+		imgPanel.setBackground(Color.white);
+		imgPanel.add(lblImg);
+		add(imgPanel);*/
 	}	// ThirdPanel()
 	
 	public void recommend() {
 		// background panel
+		rec = new Recommend();
 		recomPanel = new JPanel();
 		recomPanel.setBounds(0,700,800,180);
 		recomPanel.setBackground(n);
 		recomPanel.setLayout(null);
 		add(recomPanel);
-		rec = new Recommend();
 		
-		Font fnt = new Font("Segoe Print",Font.BOLD,20);		
+		Font fnt = new Font("Segoe Print",Font.BOLD,20);
+		
 		
 		titlePanel2 = new JPanel();
 		titlePanel2.setBounds(0,600,800,60);
 		titlePanel2.setBackground(Constant.c5);
-		recomPanel.add(titlePanel2);
+		add(titlePanel2);
 		
 		JLabel title = new JLabel("Advice!");
 		title.setFont(new Font("Segoe Print",Font.BOLD,50));
@@ -88,13 +96,18 @@ public class ThirdPanel extends JPanel{
 		
 		rec.setBounds(40,0,750,300);
 		recomPanel.add(rec);
-
+		
+		/*ImageIcon thxImg = new ImageIcon("picture/third/thx.png");
+		JLabel lblThx = new JLabel(thxImg);
+		lblThx.setBounds(450, 5, 250, 115);
+		recomPanel.add(lblThx);*/
+		
 		btnThx.setBounds(325,905,150,40);
 		btnThx.setBackground(n);
 		btnThx.setForeground(Constant.c5);
 		btnThx.setFont(fnt);
 		btnThx.setBorder(new RoundedBorder(25));
-		recomPanel.add(btnThx);
+		add(btnThx);
 	}
 	
 	class RoundedBorder implements Border { 
@@ -145,10 +158,11 @@ public class ThirdPanel extends JPanel{
 				remove(tan);
 				remove(ji);
 				remove(dan);
-			//	remove(titlePanel2);
 				remove(recomPanel);
+				//remove(rec);
 			} else if (obj == btnThx) {
-				System.exit(1);				
+				System.exit(1);
+				
 			}	// if.. else..
 		}		// actionPerformed()
 	}	// ThirdPanelListner class

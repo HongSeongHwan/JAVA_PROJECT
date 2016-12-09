@@ -65,7 +65,7 @@ public class ThirdPanel extends JPanel{
 	public void recommend() {
 		// background panel
 		recomPanel = new JPanel();
-		recomPanel.setBounds(0,700,800,180);
+		recomPanel.setBounds(0,600,800,400);
 		recomPanel.setBackground(n);
 		recomPanel.setLayout(null);
 		add(recomPanel);
@@ -74,7 +74,7 @@ public class ThirdPanel extends JPanel{
 		Font fnt = new Font("Segoe Print",Font.BOLD,20);		
 		
 		titlePanel2 = new JPanel();
-		titlePanel2.setBounds(0,600,800,60);
+		titlePanel2.setBounds(0,0,800,80);
 		titlePanel2.setBackground(Constant.c5);
 		recomPanel.add(titlePanel2);
 		
@@ -86,10 +86,10 @@ public class ThirdPanel extends JPanel{
 		title.setBounds(0,10,800,40);
 		titlePanel2.add(title);		
 		
-		rec.setBounds(40,0,750,300);
+		rec.setBounds(40,100,900,300);
 		recomPanel.add(rec);
 
-		btnThx.setBounds(325,905,150,40);
+		btnThx.setBounds(325,280,150,40);
 		btnThx.setBackground(n);
 		btnThx.setForeground(Constant.c5);
 		btnThx.setFont(fnt);

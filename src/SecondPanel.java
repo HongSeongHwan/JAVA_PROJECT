@@ -9,7 +9,6 @@ import javax.swing.border.Border;
 
 
 public class SecondPanel extends JPanel{
-	//private final Semaphore sem;
 	private static final int VERTICAL = 0;
 	private static final int HORIZONTAL = 0;
 	private static SecondPanel out;
@@ -24,60 +23,64 @@ public class SecondPanel extends JPanel{
 	private final int loction_pane_x = 70;
 	private final int height_pane = 550;
 	private JButton option_time ,option_food;
+	
 	static public SecondPanel getSecondPanel(){
 		return out;
-	}
+	}//getSecondPanel()
+	
 	public SecondPanel(){
 		Color n= Constant.backColor;
-	//	sem = new Semaphore(4);
-		
 		out = this;
 		foodPanel = new FoodPanel(this);
 		timePanel = new TimePanel(this);
-		
 		move_listener = new MoveFoodListener(this);
 		
+		//timeLabel
 		timeLabel = new JLabel(" < TIME TABLE >");
 		timeLabel.setBounds(80, 0, 250, 80);
 		timeLabel.setFont(new Font("Segoe Print",Font.BOLD,25));
-		//timeLabel.setForeground(new Color(178,197,229));
 		timeLabel.setForeground(Constant.c5);
 		add(timeLabel);
 		
+		//foodLabel
 		foodLabel = new JLabel(" < FOOD TABLE >");
 		foodLabel.setBounds(470, 0, 250, 80);
 		foodLabel.setFont(new Font("Segoe Print",Font.BOLD,25));
-		//foodLabel.setForeground(new Color(178,197,229));
 		foodLabel.setForeground(Constant.c5);
 		add(foodLabel);
 		
+		//graphLabel
 		graphLabel = new JLabel(" < FOOD GRAPH >");
 		graphLabel.setBounds(40, 620, 250, 70);
 		graphLabel.setFont(new Font("Segoe Print",Font.BOLD,25));
-		//graphLabel.setForeground(new Color(178,197,229));
 		graphLabel.setForeground(Constant.c5);
 		add(graphLabel);
 		
+		//버튼설정
 		graphPanel = new GraphPanel();
 		bbtn= new JButton(new ImageIcon("picture/first/back.png"));
 		nbtn = new JButton(new ImageIcon("picture/first/next.png"));
 		option_time = new JButton(new ImageIcon("picture/second/add.png"));
 		option_food = new JButton(new ImageIcon("picture/second/add.png"));
 		
+		//패널에 리스터 추가
 		listener=new SecondPanelListener();	
 		timePanel.listenerAdd();
 		foodPanel.listenerAdd();
 		
+		//scroll1
 		scroll1=new JScrollPane(timePanel);
 		scroll1.setBounds(10,loction_pane_x, 380, height_pane);
 		scroll1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll1.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		
+		//scroll2
 		scroll2=new JScrollPane(foodPanel);
 		scroll2.setBounds(395, loction_pane_x, 390, height_pane);
 		scroll2.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll2.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);		
 		
+		//패널 설정
 		this.setBounds(0,0,800,1000);
 		this.setLayout(null);
 		this.setBackground(n);
