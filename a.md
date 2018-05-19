@@ -3,10 +3,7 @@
 ###### 기본정보  
 
 Photo      | Future
------------|--------------
-![](https://raw.github.com/rhiokim/resume/master/photos/rhiokim.jpg) | ![](https://raw.github.com/rhiokim/resume/master/photos/picasso.jpg) + ![](https://raw.github.com/rhiokim/resume/master/photos/beethoven.jpg)
 Name       | 홍성환
- - English | Seong-Hwan Hong
 Age        | 26
 Birth Day  | 1993.11.09
 Email      | hong_sh@dgist.ac.kr
